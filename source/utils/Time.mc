@@ -29,9 +29,8 @@ module Utils {
 
     //! Return a string representation of a moment that might have a leading zero and/or a 12 hour label
     //! @param _moment a Moment that is being considered
-    //! @param _show12HourLabel a boolean value to decide whether to show a 12 hour label or not
     //! @return Formatted time string
-    function getFormattedTimeFromMoment(_moment as Time.Moment, _show12HourLabel as Boolean) as String {
+    function getFormattedTimeFromMoment(_moment as Time.Moment) as String {
       var momentInfo = Gregorian.info(_moment, Time.FORMAT_MEDIUM);
       var formattedTime = Lang.format(
         "$1$:$2$",

@@ -1,15 +1,19 @@
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.WatchUi;
 
 module Complicated {
-  class TimeFieldDrawable extends BaseDrawable {
-    public function initialize(params as Types.ComplicationDrawableParams) {
-      BaseDrawable.initialize(params);
+  class TimeFieldDrawable extends WatchUi.Drawable {
+    hidden var modelUpdater as Types.ModelUpdater;
+
+    public function initialize(params as ComplicationDrawableParams) {
+      modelUpdater = getComplication(params[:complication]);
+      Drawable.initialize(params);
     }
 
     function draw(dc as Dc) as Void {
       var timeFont = Graphics.FONT_LARGE;
-      var model = mComplication.getModel();
+      var model = modelUpdater.updateModel();
 
       if (model instanceof Value) {
         dc.setColor(Constants.Color.BACKGROUND, Constants.Color.BACKGROUND);

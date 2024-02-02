@@ -5,6 +5,15 @@ module Complicated {
     CURRENT_TIME,
   }
 
+  typedef ComplicationDrawableParams as {
+    :identifier as String,
+    :complication as Complication,
+    :x as Number,
+    :y as Number,
+    :height as Number,
+    :width as Number,
+  };
+
   //! Return A complication model
   //! @param _complication The requested complication model
   //! @return Complication model class

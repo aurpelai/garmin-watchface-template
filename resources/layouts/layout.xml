@@ -1,8 +1,8 @@
 <layout id="WatchFace">
   <drawable id="CurrentTime" class="Complicated.TimeFieldDrawable">
     <param name="complication">Complicated.CURRENT_TIME</param>
-    <param name="x">140</param>
-    <param name="y">140</param>
+    <param name="locX">140</param>
+    <param name="locY">140</param>
     <param name="width">280</param>
     <param name="height">70</param>
   </drawable>
