@@ -1,0 +1,8 @@
+<strings>
+  <string id="AppName">Big Data</string>
+
+  <!-- Unknown Data Values -->
+  <string id="Unknown">Unknown</string>
+  <string id="UnknownTime">--:--</string>
+  <string id="UnknownValue">-</string>
+</strings>
