@@ -17,13 +17,16 @@ module Complicated {
   //! Return A complication model
   //! @param _complication The requested complication model
   //! @return Complication model class
-  function getComplication(_complication as Complication) as Types.ModelUpdater {
-    var complicationMap = {
-      CURRENT_TIME => new CurrentTime(),
-    } as Dictionary<Complication, Types.ModelUpdater>;
+  function getComplication(
+    _complication as Complication
+  ) as Types.ValueController or Types.Controller {
+    var complicationMap =
+      ({
+        CURRENT_TIME => new CurrentTimeController(),
+      }) as Dictionary<Complication, Types.Controller>;
 
     var complication = complicationMap[_complication];
 
-    return complication as Types.ModelUpdater;
+    return complication as Types.Controller;
   }
 }
