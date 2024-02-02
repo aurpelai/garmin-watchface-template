@@ -7,7 +7,7 @@ module Complicated {
     hidden var controller as Types.ValueController;
 
     public function initialize(params as ComplicationDrawableParams) {
-      controller = getComplication(params[:complication]);
+      controller = getController(params[:controller]);
       Drawable.initialize(params);
     }
 

@@ -1,6 +1,6 @@
 <layout id="WatchFace">
   <drawable id="TimeFieldView" class="Complicated.TimeFieldView">
-    <param name="complication">Complicated.CURRENT_TIME</param>
+    <param name="controller">Complicated.CURRENT_TIME</param>
     <param name="locX">140</param>
     <param name="locY">140</param>
     <param name="width">280</param>
