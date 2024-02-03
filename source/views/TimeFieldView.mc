@@ -26,10 +26,6 @@ class TimeFieldView extends WatchUi.Drawable {
       mUpdated = Time.now();
     }
 
-    dc.setColor(Constants.Color.BACKGROUND, Constants.Color.BACKGROUND);
-    dc.setClip(locX - width / 2, locY - height / 2, width, height);
-    dc.clear();
-
     dc.setColor(Constants.Color.PRIMARY, Constants.Color.BACKGROUND);
     dc.drawText(
       locX,
