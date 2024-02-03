@@ -1,5 +1,5 @@
 module Controllers {
   enum Identifier {
-    CURRENT_TIME,
+    CURRENT_TIME = "CurrentTime",
   }
 }
