@@ -5,11 +5,10 @@ import Toybox.Time;
 module Utils {
   module Time {
     // Return a formatted string representation of an hour, with a leading zero or not.
-    // @param _hours the current clock hour value
+    // @param hours the current clock hour value
     // @return Hour value
-    function formatHours(_hours as Number) as String {
+    function formatHours(hours as Number) as String {
       var is12Hour = !System.getDeviceSettings().is24Hour;
-      var hours = _hours;
 
       if (is12Hour) {
         if (hours > 12) {
@@ -23,14 +22,14 @@ module Utils {
     }
 
     // Return a string representation of a moment that might have a leading zero and/or a 12 hour label
-    // @param _moment a Moment that is being considered
+    // @param moment a Moment that is being considered
     // @return Formatted time string
-    function getFormattedTimeFromMoment(_moment as Time.Moment) as String {
-      var momentInfo = Time.Gregorian.info(_moment, Time.FORMAT_MEDIUM);
-      var formattedTime = Lang.format(
-        "$1$:$2$",
-        [formatHours(momentInfo.hour), momentInfo.min.format("%02d")]
-      );
+    function getFormattedTimeFromMoment(moment as Time.Moment) as String {
+      var momentInfo = Time.Gregorian.info(moment, Time.FORMAT_MEDIUM);
+      var formattedTime = Lang.format("$1$:$2$", [
+        formatHours(momentInfo.hour),
+        momentInfo.min.format("%02d"),
+      ]);
 
       return formattedTime;
     }
