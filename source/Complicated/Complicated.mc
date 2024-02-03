@@ -7,7 +7,7 @@ module Complicated {
 
   typedef ViewParams as {
     :identifier as String,
-    :controller as Complication,
+    :controller as ControllerIdentifier,
     :x as Number,
     :y as Number,
     :height as Number,
