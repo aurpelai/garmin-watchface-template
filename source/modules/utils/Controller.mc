@@ -1,5 +1,6 @@
 import Toybox.Lang;
 import Toybox.System;
+import Toybox.Time;
 
 module Utils {
   module Controller {
@@ -14,6 +15,14 @@ module Utils {
             controller as String
           );
       }
+    }
+
+    function shouldUpdate(
+      lastUpdate as Time.Moment,
+      updateInterval as Time.Duration
+    ) as Boolean {
+      var nextUpdate = lastUpdate.add(updateInterval);
+      return Time.now().greaterThan(nextUpdate);
     }
   }
 }

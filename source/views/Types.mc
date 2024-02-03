@@ -8,5 +8,6 @@ module Types {
     :locY as Number,
     :height as Number,
     :width as Number,
+    :updateInterval as Number,
   };
 }

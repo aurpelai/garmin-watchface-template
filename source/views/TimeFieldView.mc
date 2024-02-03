@@ -1,22 +1,30 @@
+import Toybox.Application;
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.System;
 import Toybox.Time;
 import Toybox.WatchUi;
 
 class TimeFieldView extends WatchUi.Drawable {
-  hidden var controller as Types.ValueController;
-  hidden var updated as Time.Moment;
+  hidden var mController as Types.ValueController;
+  hidden var mUpdated as Time.Moment;
+  hidden var mValue as String;
+  hidden var mUpdateInterval as Time.Duration;
 
   public function initialize(params as Types.ViewParams) {
-    controller = Utils.Controller.getController(params[:controller]);
-    updated = Time.now();
+    mController = Utils.Controller.getController(params[:controller]);
+    mUpdated = new Time.Moment(0);
+    // -1 to account for the fact that we're using greaterThan comparison instead of gte (gte not available)
+    mUpdateInterval = new Time.Duration(params[:updateInterval] - 1);
+    mValue = Application.loadResource(Rez.Strings.UnknownTime);
     Drawable.initialize(params);
   }
 
   function draw(dc as Graphics.Dc) as Void {
-    var timeFont = Graphics.FONT_LARGE;
-    var value = controller.getValue();
-    updated = Time.now();
+    if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval)) {
+      mValue = mController.getValue();
+      mUpdated = Time.now();
+    }
 
     dc.setColor(Constants.Color.BACKGROUND, Constants.Color.BACKGROUND);
     dc.setClip(locX - width / 2, locY - height / 2, width, height);
@@ -26,8 +34,8 @@ class TimeFieldView extends WatchUi.Drawable {
     dc.drawText(
       locX,
       locY,
-      timeFont,
-      value,
+      Graphics.FONT_LARGE,
+      mValue,
       Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
     );
   }
