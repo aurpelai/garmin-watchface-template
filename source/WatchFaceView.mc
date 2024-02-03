@@ -1,6 +1,4 @@
 import Toybox.Graphics;
-import Toybox.Lang;
-import Toybox.System;
 import Toybox.WatchUi;
 
 class WatchFaceView extends WatchUi.WatchFace {
@@ -9,7 +7,7 @@ class WatchFaceView extends WatchUi.WatchFace {
   }
 
   // Load your resources here
-  function onLayout(dc as Dc) as Void {
+  function onLayout(dc as Graphics.Dc) as Void {
     setLayout(Rez.Layouts.WatchFace(dc));
   }
 
@@ -19,7 +17,7 @@ class WatchFaceView extends WatchUi.WatchFace {
   function onShow() as Void {}
 
   // Update the view
-  function onUpdate(dc as Dc) as Void {
+  function onUpdate(dc as Graphics.Dc) as Void {
     // Call the parent onUpdate function to redraw the layout
     View.onUpdate(dc);
   }

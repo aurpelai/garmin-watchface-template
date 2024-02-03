@@ -11,7 +11,7 @@ module Complicated {
       Drawable.initialize(params);
     }
 
-    function draw(dc as Dc) as Void {
+    function draw(dc as Graphics.Dc) as Void {
       var timeFont = Graphics.FONT_LARGE;
       var value = controller.getValue();
 

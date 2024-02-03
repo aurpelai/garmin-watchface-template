@@ -1,11 +1,6 @@
-import Toybox.Application;
 import Toybox.Lang;
-import Toybox.Math;
-import Toybox.Position;
 import Toybox.System;
 import Toybox.Time;
-import Toybox.Time.Gregorian;
-import Toybox.Weather;
 
 module Utils {
   module Time {
@@ -31,7 +26,7 @@ module Utils {
     //! @param _moment a Moment that is being considered
     //! @return Formatted time string
     function getFormattedTimeFromMoment(_moment as Time.Moment) as String {
-      var momentInfo = Gregorian.info(_moment, Time.FORMAT_MEDIUM);
+      var momentInfo = Time.Gregorian.info(_moment, Time.FORMAT_MEDIUM);
       var formattedTime = Lang.format(
         "$1$:$2$",
         [formatHours(momentInfo.hour), momentInfo.min.format("%02d")]
