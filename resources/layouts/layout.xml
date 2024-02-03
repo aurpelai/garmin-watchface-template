@@ -1,5 +1,5 @@
 <layout id="WatchFace">
-  <drawable id="TimeFieldView" class="TimeFieldView">
+  <drawable id="CurrentTime" class="CurrentTimeComponent">
     <param name="controller">Controllers.CURRENT_TIME</param>
     <param name="locX">140</param>
     <param name="locY">140</param>

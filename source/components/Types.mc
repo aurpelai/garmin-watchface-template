@@ -1,7 +1,7 @@
 import Toybox.Lang;
 
 module Types {
-  typedef ViewParams as {
+  typedef ComponentParams as {
     :identifier as String,
     :controller as Controllers.Identifier,
     :locX as Number,

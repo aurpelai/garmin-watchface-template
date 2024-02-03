@@ -5,19 +5,20 @@ import Toybox.System;
 import Toybox.Time;
 import Toybox.WatchUi;
 
-class TimeFieldView extends WatchUi.Drawable {
+class CurrentTimeComponent extends WatchUi.Drawable {
   hidden var mController as Types.ValueController;
   hidden var mUpdated as Time.Moment;
   hidden var mValue as String;
   hidden var mUpdateInterval as Time.Duration;
 
-  public function initialize(params as Types.ViewParams) {
+  public function initialize(params as Types.ComponentParams) {
     mController = Utils.Controller.getController(params[:controller]);
     mUpdated = new Time.Moment(0);
     // -1 to account for the fact that we're using greaterThan comparison instead of gte (gte not available)
-    mUpdateInterval = params[:updateInterval] instanceof Number
-      ? new Time.Duration((params[:updateInterval] as Number) - 1)
-      : new Time.Duration(0);
+    mUpdateInterval =
+      params[:updateInterval] instanceof Number
+        ? new Time.Duration((params[:updateInterval] as Number) - 1)
+        : new Time.Duration(0);
     mValue = Application.loadResource(Rez.Strings.UnknownTime) as String;
     Drawable.initialize(params);
   }
