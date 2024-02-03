@@ -1,11 +1,11 @@
 # garmin-watchface-template
 
-#### <a name="commit-header"></a>Commit Message Header
+## Commit message styling
 
-```
+```text
 <type>(<scope>): <short summary>
   │       │             │
-  │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
+  │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end
   │       │
   │       └─⫸ Commit Scope: types|views|ctrls
   │
@@ -14,7 +14,7 @@
 
 The `<type>` and `<summary>` fields are mandatory, the `(<scope>)` field is optional.
 
-##### Type
+### Type
 
 Must be one of the following:
 
