@@ -7,7 +7,7 @@
   │       │             │
   │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
   │       │
-  │       └─⫸ Commit Scope: TODO
+  │       └─⫸ Commit Scope: types|views|ctrls
   │
   └─⫸ Commit Type: build|ci|feat|fix|perf|refactor
 ```
