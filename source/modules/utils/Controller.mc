@@ -6,7 +6,7 @@ module Utils {
   module Controller {
     function getController(
       controller as Controllers.Identifier
-    ) as Types.Controller? {
+    ) as Types.Controller {
       switch (controller) {
         case Controllers.CURRENT_TIME:
           return new CurrentTimeController();
