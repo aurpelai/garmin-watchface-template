@@ -26,9 +26,10 @@ module Utils {
     // @return Formatted time string
     function getFormattedTimeFromMoment(moment as Time.Moment) as String {
       var momentInfo = Time.Gregorian.info(moment, Time.FORMAT_MEDIUM);
-      var formattedTime = Lang.format("$1$:$2$", [
+      var formattedTime = Lang.format("$1$:$2$:$3$", [
         formatHours(momentInfo.hour),
         momentInfo.min.format("%02d"),
+        momentInfo.sec.format("%02d"),
       ]);
 
       return formattedTime;
