@@ -15,8 +15,10 @@ class TimeFieldView extends WatchUi.Drawable {
     mController = Utils.Controller.getController(params[:controller]);
     mUpdated = new Time.Moment(0);
     // -1 to account for the fact that we're using greaterThan comparison instead of gte (gte not available)
-    mUpdateInterval = new Time.Duration(params[:updateInterval] - 1);
-    mValue = Application.loadResource(Rez.Strings.UnknownTime);
+    mUpdateInterval = params[:updateInterval] instanceof Number
+      ? new Time.Duration((params[:updateInterval] as Number) - 1)
+      : new Time.Duration(0);
+    mValue = Application.loadResource(Rez.Strings.UnknownTime) as String;
     Drawable.initialize(params);
   }
 

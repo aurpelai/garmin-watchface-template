@@ -24,13 +24,19 @@ module Utils {
     // Return a string representation of a moment that might have a leading zero and/or a 12 hour label
     // @param moment a Moment that is being considered
     // @return Formatted time string
-    function getFormattedTimeFromMoment(moment as Time.Moment) as String {
+    function getFormattedTimeFromMoment(moment as Time.Moment, options as Types.FormatTimeOptions) as String {
       var momentInfo = Time.Gregorian.info(moment, Time.FORMAT_MEDIUM);
-      var formattedTime = Lang.format("$1$:$2$:$3$", [
+
+      var formattedTime = Lang.format("$1$:$2$", [
         formatHours(momentInfo.hour),
         momentInfo.min.format("%02d"),
-        momentInfo.sec.format("%02d"),
       ]);
+
+      if (options[:showSeconds]) {
+        formattedTime += Lang.format(":$1$", [
+          momentInfo.sec.format("%02d"),
+        ]);
+      }
 
       return formattedTime;
     }
