@@ -1,11 +1,11 @@
 import Toybox.Lang;
 
 module Complicated {
-  enum Complication {
+  enum ControllerIdentifier {
     CURRENT_TIME,
   }
 
-  typedef ComplicationDrawableParams as {
+  typedef ViewParams as {
     :identifier as String,
     :controller as Complication,
     :x as Number,
@@ -14,13 +14,16 @@ module Complicated {
     :width as Number,
   };
 
-  function getController(_complication as Complication) as Types.ValueController or Types.Controller {
-    var complicationMap = ({
-      CURRENT_TIME => new CurrentTimeController(),
-    }) as Dictionary<Complication, Types.Controller>;
+  function getController(
+    _complication as ControllerIdentifier
+  ) as Types.Controller {
+    var controllerMap =
+      ({
+        CURRENT_TIME => new CurrentTimeController(),
+      }) as Dictionary<ControllerIdentifier, Types.Controller>;
 
-    var complication = complicationMap[_complication];
+    var controller = controllerMap[_complication];
 
-    return complication as Types.Controller;
+    return controller as Types.Controller;
   }
 }

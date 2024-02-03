@@ -6,7 +6,7 @@ module Complicated {
   class TimeFieldView extends WatchUi.Drawable {
     hidden var controller as Types.ValueController;
 
-    public function initialize(params as ComplicationDrawableParams) {
+    public function initialize(params as ViewParams) {
       controller = getController(params[:controller]);
       Drawable.initialize(params);
     }
