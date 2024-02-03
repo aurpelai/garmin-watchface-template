@@ -1,6 +1,5 @@
 import Toybox.Lang;
 import Toybox.System;
-import Exceptions;
 
 module Utils {
   module Controller {
