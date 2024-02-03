@@ -1,6 +1,12 @@
 <strings>
   <string id="AppName">Watch Face Template</string>
 
+  <!-- Settings Menu -->
+  <string id="SettingsLabel">Settings</string>
+  <string id="SettingsToggleEnabled">On</string>
+  <string id="SettingsToggleDisabled">Off</string>
+  <string id="DisplaySecondsInCurrentTime">Display Seconds In Current Time</string>
+
   <!-- Unknown Data Values -->
   <string id="Unknown">Unknown</string>
   <string id="UnknownTime">--:--</string>

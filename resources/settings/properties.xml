@@ -1,0 +1,3 @@
+<properties>
+  <property id="DisplaySecondsInCurrentTime" type="boolean">false</property>
+</properties>
