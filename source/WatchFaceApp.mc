@@ -20,6 +20,6 @@ class WatchFaceApp extends Application.AppBase {
   }
 
   function getSettingsView() as Array<Views or InputDelegates>? {
-    return [ new SettingsView(), new SettingsDelegate() ] as Array<Views or InputDelegates>;
+    return [new SettingsView(), new SettingsDelegate()] as Array<Views or InputDelegates>;
   }
 }

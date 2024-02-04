@@ -10,7 +10,7 @@ module Utils {
         label,
         {
           :enabled => Application.loadResource(Rez.Strings.SettingsToggleEnabled) as String,
-          :disabled => Application.loadResource(Rez.Strings.SettingsToggleDisabled) as String
+          :disabled => Application.loadResource(Rez.Strings.SettingsToggleDisabled) as String,
         },
         id,
         Application.Properties.getValue(id) as Boolean,

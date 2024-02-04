@@ -33,9 +33,9 @@ This template provides a good starting point for easy creation of feature-rich w
 ### 💡 Highlights
 
 - A familiar MVC-like architecture
-  - The *Connect IQ API* can be thought of as the **model**.
-  - The *components* in `/source/components/` function as the **views**.
-  - The *controllers* in `/source/controllers/` function as the **controllers**.
+  - The _Connect IQ API_ can be thought of as the **model**.
+  - The _components_ in `/source/components/` function as the **views**.
+  - The _controllers_ in `/source/controllers/` function as the **controllers**.
 - Easy way of managing user-selectable on-device settings.
 - Ability to set a custom `updateInterval` parameter for components that are not required to be updated on every `View.onUpdate()` call.
 
@@ -130,11 +130,11 @@ When a commit mainly targets one area of the application, it is encouraged to ad
 
 The following is the list of supported scopes:
 
-- `comps`: A code change that affects one or more *components*
-- `ctrlrs`: A code change that affects one or more *controllers*
-- `settings` A code change that affects the watch face's settings
-- `types` A code change that affects the *typing* of the code
-- `utils` A code change that mainly affects the `Utils` module
+- `comps`: A code change that affects one or more _components_
+- `ctrlrs`: A code change that affects one or more _controllers_
+- `settings`: A code change that affects the watch face's settings
+- `types`: A code change that affects the _typing_ of the code
+- `utils`: A code change that mainly affects the `Utils` module
 
 #### Commit Message Examples
 

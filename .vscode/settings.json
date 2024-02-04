@@ -1,0 +1,5 @@
+{
+  "markdown.extension.bold.indicator": "__",
+  "markdown.extension.italic.indicator": "_",
+  "monkeyC.typeCheckLevel": "Informative",
+}

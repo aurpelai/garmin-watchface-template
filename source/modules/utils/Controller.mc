@@ -4,23 +4,16 @@ import Toybox.Time;
 
 module Utils {
   module Controller {
-    function getController(
-      controller as Controllers.Identifier
-    ) as Types.Controller {
+    function getController(controller as Controllers.Identifier) as Types.Controller {
       switch (controller) {
         case Controllers.CURRENT_TIME:
           return new CurrentTimeController();
         default:
-          throw new Exceptions.InvalidControllerIdentifierException(
-            controller as String
-          );
+          throw new Exceptions.InvalidControllerIdentifierException(controller as String);
       }
     }
 
-    function shouldUpdate(
-      lastUpdate as Time.Moment,
-      updateInterval as Time.Duration
-    ) as Boolean {
+    function shouldUpdate(lastUpdate as Time.Moment, updateInterval as Time.Duration) as Boolean {
       var nextUpdate = lastUpdate.add(updateInterval);
       return Time.now().greaterThan(nextUpdate);
     }
