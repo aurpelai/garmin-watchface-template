@@ -17,4 +17,5 @@
   <string id="BluetoothStatusLabel">Bluetooth</string>
   <string id="CurrentTimeLabel">Time</string>
   <string id="SecondsLabel">Seconds</string>
+  <string id="StepsLabel">Steps</string>
 </strings>

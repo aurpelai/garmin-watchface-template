@@ -27,8 +27,8 @@
     <param name="updateInterval">1</param>
   </drawable>
 
-  <drawable id="LabeledCurrentTime" class="LabeledValueComponent">
-    <param name="controller">Controllers.CURRENT_TIME</param>
+  <drawable id="Steps" class="LabeledValueComponent">
+    <param name="controller">Controllers.STEPS</param>
     <param name="height">70</param>
     <param name="width">280</param>
     <param name="locX">140</param>
