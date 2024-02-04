@@ -5,6 +5,11 @@ import Toybox.WatchUi;
 module Types {
   typedef ComplicationCallbackFunction as (Method(complicationId as Complications.Id) as Void);
 
+  typedef ComplicationDictionary as Dictionary<
+    Complications.Type,
+    Types.ComplicationCallbackFunction
+  >;
+
   typedef ValueController as interface {
     function getValue() as String;
   };

@@ -1,6 +1,7 @@
 import Toybox.Application;
 import Toybox.Complications;
 import Toybox.Lang;
+import Toybox.System;
 
 module Utils {
   module Complications {
@@ -16,14 +17,14 @@ module Utils {
     }
 
     function registerToComplicationChangeCallback(
-      complicationId as Complications.Id,
+      type as Complications.Type,
       callback as Types.ComplicationCallbackFunction
     ) as Void {
-      var app = Application.getApp();
-
-      if (app has :mCallbacks) {
-        app.mCallbacks.put(complicationId.getType(), callback);
+      if (gCallbacks.hasKey(type)) {
+        return;
       }
+
+      gCallbacks.put(type, callback);
     }
   }
 }

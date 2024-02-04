@@ -4,44 +4,48 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
+var gDeviceSupportsComplications as Boolean = false;
+var gCallbacks as Types.ComplicationDictionary = ({}) as Types.ComplicationDictionary;
+
 class WatchFaceApp extends Application.AppBase {
-  hidden var mDeviceSupportsComplications as Boolean = Utils.Complications.hasComplicationSupport();
-  hidden var mCallbacks as Dictionary<Complications.Type, Types.ComplicationCallbackFunction> =
-    ({}) as Dictionary<Complications.Type, Types.ComplicationCallbackFunction>;
-  hidden var mUsedComplications as Array<Complications.Id> = [] as Array<Complications.Id>;
+  hidden var mComplications as Array<Complications.Type> = [] as Array<Complications.Type>;
 
   function initialize() {
     AppBase.initialize();
+    gDeviceSupportsComplications = Utils.Complications.hasComplicationSupport();
 
-    if (mDeviceSupportsComplications) {
-      mUsedComplications =
-        [
-          new Complications.Id(Complications.COMPLICATION_TYPE_CALORIES),
-          new Complications.Id(Complications.COMPLICATION_TYPE_STEPS),
-        ] as Array<Complications.Id>;
+    if (gDeviceSupportsComplications) {
+      mComplications =
+        [Complications.COMPLICATION_TYPE_CALORIES, Complications.COMPLICATION_TYPE_STEPS] as
+        Array<Complications.Type>;
     }
   }
 
   function complicationCallbackDelegate(complicationId as Complications.Id) as Void {
     var type = complicationId.getType() as Complications.Type;
 
-    if (mCallbacks.hasKey(type)) {
-      (mCallbacks.get(type) as Types.ComplicationCallbackFunction).invoke(complicationId);
+    if (gCallbacks.hasKey(type)) {
+      (gCallbacks.get(type) as Types.ComplicationCallbackFunction).invoke(complicationId);
     }
   }
 
   // onStart() is called on application start up
   function onStart(state as Dictionary?) as Void {
-    if (mDeviceSupportsComplications) {
+    if (gDeviceSupportsComplications) {
       Complications.registerComplicationChangeCallback(self.method(:complicationCallbackDelegate));
-      for (var i = 0; i < mUsedComplications.size(); i++) {
-        Complications.subscribeToUpdates(mUsedComplications[i]);
+
+      for (var i = 0; i < mComplications.size(); i++) {
+        Complications.subscribeToUpdates(new Complications.Id(mComplications[i]));
       }
     }
   }
 
   // onStop() is called when your application is exiting
-  function onStop(state as Dictionary?) as Void {}
+  function onStop(state as Dictionary?) as Void {
+    if (gDeviceSupportsComplications) {
+      Complications.unsubscribeFromAllUpdates();
+    }
+  }
 
   // Return the initial view of your application here
   function getInitialView() as Array<Views or InputDelegates>? {

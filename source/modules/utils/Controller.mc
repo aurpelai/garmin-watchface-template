@@ -1,3 +1,4 @@
+import Toybox.Complications;
 import Toybox.Lang;
 import Toybox.System;
 import Toybox.Time;
@@ -9,13 +10,19 @@ module Utils {
         case Controllers.BLUETOOTH_STATUS:
           return new BluetoothStatusController();
         case Controllers.CALORIES:
-          return new CaloriesController();
+          if (!gDeviceSupportsComplications) {
+            return new LegacyCaloriesController();
+          }
+          return new ComplicationsController(Complications.COMPLICATION_TYPE_CALORIES);
         case Controllers.CURRENT_TIME:
           return new CurrentTimeController();
         case Controllers.SECONDS:
           return new SecondsController();
         case Controllers.STEPS:
-          return new StepsController();
+          if (!gDeviceSupportsComplications) {
+            return new LegacyStepsController();
+          }
+          return new ComplicationsController(Complications.COMPLICATION_TYPE_STEPS);
         default:
           throw new Exceptions.InvalidControllerIdentifierException(controller as String);
       }
