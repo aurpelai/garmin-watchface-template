@@ -8,6 +8,8 @@ module Utils {
       switch (controller) {
         case Controllers.BLUETOOTH_STATUS:
           return new BluetoothStatusController();
+        case Controllers.CALORIES:
+          return new CaloriesController();
         case Controllers.CURRENT_TIME:
           return new CurrentTimeController();
         case Controllers.SECONDS:

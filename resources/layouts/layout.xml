@@ -34,4 +34,12 @@
     <param name="locX">140</param>
     <param name="locY">200</param>
   </drawable>
+
+  <drawable id="Calories" class="LabeledValueComponent">
+    <param name="controller">Controllers.CALORIES</param>
+    <param name="height">70</param>
+    <param name="width">280</param>
+    <param name="locX">140</param>
+    <param name="locY">20</param>
+  </drawable>
 </layout>
