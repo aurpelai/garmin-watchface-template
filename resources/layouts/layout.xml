@@ -1,7 +1,6 @@
 <layout id="WatchFace">
   <drawable id="CurrentTime" class="ValueComponent">
     <param name="controller">Controllers.CURRENT_TIME</param>
-    <param name="font">Graphics.FONT_LARGE</param>
     <param name="height">70</param>
     <param name="width">280</param>
     <param name="locX">140</param>
