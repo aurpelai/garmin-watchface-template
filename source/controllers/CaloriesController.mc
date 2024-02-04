@@ -1,7 +1,7 @@
 import Toybox.Complications;
 import Toybox.Lang;
 
-class StepsController {
+class CaloriesController {
   var mValue as String;
   var mUnit as String;
   var mHasCompSupport as Boolean;
@@ -11,7 +11,7 @@ class StepsController {
     mValue = Application.loadResource(Rez.Strings.UnknownValue) as String;
     mUnit = "";
     mHasCompSupport = Utils.Complications.hasComplicationSupport();
-    mComplicationId = new Complications.Id(Complications.COMPLICATION_TYPE_STEPS);
+    mComplicationId = new Complications.Id(Complications.COMPLICATION_TYPE_CALORIES);
     if (mHasCompSupport) {
       Utils.Complications.registerToComplicationChangeCallback(
         mComplicationId,
@@ -44,7 +44,7 @@ class StepsController {
   }
 
   function getLabel() as String {
-    return Application.loadResource(Rez.Strings.StepsLabel) as String;
+    return Application.loadResource(Rez.Strings.CaloriesLabel) as String;
   }
 
   function getUnit() as String {

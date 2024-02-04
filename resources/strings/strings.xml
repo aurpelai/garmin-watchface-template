@@ -15,6 +15,7 @@
 
   <!-- Data Labels -->
   <string id="BluetoothStatusLabel">Bluetooth</string>
+  <string id="CaloriesLabel">Calories</string>
   <string id="CurrentTimeLabel">Time</string>
   <string id="SecondsLabel">Seconds</string>
   <string id="StepsLabel">Steps</string>
