@@ -10,6 +10,8 @@ module Utils {
           return new BluetoothStatusController();
         case Controllers.CURRENT_TIME:
           return new CurrentTimeController();
+        case Controllers.SECONDS:
+          return new SecondsController();
         default:
           throw new Exceptions.InvalidControllerIdentifierException(controller as String);
       }

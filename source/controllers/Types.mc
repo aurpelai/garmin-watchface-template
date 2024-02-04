@@ -18,5 +18,14 @@ module Types {
     function shouldDraw() as Boolean;
   };
 
-  typedef Controller as ValueController or LabeledValueController or IconController;
+  typedef ArcController as interface {
+    function getAngle() as Number;
+    function getLabel() as String;
+    function getValue() as String;
+  };
+
+  typedef Controller as ArcController or
+    IconController or
+    LabeledValueController or
+    ValueController;
 }
