@@ -1,7 +1,10 @@
+import Toybox.Complications;
 import Toybox.Lang;
 import Toybox.WatchUi;
 
 module Types {
+  typedef ComplicationCallbackFunction as (Method(complicationId as Complications.Id) as Void);
+
   typedef ValueController as interface {
     function getValue() as String;
   };
