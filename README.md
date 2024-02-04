@@ -49,7 +49,7 @@ This template is written in Garmin's [Monkey C](https://developer.garmin.com/con
 
 Download and install the Connect IQ SDK manager using instructions from [Garmin's Developer Portal](https://developer.garmin.com/connect-iq/sdk/). Install the simulator for at least one product that supports System 4 or greater (i.e. fēnix 6 and later).
 
-If you wish to run the included scripts you need to add the Garmin ConnectIQ SDK to your path. You cand find the instructions from Garmin's [Monkey C Command Line Setup documentation](https://developer.garmin.com/connect-iq/reference-guides/monkey-c-command-line-setup/).
+If you wish to run monkeyc commands from the command line you need to add the Garmin ConnectIQ SDK to your path. You cand find the instructions from Garmin's [Monkey C Command Line Setup documentation](https://developer.garmin.com/connect-iq/reference-guides/monkey-c-command-line-setup/).
 
 #### Quick Reference
 
