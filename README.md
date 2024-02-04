@@ -49,6 +49,29 @@ This template is written in Garmin's [Monkey C](https://developer.garmin.com/con
 
 Download and install the Connect IQ SDK manager using instructions from [Garmin's Developer Portal](https://developer.garmin.com/connect-iq/sdk/). Install the simulator for at least one product that supports System 4 or greater (i.e. fēnix 6 and later).
 
+If you wish to run the included scripts you need to add the Garmin ConnectIQ SDK to your path. You cand find the instructions from Garmin's [Monkey C Command Line Setup documentation](https://developer.garmin.com/connect-iq/reference-guides/monkey-c-command-line-setup/).
+
+#### Quick Reference
+
+##### Linux
+
+```shell
+export PATH=$PATH:`cat $HOME/.Garmin/ConnectIQ/current-sdk.cfg`/bin
+```
+
+##### Mac
+
+```shell
+export PATH=$PATH:`cat $HOME/Library/Application\ Support/Garmin/ConnectIQ/current-sdk.cfg`/bin
+```
+
+##### Windows
+
+```powershell
+for /f usebackq %i in (%APPDATA%\Garmin\ConnectIQ\current-sdk.cfg) do set CIQ_HOME=%~pi
+set PATH=%PATH%;%CIQ_HOME%\bin
+```
+
 ### 2️⃣ Install the Monkey C Visual Studio Code Extension
 
 You can install Monkey C support for Visual Studio Code either from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=garmin.monkey-c) or using the command line.
@@ -67,7 +90,7 @@ Before being able to compile and package applications using the Connect IQ compi
 
 Clone the project and open it in Visual Studio Code.
 
-```sh
+```shell
   git clone https://github.com/aurpelai/garmin-watchface-template.git
   cd garmin-watchface-template
   code .
@@ -138,7 +161,7 @@ The following is the list of supported scopes:
 
 #### Commit Message Examples
 
-```sh
+```shell
   git commit -m "docs: add important information to README.md"
 
   git commit -m "feat(settings): add a settings menu"
