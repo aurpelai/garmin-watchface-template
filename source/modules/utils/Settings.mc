@@ -9,8 +9,8 @@ module Utils {
       var item = new WatchUi.ToggleMenuItem(
         label,
         {
-          :enabled => Application.loadResource(Rez.Strings.SettingsToggleEnabled) as String,
-          :disabled => Application.loadResource(Rez.Strings.SettingsToggleDisabled) as String,
+          :enabled => Application.loadResource(Rez.Strings.ValueOn) as String,
+          :disabled => Application.loadResource(Rez.Strings.ValueOff) as String,
         },
         id,
         Application.Properties.getValue(id) as Boolean,

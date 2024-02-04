@@ -1,4 +1,13 @@
 <layout id="WatchFace">
+  <drawable id="BluetoothStatus" class="IconComponent">
+    <param name="controller">Controllers.BLUETOOTH_STATUS</param>
+    <param name="height">16</param>
+    <param name="width">16</param>
+    <param name="locX">140</param>
+    <param name="locY">80</param>
+    <param name="updateInterval">30</param>
+  </drawable>
+
   <drawable id="CurrentTime" class="ValueComponent">
     <param name="controller">Controllers.CURRENT_TIME</param>
     <param name="height">70</param>

@@ -1,17 +1,22 @@
 import Toybox.Lang;
+import Toybox.WatchUi;
 
 module Types {
   typedef ValueController as interface {
-    // Function that provides updated data for the View
     function getValue() as String;
   };
 
   typedef LabeledValueController as interface {
-    // Function that provides updated data for the View
     function getValue() as String;
-    // Function that provides an updated label for the View
     function getLabel() as String;
   };
 
-  typedef Controller as ValueController or LabeledValueController;
+  typedef IconController as interface {
+    function getIcon() as WatchUi.BitmapResource;
+    function getLabel() as String;
+    function getValue() as String;
+    function shouldDraw() as Boolean;
+  };
+
+  typedef Controller as ValueController or LabeledValueController or IconController;
 }

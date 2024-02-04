@@ -6,6 +6,8 @@ module Utils {
   module Controller {
     function getController(controller as Controllers.Identifier) as Types.Controller {
       switch (controller) {
+        case Controllers.BLUETOOTH_STATUS:
+          return new BluetoothConnectionController();
         case Controllers.CURRENT_TIME:
           return new CurrentTimeController();
         default:

@@ -1,10 +1,11 @@
 <strings>
   <string id="AppName">Watch Face Template</string>
 
+  <string id="ValueOn">On</string>
+  <string id="ValueOff">Off</string>
+
   <!-- Settings Menu -->
   <string id="SettingsLabel">Settings</string>
-  <string id="SettingsToggleEnabled">On</string>
-  <string id="SettingsToggleDisabled">Off</string>
   <string id="DisplaySecondsInCurrentTime">Display Seconds In Current Time</string>
 
   <!-- Unknown Data Values -->
@@ -13,5 +14,6 @@
   <string id="UnknownValue">-</string>
 
   <!-- Data Labels -->
+  <string id="BluetoothStatusLabel">Bluetooth</string>
   <string id="CurrentTimeLabel">Time</string>
 </strings>
