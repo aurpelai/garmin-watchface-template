@@ -4,15 +4,16 @@ import Toybox.Lang;
 class StepsController {
   var mValue as String;
   var mUnit as String;
-  var mHasCompSupport as Boolean;
-  var mComplicationId as Complications.Id;
+  var mDeviceSupportsComplications as Boolean;
+  var mComplicationId as Complications.Id?;
 
   function initialize() {
     mValue = Application.loadResource(Rez.Strings.UnknownValue) as String;
     mUnit = "";
-    mHasCompSupport = Utils.Complications.hasComplicationSupport();
-    mComplicationId = new Complications.Id(Complications.COMPLICATION_TYPE_STEPS);
-    if (mHasCompSupport) {
+    mDeviceSupportsComplications = Utils.Complications.hasComplicationSupport();
+
+    if (mDeviceSupportsComplications) {
+      mComplicationId = new Complications.Id(Complications.COMPLICATION_TYPE_STEPS);
       Utils.Complications.registerToComplicationChangeCallback(
         mComplicationId,
         self.method(:onComplicationUpdate)
@@ -21,23 +22,33 @@ class StepsController {
   }
 
   function onComplicationUpdate(complicationId as Complications.Id) as Void {
-    if (!complicationId.equals(mComplicationId)) {
+    if (!complicationId.equals(mComplicationId as Complications.Id)) {
       return;
     }
     var comp = Complications.getComplication(complicationId);
 
-    mValue = comp[:value];
-    mUnit = comp[:unit];
+    mValue =
+      comp[:value] != null
+        ? comp[:value] + ""
+        : Application.loadResource(Rez.Strings.UnknownValue) as String;
+
+    mUnit = comp[:unit] != null ? comp[:unit] + "" : "";
   }
 
-  function updateData() as Void {
-    mValue = "";
-    mUnit = "";
+  function updateValueForLegacyDevices() as Void {
+    var stepCount = ActivityMonitor.getInfo().steps;
+
+    if (stepCount == null) {
+      mValue = Application.loadResource(Rez.Strings.UnknownValue) as String;
+      return;
+    }
+
+    mValue = stepCount.format("%i");
   }
 
   function getValue() as String {
-    if (!mHasCompSupport) {
-      updateData();
+    if (!mDeviceSupportsComplications) {
+      updateValueForLegacyDevices();
     }
 
     return mValue;
@@ -48,8 +59,8 @@ class StepsController {
   }
 
   function getUnit() as String {
-    if (!mHasCompSupport) {
-      updateData();
+    if (!mDeviceSupportsComplications) {
+      mUnit = "";
     }
 
     return mUnit;
