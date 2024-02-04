@@ -1,13 +1,15 @@
 import Toybox.Lang;
+import Toybox.Graphics;
 
 module Types {
   typedef ComponentParams as {
-    :identifier as String,
     :controller as Controllers.Identifier,
+    :font as Graphics.FontDefinition,
+    :height as Number,
+    :identifier as String,
     :locX as Number,
     :locY as Number,
-    :height as Number,
-    :width as Number,
     :updateInterval as Number,
+    :width as Number,
   };
 }

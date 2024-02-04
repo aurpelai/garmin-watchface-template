@@ -145,7 +145,7 @@ Must be one of the following:
 
 #### Summary
 
-A summary of the changes in present tense. Not capitalized, except when mentioning specific parts in the code (e.g. `CurrentTimeComponent`). No period at the end
+A summary of the changes in present tense. Not capitalized, except when mentioning specific parts in the code (e.g. `ValueComponent`). No period at the end
 
 #### Scope
 
