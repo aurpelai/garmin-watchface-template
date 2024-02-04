@@ -12,6 +12,8 @@ module Utils {
           return new CurrentTimeController();
         case Controllers.SECONDS:
           return new SecondsController();
+        case Controllers.STEPS:
+          return new StepsController();
         default:
           throw new Exceptions.InvalidControllerIdentifierException(controller as String);
       }
