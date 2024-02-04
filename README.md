@@ -16,7 +16,7 @@ This template provides a good starting point for easy creation of feature-rich w
   - [2️⃣ Install the Monkey C Visual Studio Code Extension](#2️⃣-install-the-monkey-c-visual-studio-code-extension)
   - [3️⃣ Create a Garmin Developer Key](#3️⃣-create-a-garmin-developer-key)
   - [4️⃣ Configure and Run the Project](#4️⃣-configure-and-run-the-project)
-  - [👷 Build the Watch Face for a Product](#-build-the-watch-face-for-a-product)
+- [👷 Build the Watch Face for a Product](#-build-the-watch-face-for-a-product)
 - [📝 License](#-license)
 - [👋 Contributing](#-contributing)
   - [Commit Message Guidelines](#commit-message-guidelines)
@@ -77,7 +77,7 @@ Configure `manifest.xml` to match your requirements for product, language, etc. 
 
 To run or debug the project, choose either `Start Debugging` or `Run Without Debugging` from Visual Studio Code's `Run` menu.
 
-### 👷 Build the Watch Face for a Product
+## 👷 Build the Watch Face for a Product
 
 🚧 UNDER CONSTRUCTION 🚧
 
