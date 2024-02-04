@@ -1,7 +1,6 @@
 import Toybox.Application;
 import Toybox.Graphics;
 import Toybox.Lang;
-import Toybox.System;
 import Toybox.Time;
 import Toybox.WatchUi;
 
@@ -12,10 +11,10 @@ class CurrentTimeComponent extends WatchUi.Drawable {
   hidden var mUpdateInterval as Time.Duration;
 
   public function initialize(params as Types.ComponentParams) {
-    mController = Utils.Controller.getController(params[:controller]);
+    mController = Utils.Controller.getController(params[:controller] as Controllers.Identifier);
     mUpdated = new Time.Moment(0);
     // -1 to account for the fact that we're using greaterThan comparison instead of gte (gte not available)
-    mUpdateInterval = Utils.Component.getComponentUpdateInterval(params);
+    mUpdateInterval = Utils.Component.getUpdateInterval(params[:updateInterval]);
     mValue = Application.loadResource(Rez.Strings.UnknownTime) as String;
     Drawable.initialize(params);
   }
