@@ -8,7 +8,7 @@ module Types {
   typedef ToggleMenuItemParams as {
     :id as String,
     :label as String,
-    :type as MenuItemType,
+    :type as Types.MenuItemType,
   };
 
   typedef MenuItemParams as ToggleMenuItemParams;
