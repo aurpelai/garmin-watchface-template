@@ -3,7 +3,7 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-class BluetoothConnectionController {
+class BluetoothStatusController {
   hidden function isBluetoothConnected() as Boolean {
     var isBluetoothConnected = System.getDeviceSettings().phoneConnected;
     return isBluetoothConnected;
