@@ -89,11 +89,13 @@ To run or debug the project, choose either `Start Debugging` or `Run Without Deb
 
 ## 👋 Contributing
 
-Contributions are always welcome! See `contributing.md` for ways to get started.
+🚧 UNDER CONSTRUCTION 🚧
+
+<!-- Contributions are always welcome! See `contributing.md` for ways to get started. -->
 
 ### Commit Message Guidelines
 
-Our project follows a simplified wersion of the [Angular Commit Message Format](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit).
+Our project follows a simplified version of the [Angular Commit Message Format](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit).
 
 ```text
 <type>(<scope>): <summary>
