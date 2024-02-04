@@ -8,6 +8,7 @@ class ArcComponent extends WatchUi.Drawable {
   hidden var mController as Types.ArcController;
   hidden var mUpdateInterval as Time.Duration;
   hidden var mUpdated as Time.Moment;
+  hidden var mIsVisible as Boolean;
   hidden var mAngle as Number;
   hidden var mHeight as Number;
   hidden var mRadius as Number;
@@ -23,18 +24,22 @@ class ArcComponent extends WatchUi.Drawable {
     mHeight = params[:height] as Number;
     mRadius = params[:radius] as Number;
     mWidth = params[:width] as Number;
+    mIsVisible = true;
     Drawable.initialize(params);
   }
 
   function draw(dc as Graphics.Dc) as Void {
-    if ((Application.Storage.getValue("HighPowerMode") as Boolean) == false) {
+    if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval)) {
+      mAngle = mController.getAngle();
+      mIsVisible = mController.shouldDraw();
+      mUpdated = Time.now();
+    }
+
+    if (!mIsVisible) {
       return;
     }
 
-    if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval)) {
-      mAngle = mController.getAngle();
-      mUpdated = Time.now();
-    }
+    var angleOffset = mWidth / 2;
 
     dc.setPenWidth(mHeight);
     dc.setColor(Constants.Color.GOLD, Constants.Color.BACKGROUND);
@@ -43,8 +48,8 @@ class ArcComponent extends WatchUi.Drawable {
       locY,
       mRadius - mHeight,
       Graphics.ARC_CLOCKWISE,
-      mAngle + mWidth / 2,
-      mAngle - mWidth / 2
+      mAngle + angleOffset,
+      mAngle - angleOffset
     );
   }
 }

@@ -25,6 +25,7 @@ module Types {
     function getAngle() as Number;
     function getLabel() as String;
     function getValue() as String;
+    function shouldDraw() as Boolean;
   };
 
   typedef Controller as ArcController or
