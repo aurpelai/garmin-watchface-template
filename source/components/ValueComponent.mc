@@ -10,7 +10,7 @@ class ValueComponent extends WatchUi.Drawable {
   hidden var mUpdated as Time.Moment;
   hidden var mValue as String;
 
-  public function initialize(params as Types.Components.ValueComponentParams) {
+  public function initialize(params as Types.Components.ValueParams) {
     mController =
       Utils.Controller.getController(params[:controller] as Types.Controllers.Id) as
       Types.Controllers.ValueController;

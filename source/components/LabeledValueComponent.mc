@@ -11,7 +11,7 @@ class LabeledValueComponent extends WatchUi.Drawable {
   hidden var mLabel as String;
   hidden var mValue as String;
 
-  public function initialize(params as Types.Components.LabeledValueComponentParams) {
+  public function initialize(params as Types.Components.LabeledValueParams) {
     mController =
       Utils.Controller.getController(params[:controller] as Types.Controllers.Id) as
       Types.Controllers.LabeledValueController;

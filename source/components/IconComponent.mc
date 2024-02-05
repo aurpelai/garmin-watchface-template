@@ -11,7 +11,7 @@ class IconComponent extends WatchUi.Drawable {
   hidden var mIcon as WatchUi.BitmapResource?;
   hidden var mIsVisible as Boolean;
 
-  public function initialize(params as Types.Components.IconComponentParams) {
+  public function initialize(params as Types.Components.IconParams) {
     mController =
       Utils.Controller.getController(params[:controller] as Types.Controllers.Id) as
       Types.Controllers.IconController;
