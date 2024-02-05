@@ -141,6 +141,7 @@ The `<type>` and `<summary>` fields are mandatory, the `(<scope>)` field is opti
 
 Must be one of the following:
 
+- `build`: Changes that affect the build system or external dependencies
 - `docs`: Documentation change
 - `feat`: A new feature
 - `fix`: A bug fix
