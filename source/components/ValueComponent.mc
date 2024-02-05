@@ -5,13 +5,15 @@ import Toybox.Time;
 import Toybox.WatchUi;
 
 class ValueComponent extends WatchUi.Drawable {
-  hidden var mController as Types.ValueController;
+  hidden var mController as Types.Controllers.ValueController;
   hidden var mUpdateInterval as Time.Duration;
   hidden var mUpdated as Time.Moment;
   hidden var mValue as String;
 
-  public function initialize(params as Types.ComponentParams) {
-    mController = Utils.Controller.getController(params[:controller] as Controllers.Identifier);
+  public function initialize(params as Types.Components.ValueComponentParams) {
+    mController =
+      Utils.Controller.getController(params[:controller] as Types.Controllers.Id) as
+      Types.Controllers.ValueController;
     mUpdated = new Time.Moment(0);
     mUpdateInterval = Utils.Component.getUpdateInterval(params[:updateInterval]);
     mValue = Application.loadResource(Rez.Strings.UnknownTime) as String;

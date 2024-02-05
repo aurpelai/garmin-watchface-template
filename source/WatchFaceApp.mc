@@ -5,7 +5,8 @@ import Toybox.System;
 import Toybox.WatchUi;
 
 var gDeviceSupportsComplications as Boolean = false;
-var gCallbacks as Types.ComplicationDictionary = ({}) as Types.ComplicationDictionary;
+var gCallbacks as Types.Controllers.ComplicationsControllerDictionary =
+  ({}) as Types.Controllers.ComplicationsControllerDictionary;
 
 class WatchFaceApp extends Application.AppBase {
   hidden var mComplications as Array<Complications.Type> = [] as Array<Complications.Type>;
@@ -25,7 +26,9 @@ class WatchFaceApp extends Application.AppBase {
     var type = complicationId.getType() as Complications.Type;
 
     if (gCallbacks.hasKey(type)) {
-      (gCallbacks.get(type) as Types.ComplicationCallbackFunction).invoke(complicationId);
+      (gCallbacks.get(type) as Types.Controllers.ComplicationCallbackFunction).invoke(
+        complicationId
+      );
     }
   }
 

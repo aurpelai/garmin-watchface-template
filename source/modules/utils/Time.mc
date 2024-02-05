@@ -26,7 +26,7 @@ module Utils {
     // @return Formatted time string
     function getFormattedTimeFromMoment(
       moment as Time.Moment,
-      options as Types.FormatTimeOptions
+      options as Types.Utils.FormatTimeOptions
     ) as String {
       var momentInfo = Time.Gregorian.info(moment, Time.FORMAT_MEDIUM);
 

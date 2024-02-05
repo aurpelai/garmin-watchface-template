@@ -5,16 +5,16 @@ import Toybox.Time;
 import Toybox.WatchUi;
 
 class IconComponent extends WatchUi.Drawable {
-  hidden var mController as Types.IconController;
+  hidden var mController as Types.Controllers.IconController;
   hidden var mUpdateInterval as Time.Duration;
   hidden var mUpdated as Time.Moment;
   hidden var mIcon as WatchUi.BitmapResource?;
   hidden var mIsVisible as Boolean;
 
-  public function initialize(params as Types.ComponentParams) {
+  public function initialize(params as Types.Components.IconComponentParams) {
     mController =
-      Utils.Controller.getController(params[:controller] as Controllers.Identifier) as
-      Types.IconController;
+      Utils.Controller.getController(params[:controller] as Types.Controllers.Id) as
+      Types.Controllers.IconController;
     mUpdated = new Time.Moment(0);
     mUpdateInterval = Utils.Component.getUpdateInterval(params[:updateInterval]);
     mIsVisible = false;
