@@ -5,16 +5,16 @@ import Toybox.Time;
 import Toybox.WatchUi;
 
 class LabeledValueComponent extends WatchUi.Drawable {
-  hidden var mController as Types.LabeledValueController;
+  hidden var mController as Types.Controllers.LabeledValueController;
   hidden var mUpdateInterval as Time.Duration;
   hidden var mUpdated as Time.Moment;
   hidden var mLabel as String;
   hidden var mValue as String;
 
-  public function initialize(params as Types.ComponentParams) {
+  public function initialize(params as Types.Components.LabeledValueComponentParams) {
     mController =
-      Utils.Controller.getController(params[:controller] as Controllers.Identifier) as
-      Types.LabeledValueController;
+      Utils.Controller.getController(params[:controller] as Types.Controllers.Id) as
+      Types.Controllers.LabeledValueController;
     mUpdated = new Time.Moment(0);
     mUpdateInterval = Utils.Component.getUpdateInterval(params[:updateInterval]);
     mLabel = Application.loadResource(Rez.Strings.Unknown) as String;

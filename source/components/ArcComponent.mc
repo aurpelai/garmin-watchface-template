@@ -5,7 +5,7 @@ import Toybox.Time;
 import Toybox.WatchUi;
 
 class ArcComponent extends WatchUi.Drawable {
-  hidden var mController as Types.ArcController;
+  hidden var mController as Types.Controllers.ArcController;
   hidden var mUpdateInterval as Time.Duration;
   hidden var mUpdated as Time.Moment;
   hidden var mIsVisible as Boolean;
@@ -14,10 +14,10 @@ class ArcComponent extends WatchUi.Drawable {
   hidden var mRadius as Number;
   hidden var mWidth as Number;
 
-  public function initialize(params as Types.ComponentParams) {
+  public function initialize(params as Types.Components.ArcComponentParams) {
     mController =
-      Utils.Controller.getController(params[:controller] as Controllers.Identifier) as
-      Types.ArcController;
+      Utils.Controller.getController(params[:controller] as Types.Controllers.Id) as
+      Types.Controllers.ArcController;
     mUpdated = new Time.Moment(0);
     mUpdateInterval = Utils.Component.getUpdateInterval(params[:updateInterval]);
     mAngle = 0;

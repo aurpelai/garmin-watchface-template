@@ -13,9 +13,9 @@ class SettingsView extends WatchUi.Menu2 {
         {
           :id => "DisplaySecondsInCurrentTime",
           :label => Application.loadResource(Rez.Strings.DisplaySecondsInCurrentTime) as String,
-          :type => Types.MENU_ITEM_TOGGLE,
+          :type => Types.Settings.MENU_ITEM_TOGGLE,
         },
-      ] as Array<Types.MenuItemParams>;
+      ] as Array<Types.Settings.MenuItemParams>;
 
     for (var i = 0; i < menuItems.size(); i++) {
       var menuItem =
