@@ -3,7 +3,7 @@ import Toybox.Lang;
 module Types {
   module Components {
     typedef ArcComponentParams as {
-      :controller as Types.Controllers.ControllerType,
+      :controller as Types.Controllers.Id,
       :height as Number,
       :identifier as String,
       :locX as Number,
@@ -14,7 +14,7 @@ module Types {
     };
 
     typedef IconComponentParams as {
-      :controller as Types.Controllers.ControllerType,
+      :controller as Types.Controllers.Id,
       :height as Number,
       :identifier as String,
       :locX as Number,
@@ -24,7 +24,7 @@ module Types {
     };
 
     typedef ValueComponentParams as {
-      :controller as Types.Controllers.ControllerType,
+      :controller as Types.Controllers.Id,
       :height as Number,
       :identifier as String,
       :locX as Number,
@@ -34,7 +34,7 @@ module Types {
     };
 
     typedef LabeledValueComponentParams as {
-      :controller as Types.Controllers.ControllerType,
+      :controller as Types.Controllers.Id,
       :height as Number,
       :identifier as String,
       :locX as Number,
