@@ -26,7 +26,7 @@ module Utils {
           }
           return new ComplicationsController(Complications.COMPLICATION_TYPE_STEPS);
         default:
-          throw new Exceptions.InvalidIdentifierException(controller as String);
+          throw new Exceptions.InvalidControllerIdException(controller as String);
       }
     }
 

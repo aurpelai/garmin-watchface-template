@@ -2,7 +2,7 @@ import Toybox.Complications;
 import Toybox.Lang;
 
 module Exceptions {
-  class InvalidIdentifierException extends Lang.Exception {
+  class InvalidControllerIdException extends Lang.Exception {
     function initialize(msg as String) {
       Exception.initialize();
       self.mMessage = "No case for '" + msg + "'";
