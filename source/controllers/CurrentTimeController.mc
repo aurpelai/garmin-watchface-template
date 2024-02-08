@@ -8,9 +8,10 @@ class CurrentTimeController {
   }
 
   public function getValue() as String {
-    var options = {
-      :showSeconds => Application.Properties.getValue("DisplaySecondsInCurrentTime") as Boolean,
-    };
+    var options =
+      ({
+        :showSeconds => Application.Properties.getValue("ShowSecondsSetting") as Boolean,
+      }) as Types.Utils.FormatTimeOptions;
 
     return Utils.Time.getFormattedTimeFromMoment(Time.now(), options);
   }
