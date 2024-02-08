@@ -27,7 +27,7 @@ class LabeledValueComponent extends WatchUi.Drawable {
     var VALUE_FONT = Graphics.FONT_TINY;
     var LABEL_HEIGHT = dc.getFontHeight(LABEL_FONT) * 1.1;
 
-    if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval)) {
+    if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, false)) {
       mLabel = mController.getLabel();
       mValue = mController.getValue();
       mUpdated = Time.now();

@@ -21,7 +21,7 @@ class ValueComponent extends WatchUi.Drawable {
   }
 
   function draw(dc as Graphics.Dc) as Void {
-    if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval)) {
+    if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, false)) {
       mValue = mController.getValue();
       mUpdated = Time.now();
     }
