@@ -18,7 +18,7 @@ class LabeledValueComponent extends WatchUi.Drawable {
     mUpdated = new Time.Moment(0);
     mUpdateInterval = Utils.Component.getUpdateInterval(params[:updateInterval]);
     mLabel = Application.loadResource(Rez.Strings.Unknown) as String;
-    mValue = Application.loadResource(Rez.Strings.UnknownTime) as String;
+    mValue = Application.loadResource(Rez.Strings.UnknownValue) as String;
     Drawable.initialize(params);
   }
 

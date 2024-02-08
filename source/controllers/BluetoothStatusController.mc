@@ -9,8 +9,8 @@ class BluetoothStatusController {
     return isBluetoothConnected;
   }
 
-  public function getIcon() as WatchUi.BitmapResource {
-    return Application.loadResource(Rez.Drawables.BluetoothIcon) as WatchUi.BitmapResource;
+  public function getIcon() as BitmapResource {
+    return Application.loadResource(Rez.Drawables.BluetoothIcon) as BitmapResource;
   }
 
   public function getLabel() as String {
@@ -18,11 +18,9 @@ class BluetoothStatusController {
   }
 
   public function getValue() as String {
-    var value = isBluetoothConnected()
-      ? Application.loadResource(Rez.Strings.ValueOn) as String
-      : Application.loadResource(Rez.Strings.ValueOff) as String;
+    var value = isBluetoothConnected() ? Rez.Strings.ValueOn : Rez.Strings.ValueOff;
 
-    return value;
+    return Application.loadResource(value) as String;
   }
 
   public function shouldDraw() as Boolean {

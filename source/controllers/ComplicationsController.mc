@@ -29,13 +29,13 @@ class ComplicationsController {
     if (mComplication[:value] == null) {
       mValue = Application.loadResource(Rez.Strings.UnknownValue) as String;
     } else {
-      mValue = mComplication[:value] as String;
+      mValue = (mComplication[:value] as Complications.Value).toString();
     }
 
     if (mComplication[:unit] == null) {
       mUnit = "";
     } else {
-      mUnit = mComplication[:unit] as String;
+      mUnit = (mComplication[:unit] as Complications.Unit).toString();
     }
   }
 
@@ -50,7 +50,10 @@ class ComplicationsController {
       case Complications.COMPLICATION_TYPE_STEPS:
         return Application.loadResource(Rez.Strings.StepsLabel) as String;
       default:
-        return mComplication[:shortLabel] as String;
+        if (mComplication[:shortLabel] == null) {
+          return Application.loadResource(Rez.Strings.Unknown) as String;
+        }
+        return mComplication[:shortLabel] as Complications.Label;
     }
   }
 

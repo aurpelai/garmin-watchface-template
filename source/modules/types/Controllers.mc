@@ -5,11 +5,11 @@ import Toybox.WatchUi;
 module Types {
   module Controllers {
     enum Id {
-      BLUETOOTH_STATUS = "BluetoothStatus",
-      CALORIES = "Calories",
-      CURRENT_TIME = "CurrentTime",
-      SECONDS = "Seconds",
-      STEPS = "Steps",
+      BLUETOOTH_STATUS,
+      CALORIES,
+      CURRENT_TIME,
+      SECONDS,
+      STEPS,
     }
 
     typedef ComplicationCallbackFunction as (Method(complicationId as Complications.Id) as Void);
@@ -29,7 +29,7 @@ module Types {
     };
 
     typedef IconController as interface {
-      function getIcon() as WatchUi.BitmapResource;
+      function getIcon() as BitmapResource;
       function getLabel() as String;
       function getValue() as String;
       function shouldDraw() as Boolean;

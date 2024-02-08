@@ -8,7 +8,7 @@ class IconComponent extends WatchUi.Drawable {
   hidden var mController as Types.Controllers.IconController;
   hidden var mUpdateInterval as Time.Duration;
   hidden var mUpdated as Time.Moment;
-  hidden var mIcon as WatchUi.BitmapResource?;
+  hidden var mIcon as BitmapResource?;
   hidden var mIsVisible as Boolean;
 
   public function initialize(params as Types.Components.IconParams) {
@@ -35,6 +35,6 @@ class IconComponent extends WatchUi.Drawable {
     var xOffset = -width / 2;
     var yOffset = -height / 2;
 
-    dc.drawBitmap(locX + xOffset, locY + yOffset, mIcon as WatchUi.BitmapResource);
+    dc.drawBitmap(locX + xOffset, locY + yOffset, mIcon as BitmapResource);
   }
 }
