@@ -29,7 +29,7 @@ class ArcComponent extends WatchUi.Drawable {
   }
 
   function draw(dc as Graphics.Dc) as Void {
-    if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval)) {
+    if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, true)) {
       mAngle = mController.getAngle();
       mIsVisible = mController.shouldDraw();
       mUpdated = Time.now();

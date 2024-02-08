@@ -1,3 +1,4 @@
+import Toybox.Application;
 import Toybox.Complications;
 import Toybox.Lang;
 import Toybox.System;
@@ -30,7 +31,30 @@ module Utils {
       }
     }
 
-    function shouldUpdate(lastUpdate as Time.Moment, updateInterval as Time.Duration) as Boolean {
+    function isAllowedToUpdate() as Boolean {
+      var divisor = Application.Properties.getValue("UpdateIntervalSetting") as Number?;
+
+      // The user hasn't set a limit for update interval in watch face settings
+      if (divisor == null || divisor <= 1) {
+        return true;
+      }
+
+      if (System.getClockTime().sec % divisor == 0) {
+        return true;
+      }
+
+      return false;
+    }
+
+    function shouldUpdate(
+      lastUpdate as Time.Moment,
+      updateInterval as Time.Duration,
+      dismissUpdateIntervalSetting as Boolean
+    ) as Boolean {
+      if (!dismissUpdateIntervalSetting && !isAllowedToUpdate()) {
+        return false;
+      }
+
       var nextUpdate = lastUpdate.add(updateInterval);
       return Time.now().greaterThan(nextUpdate);
     }
