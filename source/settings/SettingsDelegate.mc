@@ -1,6 +1,5 @@
 import Toybox.Application;
 import Toybox.Lang;
-import Toybox.System;
 import Toybox.WatchUi;
 
 class SettingsDelegate extends WatchUi.Menu2InputDelegate {
@@ -8,11 +7,34 @@ class SettingsDelegate extends WatchUi.Menu2InputDelegate {
     Menu2InputDelegate.initialize();
   }
 
-  // Currently, this function only handles changes in boolean MenuItems
+  hidden function toggleBooleanSetting(id as String) as Void {
+    var prevState = Application.Properties.getValue(id) as Boolean;
+    Application.Properties.setValue(id, !prevState);
+  }
+
+  hidden function openSubMenu(id as String, title as Symbol) as Void {
+    WatchUi.pushView(
+      new SettingsSelectOptionView(id, title),
+      new SettingsSelectOptionDelegate(id),
+      WatchUi.SLIDE_LEFT
+    );
+  }
+
   function onSelect(item as WatchUi.MenuItem) {
-    var itemId = item.getId() as String;
-    var previousValue = Application.Properties.getValue(itemId) as Boolean;
-    Application.Properties.setValue(itemId, !previousValue);
+    var id = item.getId();
+
+    if (id == null) {
+      return;
+    }
+
+    switch (id) {
+      case "UpdateIntervalSetting":
+        openSubMenu(id.toString(), Rez.Strings.UpdateIntervalSettingKey);
+        return;
+      default:
+        toggleBooleanSetting(id.toString());
+        return;
+    }
   }
 
   function onBack() {

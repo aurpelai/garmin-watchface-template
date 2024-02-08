@@ -1,3 +1,9 @@
 <properties>
-  <property id="DisplaySecondsInCurrentTime" type="boolean">false</property>
+  <property id="ShowSecondsSetting" type="boolean">true</property>
+
+  <property id="UpdateIntervalSetting" type="number">1</property>
+  <property id="UpdateIntervalEverySecond" type="number">1</property>
+  <property id="UpdateIntervalEvery15Seconds" type="number">15</property>
+  <property id="UpdateIntervalEvery30Seconds" type="number">30</property>
+
 </properties>
