@@ -47,25 +47,6 @@ class SettingsView extends WatchUi.Menu2 {
           );
       }
     }
-
-    // Menu2.addItem(
-    //   new WatchUi.ToggleMenuItem(
-    //     Rez.Strings.ShowSecondsSettingKey,
-    //     null,
-    //     "ShowSecondsSetting",
-    //     Application.Properties.getValue("ShowSecondsSetting") as Boolean,
-    //     null
-    //   )
-    // );
-
-    // Menu2.addItem(
-    //   new WatchUi.MenuItem(
-    //     Rez.Strings.UpdateIntervalSettingKey,
-    //     null,
-    //     "UpdateIntervalSetting",
-    //     null
-    //   )
-    // );
   }
 
   hidden function updateSubLabel(
