@@ -4,26 +4,112 @@ import Toybox.WatchUi;
 
 class SettingsView extends WatchUi.Menu2 {
   function initialize() {
-    Menu2.initialize({
-      :title => Application.loadResource(Rez.Strings.SettingsLabel) as String,
-    });
+    Menu2.initialize({ :title => Rez.Strings.SettingsTitle });
+    generateMenuItems();
+  }
 
-    var menuItems =
+  hidden function generateMenuItems() as Void {
+    var properties =
       [
         {
-          :id => "DisplaySecondsInCurrentTime",
-          :label => Application.loadResource(Rez.Strings.DisplaySecondsInCurrentTime) as String,
-          :type => Types.Settings.MENU_ITEM_TOGGLE,
+          :id => "ShowSecondsSetting",
+          :label => Rez.Strings.ShowSecondsSettingKey,
+          :type => Types.Settings.TOGGLE_MENU_ITEM,
         },
-      ] as Array<Types.Settings.MenuItemParams>;
+        {
+          :id => "UpdateIntervalSetting",
+          :label => Rez.Strings.UpdateIntervalSettingKey,
+          :type => Types.Settings.MENU_ITEM,
+        },
+      ] as Array<Types.Settings.SettingProperty>;
 
-    for (var i = 0; i < menuItems.size(); i++) {
-      var menuItem =
-        Utils.Settings.generateToggleMenuItem(
-          menuItems[i][:id] as String,
-          menuItems[i][:label] as String
-        ) as WatchUi.MenuItem;
-      Menu2.addItem(menuItem);
+    for (var i = 0; i < properties.size(); i++) {
+      switch (properties[i][:type] as Types.Settings.PropertyType) {
+        case Types.Settings.TOGGLE_MENU_ITEM:
+          Menu2.addItem(
+            new WatchUi.ToggleMenuItem(
+              properties[i][:label] as Symbol,
+              null,
+              properties[i][:id] as String,
+              Application.Properties.getValue(properties[i][:id] as String) as Boolean,
+              null
+            )
+          );
+          break;
+        default:
+          Menu2.addItem(
+            new WatchUi.MenuItem(
+              properties[i][:label] as Symbol,
+              null,
+              properties[i][:id] as String,
+              null
+            )
+          );
+      }
     }
+
+    // Menu2.addItem(
+    //   new WatchUi.ToggleMenuItem(
+    //     Rez.Strings.ShowSecondsSettingKey,
+    //     null,
+    //     "ShowSecondsSetting",
+    //     Application.Properties.getValue("ShowSecondsSetting") as Boolean,
+    //     null
+    //   )
+    // );
+
+    // Menu2.addItem(
+    //   new WatchUi.MenuItem(
+    //     Rez.Strings.UpdateIntervalSettingKey,
+    //     null,
+    //     "UpdateIntervalSetting",
+    //     null
+    //   )
+    // );
+  }
+
+  hidden function updateSubLabel(
+    id as String,
+    callback as Types.Settings.SetSubLabelCallback
+  ) as Void {
+    var index = findItemById(id);
+
+    if (index == -1) {
+      return;
+    }
+
+    var menuItem = getItem(index) as MenuItem;
+    var value = callback.invoke();
+
+    if (value == null) {
+      return;
+    }
+
+    menuItem.setSubLabel(value);
+    updateItem(menuItem, index);
+  }
+
+  function getUpdateInterval() as Symbol? {
+    var value = Application.Properties.getValue("UpdateIntervalSetting") as Number?;
+    var MINIMUM_VALUE = Application.Properties.getValue("UpdateIntervalEverySecond") as Number;
+
+    if (value == null || value < MINIMUM_VALUE) {
+      return null;
+    }
+
+    switch (value) {
+      case Application.Properties.getValue("UpdateIntervalEvery30Seconds"):
+        return Rez.Strings.UpdateIntervalSettingValueEvery30Seconds;
+      case Application.Properties.getValue("UpdateIntervalEvery15Seconds"):
+        return Rez.Strings.UpdateIntervalSettingValueEvery15Seconds;
+      case Application.Properties.getValue("UpdateIntervalEverySecond"):
+        return Rez.Strings.UpdateIntervalSettingValueEverySecond;
+      default:
+        return Rez.Strings.Unknown;
+    }
+  }
+
+  function onShow() {
+    updateSubLabel("UpdateIntervalSetting", self.method(:getUpdateInterval));
   }
 }

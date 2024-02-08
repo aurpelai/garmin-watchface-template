@@ -3,10 +3,15 @@
 
   <string id="ValueOn">On</string>
   <string id="ValueOff">Off</string>
+  <string id="ValueSelected">Selected</string>
 
   <!-- Settings Menu -->
-  <string id="SettingsLabel">Settings</string>
-  <string id="DisplaySecondsInCurrentTime">Display Seconds In Current Time</string>
+  <string id="SettingsTitle">Settings</string>
+  <string id="ShowSecondsSettingKey">Show Seconds In Current Time</string>
+  <string id="UpdateIntervalSettingKey">Update Interval</string>
+  <string id="UpdateIntervalSettingValueEverySecond">Unlimited</string>
+  <string id="UpdateIntervalSettingValueEvery15Seconds">Every 15 Seconds</string>
+  <string id="UpdateIntervalSettingValueEvery30Seconds">Every 30 Seconds</string>
 
   <!-- Unknown Data Values -->
   <string id="Unknown">Unknown</string>

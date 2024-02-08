@@ -2,16 +2,22 @@ import Toybox.Lang;
 
 module Types {
   module Settings {
-    enum MenuItemType {
-      MENU_ITEM_TOGGLE,
+    typedef SetSubLabelCallback as (Method() as Symbol?);
+
+    enum PropertyType {
+      TOGGLE_MENU_ITEM,
+      MENU_ITEM,
     }
 
-    typedef ToggleMenuItemParams as {
+    typedef SettingProperty as {
       :id as String,
-      :label as String,
-      :type as MenuItemType,
+      :label as Symbol,
+      :type as PropertyType,
     };
 
-    typedef MenuItemParams as ToggleMenuItemParams;
+    typedef SettingPropertyOption as {
+      :id as String,
+      :label as Symbol,
+    };
   }
 }
