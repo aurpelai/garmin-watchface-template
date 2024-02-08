@@ -57,6 +57,10 @@ class SettingsSelectOptionView extends WatchUi.Menu2 {
           :label => Rez.Strings.UpdateIntervalSettingValueEverySecond,
         },
         {
+          :id => "UpdateIntervalEvery5Seconds",
+          :label => Rez.Strings.UpdateIntervalSettingValueEvery5Seconds,
+        },
+        {
           :id => "UpdateIntervalEvery15Seconds",
           :label => Rez.Strings.UpdateIntervalSettingValueEvery15Seconds,
         },

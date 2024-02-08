@@ -83,6 +83,8 @@ class SettingsView extends WatchUi.Menu2 {
         return Rez.Strings.UpdateIntervalSettingValueEvery30Seconds;
       case Application.Properties.getValue("UpdateIntervalEvery15Seconds"):
         return Rez.Strings.UpdateIntervalSettingValueEvery15Seconds;
+      case Application.Properties.getValue("UpdateIntervalEvery5Seconds"):
+        return Rez.Strings.UpdateIntervalSettingValueEvery5Seconds;
       case Application.Properties.getValue("UpdateIntervalEverySecond"):
         return Rez.Strings.UpdateIntervalSettingValueEverySecond;
       default:
