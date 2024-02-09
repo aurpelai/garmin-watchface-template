@@ -28,6 +28,10 @@ class SecondsController {
     return Application.loadResource(Rez.Strings.SecondsLabel) as String;
   }
 
+  public function getUnit() as String {
+    return "";
+  }
+
   public function getValue() as String {
     return System.getClockTime().sec.toString();
   }

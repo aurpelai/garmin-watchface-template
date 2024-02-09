@@ -35,6 +35,10 @@ class IconComponent extends WatchUi.Drawable {
     var xOffset = -width / 2;
     var yOffset = -height / 2;
 
+    dc.setColor(Constants.Color.BACKGROUND, Graphics.COLOR_TRANSPARENT);
+    dc.setClip(locX - width / 2, locY, width, height);
+    dc.clear();
+
     dc.drawBitmap(locX + xOffset, locY + yOffset, mIcon as BitmapResource);
   }
 }

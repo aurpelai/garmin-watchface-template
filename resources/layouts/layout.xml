@@ -1,12 +1,12 @@
 <layout id="WatchFace">
-  <drawable id="Seconds" class="ArcComponent">
-    <param name="controller">Types.Controllers.SECONDS</param>
-    <param name="height">8</param>
-    <param name="width">16</param>
+  <drawable id="Calories" class="LabeledValueComponent">
+    <param name="controller">Types.Controllers.CALORIES</param>
+    <param name="height">48</param>
+    <param name="width">80</param>
     <param name="locX">140</param>
-    <param name="locY">140</param>
-    <param name="radius">140</param>
-    <param name="updateInterval">1</param>
+    <param name="locY">40</param>
+    <param name="hideUnit">false</param>
+    <param name="updateInterval">30</param>
   </drawable>
 
   <drawable id="BluetoothStatus" class="IconComponent">
@@ -20,28 +20,31 @@
 
   <drawable id="CurrentTime" class="ValueComponent">
     <param name="controller">Types.Controllers.CURRENT_TIME</param>
-    <param name="height">70</param>
-    <param name="width">280</param>
+    <param name="height">44</param>
+    <param name="width">80</param>
     <param name="locX">140</param>
     <param name="locY">140</param>
+    <param name="hideUnit">true</param>
     <param name="updateInterval">1</param>
   </drawable>
 
   <drawable id="Steps" class="LabeledValueComponent">
     <param name="controller">Types.Controllers.STEPS</param>
-    <param name="height">70</param>
-    <param name="width">280</param>
+    <param name="height">48</param>
+    <param name="width">80</param>
     <param name="locX">140</param>
-    <param name="locY">200</param>
+    <param name="locY">240</param>
+    <param name="hideUnit">true</param>
     <param name="updateInterval">30</param>
   </drawable>
 
-  <drawable id="Calories" class="LabeledValueComponent">
-    <param name="controller">Types.Controllers.CALORIES</param>
-    <param name="height">70</param>
-    <param name="width">280</param>
+  <drawable id="Seconds" class="ArcComponent">
+    <param name="controller">Types.Controllers.SECONDS</param>
+    <param name="height">8</param>
+    <param name="width">16</param>
     <param name="locX">140</param>
-    <param name="locY">20</param>
-    <param name="updateInterval">30</param>
+    <param name="locY">140</param>
+    <param name="radius">140</param>
+    <param name="updateInterval">1</param>
   </drawable>
 </layout>

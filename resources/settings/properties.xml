@@ -1,5 +1,6 @@
 <properties>
   <property id="ShowSecondsSetting" type="boolean">true</property>
+  <property id="ShowUnitsSetting" type="boolean">false</property>
 
   <property id="UpdateIntervalSetting" type="number">1</property>
   <property id="UpdateIntervalEverySecond" type="number">1</property>

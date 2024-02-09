@@ -26,6 +26,7 @@ module Types {
     typedef ValueParams as {
       :controller as Types.Controllers.Id,
       :height as Number,
+      :hideUnit as Boolean,
       :identifier as String,
       :locX as Number,
       :locY as Number,
@@ -35,6 +36,7 @@ module Types {
 
     typedef LabeledValueParams as {
       :controller as Types.Controllers.Id,
+      :hideUnit as Boolean,
       :height as Number,
       :identifier as String,
       :locX as Number,

@@ -4,10 +4,10 @@ import Toybox.Complications;
 import Toybox.Lang;
 
 class ComplicationsController {
-  var mComplication as Complications.Complication;
-  var mComplicationId as Complications.Type;
-  var mValue as String;
-  var mUnit as String;
+  hidden var mComplication as Complications.Complication;
+  hidden var mComplicationId as Complications.Type;
+  hidden var mValue as String;
+  hidden var mUnit as String;
 
   function initialize(complicationId as Complications.Type) {
     mComplicationId = complicationId;
@@ -39,10 +39,6 @@ class ComplicationsController {
     }
   }
 
-  function getValue() as String {
-    return mValue;
-  }
-
   function getLabel() as String {
     switch (mComplicationId) {
       case Complications.COMPLICATION_TYPE_CALORIES:
@@ -55,6 +51,10 @@ class ComplicationsController {
         }
         return mComplication[:shortLabel] as Complications.Label;
     }
+  }
+
+  function getValue() as String {
+    return mValue;
   }
 
   function getUnit() as String {
