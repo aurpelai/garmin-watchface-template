@@ -20,10 +20,12 @@ module Types {
     >;
 
     typedef ValueController as interface {
+      function getUnit() as String;
       function getValue() as String;
     };
 
     typedef LabeledValueController as interface {
+      function getUnit() as String;
       function getValue() as String;
       function getLabel() as String;
     };

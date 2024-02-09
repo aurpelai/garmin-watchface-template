@@ -7,6 +7,10 @@ class CurrentTimeController {
     return Application.loadResource(Rez.Strings.CurrentTimeLabel) as String;
   }
 
+  public function getUnit() as String {
+    return "";
+  }
+
   public function getValue() as String {
     var options =
       ({

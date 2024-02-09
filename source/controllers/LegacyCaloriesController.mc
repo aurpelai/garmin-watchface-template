@@ -3,6 +3,14 @@ import Toybox.Application;
 import Toybox.Lang;
 
 class LegacyCaloriesController {
+  function getLabel() as String {
+    return Application.loadResource(Rez.Strings.CaloriesLabel) as String;
+  }
+
+  function getUnit() as String {
+    return Application.loadResource(Rez.Strings.CaloriesUnit) as String;
+  }
+
   function getValue() as String {
     var calories = ActivityMonitor.getInfo().calories;
 
@@ -11,13 +19,5 @@ class LegacyCaloriesController {
     }
 
     return calories.format("%i");
-  }
-
-  function getLabel() as String {
-    return Application.loadResource(Rez.Strings.CaloriesLabel) as String;
-  }
-
-  function getUnit() as String {
-    return "";
   }
 }

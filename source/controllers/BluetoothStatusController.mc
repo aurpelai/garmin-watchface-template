@@ -17,6 +17,10 @@ class BluetoothStatusController {
     return Application.loadResource(Rez.Strings.BluetoothStatusLabel) as String;
   }
 
+  public function getUnit() as String {
+    return "";
+  }
+
   public function getValue() as String {
     var value = isBluetoothConnected() ? Rez.Strings.ValueOn : Rez.Strings.ValueOff;
 

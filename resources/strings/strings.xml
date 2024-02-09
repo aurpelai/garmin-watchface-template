@@ -7,6 +7,7 @@
 
   <!-- Settings Menu -->
   <string id="SettingsTitle">Settings</string>
+  <string id="ShowUnitsSettingKey">Show Units</string>
   <string id="ShowSecondsSettingKey">Show Seconds In Current Time</string>
   <string id="UpdateIntervalSettingKey">Update Interval</string>
   <string id="UpdateIntervalSettingValueEverySecond">Unlimited</string>
@@ -25,4 +26,7 @@
   <string id="CurrentTimeLabel">Time</string>
   <string id="SecondsLabel">Seconds</string>
   <string id="StepsLabel">Steps</string>
+
+  <!-- Data Units -->
+  <string id="CaloriesUnit">kCal</string>
 </strings>
