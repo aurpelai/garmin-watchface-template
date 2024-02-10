@@ -23,6 +23,13 @@ module Exceptions {
     }
   }
 
+  class InvalidTupleSizeException extends Lang.Exception {
+    function initialize(length as Number) {
+      Exception.initialize();
+      self.mMessage = "Expected a tuple but received an array of length: " + length + ".";
+    }
+  }
+
   class ComplicationCallbackMissingException extends Lang.Exception {
     function initialize(type as Complications.Type) {
       Exception.initialize();
