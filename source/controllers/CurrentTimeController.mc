@@ -2,7 +2,10 @@ import Toybox.Application;
 import Toybox.Lang;
 import Toybox.Time;
 
-class CurrentTimeController {
+class CurrentTimeController extends BaseController {
+  function initialize() {
+    BaseController.initialize();
+  }
 
   public function getAngle() as Numeric {
     var midnight = Time.today();
@@ -16,11 +19,11 @@ class CurrentTimeController {
     return Application.loadResource(Rez.Strings.CurrentTimeLabel) as String;
   }
 
-  public function getUnit() as String {
-    return "";
+  public function getProgress() as Numeric? {
+    return System.getClockTime().hour / 24.0;
   }
 
-  public function getValue() as String {
+  public function getValue() as String or Number {
     var options =
       ({
         :showSeconds => Application.Properties.getValue("ShowSecondsSetting") as Boolean,

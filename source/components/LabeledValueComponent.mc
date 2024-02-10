@@ -5,7 +5,7 @@ import Toybox.Time;
 import Toybox.WatchUi;
 
 class LabeledValueComponent extends WatchUi.Drawable {
-  hidden var mController as Types.Controllers.LabeledValueController;
+  hidden var mController as Types.Controllers.EverythingController;
   hidden var mUpdateInterval as Time.Duration;
   hidden var mUpdated as Time.Moment;
   hidden var mHideUnit as Boolean;
@@ -15,9 +15,7 @@ class LabeledValueComponent extends WatchUi.Drawable {
 
   function initialize(params as Types.Components.LabeledValueParams) {
     Drawable.initialize(params);
-    mController =
-      Utils.Controller.getController(params[:controller] as Types.Controllers.Id) as
-      Types.Controllers.LabeledValueController;
+    mController = Utils.Controller.getController(params[:controller] as Types.Controllers.Id);
     mUpdated = new Time.Moment(0);
     mUpdateInterval = Utils.Component.getUpdateInterval(params[:updateInterval]);
     mHideUnit = params[:hideUnit] as Boolean;
@@ -33,13 +31,13 @@ class LabeledValueComponent extends WatchUi.Drawable {
     var HIDE_UNIT = mHideUnit || !(Application.Properties.getValue("ShowUnitsSetting") as Boolean);
 
     if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, false)) {
-      if (HIDE_UNIT) {
+      if (HIDE_UNIT || mController.getUnit() == null) {
         mUnit = "";
       } else {
-        mUnit = mController.getUnit();
+        mUnit = mController.getUnit() as String;
       }
       mLabel = mController.getLabel();
-      mValue = mController.getValue();
+      mValue = mController.getValue().toString();
       mUpdated = Time.now();
     }
 
