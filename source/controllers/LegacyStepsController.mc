@@ -3,7 +3,19 @@ import Toybox.Complications;
 import Toybox.Lang;
 
 class LegacyStepsController {
-  function getLabel() as String {
+  public function getAngle() as Numeric {
+    var info = ActivityMonitor.getInfo();
+    var target = info[:stepGoal];
+    var current = info[:steps];
+
+    if (target == null || current == null) {
+      return Utils.Controller.getAngleByProgress(0, 100);
+    }
+
+    return Utils.Controller.getAngleByProgress(current, target);
+  }
+
+  public function getLabel() as String {
     return Application.loadResource(Rez.Strings.StepsLabel) as String;
   }
 
