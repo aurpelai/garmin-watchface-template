@@ -6,8 +6,8 @@ class SettingsSelectOptionDelegate extends WatchUi.Menu2InputDelegate {
   hidden var propertyKey as String;
 
   function initialize(id as String) {
-    propertyKey = id;
     Menu2InputDelegate.initialize();
+    propertyKey = id;
   }
 
   function onSelect(item as WatchUi.MenuItem) {

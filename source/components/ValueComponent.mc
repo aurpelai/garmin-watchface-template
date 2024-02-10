@@ -12,7 +12,8 @@ class ValueComponent extends WatchUi.Drawable {
   hidden var mUnit as String;
   hidden var mValue as String;
 
-  public function initialize(params as Types.Components.ValueParams) {
+  function initialize(params as Types.Components.ValueParams) {
+    Drawable.initialize(params);
     mController =
       Utils.Controller.getController(params[:controller] as Types.Controllers.Id) as
       Types.Controllers.ValueController;
@@ -21,7 +22,6 @@ class ValueComponent extends WatchUi.Drawable {
     mHideUnit = params[:hideUnit] as Boolean;
     mUnit = "" as String;
     mValue = Application.loadResource(Rez.Strings.UnknownTime) as String;
-    Drawable.initialize(params);
   }
 
   function draw(dc as Graphics.Dc) as Void {

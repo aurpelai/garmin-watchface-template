@@ -14,7 +14,8 @@ class ArcComponent extends WatchUi.Drawable {
   hidden var mRadius as Number;
   hidden var mWidth as Number;
 
-  public function initialize(params as Types.Components.ArcParams) {
+  function initialize(params as Types.Components.ArcParams) {
+    Drawable.initialize(params);
     mController =
       Utils.Controller.getController(params[:controller] as Types.Controllers.Id) as
       Types.Controllers.ArcController;
@@ -25,7 +26,6 @@ class ArcComponent extends WatchUi.Drawable {
     mRadius = params[:radius] as Number;
     mWidth = params[:width] as Number;
     mIsVisible = true;
-    Drawable.initialize(params);
   }
 
   function draw(dc as Graphics.Dc) as Void {

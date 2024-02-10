@@ -3,9 +3,9 @@ import Toybox.Lang;
 
 module Exceptions {
   class InvalidControllerIdException extends Lang.Exception {
-    function initialize(msg as String) {
+    function initialize(id as Types.Controllers.Id) {
       Exception.initialize();
-      self.mMessage = "No case for '" + msg + "'";
+      self.mMessage = "No case for '" + id + "' of Types.Controllers.Id";
     }
   }
 

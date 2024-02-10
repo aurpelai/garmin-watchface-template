@@ -13,7 +13,8 @@ class LabeledValueComponent extends WatchUi.Drawable {
   hidden var mUnit as String;
   hidden var mValue as String;
 
-  public function initialize(params as Types.Components.LabeledValueParams) {
+  function initialize(params as Types.Components.LabeledValueParams) {
+    Drawable.initialize(params);
     mController =
       Utils.Controller.getController(params[:controller] as Types.Controllers.Id) as
       Types.Controllers.LabeledValueController;
@@ -23,7 +24,6 @@ class LabeledValueComponent extends WatchUi.Drawable {
     mLabel = Application.loadResource(Rez.Strings.Unknown) as String;
     mUnit = "" as String;
     mValue = Application.loadResource(Rez.Strings.UnknownValue) as String;
-    Drawable.initialize(params);
   }
 
   function draw(dc as Graphics.Dc) as Void {
