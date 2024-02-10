@@ -3,13 +3,17 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-class BluetoothStatusController {
+class BluetoothStatusController extends BaseController {
+  function initialize() {
+    BaseController.initialize();
+  }
+
   hidden function isBluetoothConnected() as Boolean {
     var isBluetoothConnected = System.getDeviceSettings().phoneConnected;
     return isBluetoothConnected;
   }
 
-  public function getIcon() as BitmapResource {
+  public function getIcon() as BitmapResource? {
     return Application.loadResource(Rez.Drawables.BluetoothIcon) as BitmapResource;
   }
 
@@ -17,11 +21,7 @@ class BluetoothStatusController {
     return Application.loadResource(Rez.Strings.BluetoothStatusLabel) as String;
   }
 
-  public function getUnit() as String {
-    return "";
-  }
-
-  public function getValue() as String {
+  public function getValue() as String or Number {
     var value = isBluetoothConnected() ? Rez.Strings.ValueOn : Rez.Strings.ValueOff;
 
     return Application.loadResource(value) as String;

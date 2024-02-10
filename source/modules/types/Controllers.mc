@@ -19,34 +19,14 @@ module Types {
       ComplicationCallbackFunction
     >;
 
-    typedef ValueController as interface {
-      function getUnit() as String;
-      function getValue() as String;
-    };
-
-    typedef LabeledValueController as interface {
-      function getUnit() as String;
-      function getValue() as String;
-      function getLabel() as String;
-    };
-
-    typedef IconController as interface {
-      function getIcon() as BitmapResource;
-      function getLabel() as String;
-      function getValue() as String;
-      function shouldDraw() as Boolean;
-    };
-
-    typedef ArcController as interface {
-      function getAngle() as Number;
-      function getLabel() as String;
-      function getValue() as String;
-      function shouldDraw() as Boolean;
-    };
-
-    typedef LayoutController as ArcController or
-      IconController or
-      LabeledValueController or
-      ValueController;
+    typedef EverythingController as interface {
+    function getAngle() as Numeric;
+    function getIcon() as BitmapResource?;
+    function getLabel() as String;
+    function getProgress() as Numeric?;
+    function getUnit() as String?;
+    function getValue() as String or Number;
+    function shouldDraw() as Boolean;
+  };
   }
 }

@@ -8,7 +8,7 @@ module Utils {
   module Controller {
     function getController(
       controller as Types.Controllers.Id
-    ) as Types.Controllers.LayoutController {
+    ) as Types.Controllers.EverythingController {
       switch (controller) {
         case Types.Controllers.BLUETOOTH_STATUS:
           return new BluetoothStatusController();

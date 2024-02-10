@@ -23,7 +23,7 @@ module Types {
       :width as Number,
     };
 
-    typedef ValueParams as {
+    typedef LabeledValueParams as {
       :controller as Types.Controllers.Id,
       :height as Number,
       :hideUnit as Boolean,
@@ -34,10 +34,20 @@ module Types {
       :width as Number,
     };
 
-    typedef LabeledValueParams as {
+    typedef ProgressBarParams as {
       :controller as Types.Controllers.Id,
-      :hideUnit as Boolean,
       :height as Number,
+      :identifier as String,
+      :locX as Number,
+      :locY as Number,
+      :updateInterval as Number,
+      :width as Number,
+    };
+
+    typedef ValueParams as {
+      :controller as Types.Controllers.Id,
+      :height as Number,
+      :hideUnit as Boolean,
       :identifier as String,
       :locX as Number,
       :locY as Number,

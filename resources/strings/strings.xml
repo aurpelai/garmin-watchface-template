@@ -15,11 +15,6 @@
   <string id="UpdateIntervalSettingValueEvery15Seconds">Every 15 Seconds</string>
   <string id="UpdateIntervalSettingValueEvery30Seconds">Every 30 Seconds</string>
 
-  <!-- Unknown Data Values -->
-  <string id="Unknown">Unknown</string>
-  <string id="UnknownTime">--:--</string>
-  <string id="UnknownValue">-</string>
-
   <!-- Data Labels -->
   <string id="BluetoothStatusLabel">Bluetooth</string>
   <string id="CaloriesLabel">Calories</string>
@@ -28,5 +23,17 @@
   <string id="StepsLabel">Steps</string>
 
   <!-- Data Units -->
-  <string id="CaloriesUnit">kCal</string>
+  <string id="DistanceUnit">m</string>
+  <string id="ElevationUnit">m</string>
+  <string id="EnergyUnit">kCal</string>
+  <string id="HeightUnit">m</string>
+  <string id="SpeedUnit">m/s</string>
+  <string id="TemperatureUnit">C</string>
+  <string id="WeightUnit">g</string>
+
+  <!-- Unknown Data Values -->
+  <string id="Unknown">Unknown</string>
+  <string id="UnknownTime">--:--</string>
+  <string id="UnknownValue">-</string>
+  <string id="UnknownUnit">-</string>
 </strings>

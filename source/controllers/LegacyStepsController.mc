@@ -2,7 +2,11 @@ import Toybox.Application;
 import Toybox.Complications;
 import Toybox.Lang;
 
-class LegacyStepsController {
+class LegacyStepsController extends BaseController {
+  function initialize() {
+    BaseController.initialize();
+  }
+
   public function getAngle() as Numeric {
     var info = ActivityMonitor.getInfo();
     var target = info[:stepGoal];
@@ -19,17 +23,25 @@ class LegacyStepsController {
     return Application.loadResource(Rez.Strings.StepsLabel) as String;
   }
 
-  function getUnit() as String {
-    return "";
+  public function getProgress() as Numeric? {
+    var info = ActivityMonitor.getInfo();
+    var target = info[:stepGoal];
+    var current = info[:steps];
+
+    if (target == null || current == null) {
+      return null;
+    }
+
+    return (1.0 * current) / target;
   }
 
-  function getValue() as String {
+  public function getValue() as String or Number {
     var stepCount = ActivityMonitor.getInfo().steps;
 
     if (stepCount == null) {
       return Application.loadResource(Rez.Strings.UnknownValue) as String;
     }
 
-    return stepCount.format("%i");
+    return stepCount;
   }
 }
