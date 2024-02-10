@@ -21,6 +21,10 @@ module Utils {
       return hours.format("%02d");
     }
 
+    function getCurrentYear() as Number {
+      return Time.Gregorian.info(Time.now(), Time.FORMAT_SHORT).year;
+    }
+
     // Return a string representation of a Moment
     // @param moment a Moment that is being considered
     // @return Formatted time string

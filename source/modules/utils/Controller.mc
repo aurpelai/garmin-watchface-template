@@ -31,9 +31,13 @@ module Utils {
       }
     }
 
-    function getAngleByProgress(value as Numeric, target as Numeric) as Numeric {
+    function getAngleByProgress(value as Numeric?, target as Numeric) as Numeric {
       // The additive inverse of the angle makes our indicator travel in the correct direction.
       var STEP_ANGLE = -360.0 / target;
+
+      if (value == null) {
+        value = 0;
+      }
 
       // Make sure the position value adheres to the dc.drawArc() specs so that our
       // indicator is positioned correctly:
