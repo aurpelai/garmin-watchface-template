@@ -7,15 +7,15 @@ class LegacyCaloriesController extends BaseController {
     BaseController.initialize();
   }
 
-  function getLabel() as String {
+  public function getLabel() as String {
     return Application.loadResource(Rez.Strings.CaloriesLabel) as String;
   }
 
-  function getUnit() as String? {
+  public function getUnit() as String? {
     return Application.loadResource(Rez.Strings.EnergyUnit) as String;
   }
 
-  function getValue() as String or Number {
+  public function getValue() as String or Number {
     var calories = ActivityMonitor.getInfo().calories;
 
     if (calories == null) {
