@@ -6,8 +6,8 @@ class SettingsSelectOptionView extends WatchUi.Menu2 {
   hidden var propertyKey as String;
 
   function initialize(id as String, title as Symbol) {
-    propertyKey = id;
     Menu2.initialize({ :title => title });
+    propertyKey = id;
   }
 
   hidden function isSelected(id as String) as Boolean {
