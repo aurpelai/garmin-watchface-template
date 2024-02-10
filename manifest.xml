@@ -8,6 +8,7 @@
     <iq:permissions>
       <iq:uses-permission id="ComplicationSubscriber"/>
       <iq:uses-permission id="SensorHistory"/>
+      <iq:uses-permission id="UserProfile"/>
     </iq:permissions>
     <iq:languages>
       <iq:language>eng</iq:language>
