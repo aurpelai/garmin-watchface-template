@@ -52,9 +52,7 @@ class LabeledValueComponent extends WatchUi.Drawable {
     var UNIT_HORIZONTAL_OFFSET =
       VALUE_AND_UNIT_GAP / 2 + dc.getTextWidthInPixels(mValue, VALUE_FONT) / 2;
 
-    dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
-    dc.setClip(locX - width / 2, locY - height / 2, width, height);
-    dc.clear();
+    Utils.Component.clipAndClearRectangle(dc, locX, locY, width, height);
 
     dc.setColor(Constants.Color.SECONDARY, Constants.Color.BACKGROUND);
     dc.drawText(locX, locY - height / 2, LABEL_FONT, mLabel, Graphics.TEXT_JUSTIFY_CENTER);
