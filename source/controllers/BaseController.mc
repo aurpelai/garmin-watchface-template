@@ -18,7 +18,7 @@ class BaseController {
   public function getUnit() as String? {
     return null;
   }
-  public function getValue() as String or Number {
+  public function getValue() as String or Numeric {
     return Application.loadResource(Rez.Strings.UnknownValue) as String;
   }
   public function shouldDraw() as Boolean {
