@@ -25,9 +25,6 @@ class LabeledValueComponent extends WatchUi.Drawable {
   }
 
   function draw(dc as Graphics.Dc) as Void {
-    var LABEL_FONT = Graphics.FONT_XTINY;
-    var VALUE_FONT = Graphics.FONT_TINY;
-    var UNIT_FONT = Graphics.FONT_XTINY;
     var HIDE_UNIT = mHideUnit || !(Application.Properties.getValue("ShowUnitsSetting") as Boolean);
 
     if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, false)) {
@@ -41,25 +38,32 @@ class LabeledValueComponent extends WatchUi.Drawable {
       mUpdated = Time.now();
     }
 
-    var VALUE_AND_UNIT_GAP = dc.getTextWidthInPixels(" ", UNIT_FONT) / 2;
-    var VALUE_VERTICAL_OFFSET = dc.getFontHeight(LABEL_FONT) * 0.9;
+    var VALUE_AND_UNIT_GAP = dc.getTextWidthInPixels(" ", Constants.Font.UNIT_FONT) / 2;
+    var VALUE_VERTICAL_OFFSET = dc.getFontHeight(Constants.Font.LABEL_FONT) * 0.9;
     var VALUE_HORIZONTAL_OFFSET = Application.Properties.getValue("ShowUnitsSetting")
-      ? VALUE_AND_UNIT_GAP / 2 + dc.getTextWidthInPixels(mUnit, UNIT_FONT) / 2
+      ? VALUE_AND_UNIT_GAP / 2 + dc.getTextWidthInPixels(mUnit, Constants.Font.UNIT_FONT) / 2
       : 0;
-    var UNIT_VERTICAL_OFFSET = VALUE_VERTICAL_OFFSET + dc.getFontHeight(UNIT_FONT) / 4;
+    var UNIT_VERTICAL_OFFSET =
+      VALUE_VERTICAL_OFFSET + dc.getFontHeight(Constants.Font.UNIT_FONT) / 4;
     var UNIT_HORIZONTAL_OFFSET =
-      VALUE_AND_UNIT_GAP / 2 + dc.getTextWidthInPixels(mValue, VALUE_FONT) / 2;
+      VALUE_AND_UNIT_GAP / 2 + dc.getTextWidthInPixels(mValue, Constants.Font.VALUE_FONT) / 2;
 
     Utils.Component.clipAndClearRectangle(dc, locX, locY, width, height);
 
     dc.setColor(Constants.Color.SECONDARY, Constants.Color.BACKGROUND);
-    dc.drawText(locX, locY - height / 2, LABEL_FONT, mLabel, Graphics.TEXT_JUSTIFY_CENTER);
+    dc.drawText(
+      locX,
+      locY - height / 2,
+      Constants.Font.LABEL_FONT,
+      mLabel,
+      Graphics.TEXT_JUSTIFY_CENTER
+    );
 
     dc.setColor(Constants.Color.PRIMARY, Constants.Color.BACKGROUND);
     dc.drawText(
       locX - VALUE_HORIZONTAL_OFFSET,
       locY + VALUE_VERTICAL_OFFSET - height / 2,
-      VALUE_FONT,
+      Constants.Font.VALUE_FONT,
       mValue,
       Graphics.TEXT_JUSTIFY_CENTER
     );
@@ -68,7 +72,7 @@ class LabeledValueComponent extends WatchUi.Drawable {
       dc.drawText(
         locX + UNIT_HORIZONTAL_OFFSET,
         locY + UNIT_VERTICAL_OFFSET - height / 2,
-        UNIT_FONT,
+        Constants.Font.UNIT_FONT,
         mUnit,
         Graphics.TEXT_JUSTIFY_CENTER
       );

@@ -9,7 +9,7 @@ class ComplicationsController extends BaseController {
   hidden var mUnit as String;
 
   function initialize(type as Complications.Type) {
-    BaseController.initialize();
+    BaseController.initialize(null);
     mType = type;
     mUnit = Application.loadResource(Rez.Strings.UnknownUnit) as String;
     mValue = Application.loadResource(Rez.Strings.UnknownValue) as String;
