@@ -12,11 +12,11 @@ module Types {
       STEPS,
     }
 
-    typedef ComplicationCallbackFunction as (Method(complicationId as Complications.Id) as Void);
+    typedef ComplicationUpdater as (Method(id as Complications.Id) as Void);
 
     typedef ComplicationsControllerDictionary as Dictionary<
       Complications.Type,
-      ComplicationCallbackFunction
+      ComplicationUpdater
     >;
 
     typedef EverythingController as interface {

@@ -9,37 +9,29 @@ var gCallbacks as Types.Controllers.ComplicationsControllerDictionary =
   ({}) as Types.Controllers.ComplicationsControllerDictionary;
 
 class WatchFaceApp extends Application.AppBase {
-  hidden var mComplications as Array<Complications.Type> = [] as Array<Complications.Type>;
-
   function initialize() {
     AppBase.initialize();
     gDeviceSupportsComplications = Utils.Complications.hasComplicationSupport();
-
-    if (gDeviceSupportsComplications) {
-      mComplications =
-        [Complications.COMPLICATION_TYPE_CALORIES, Complications.COMPLICATION_TYPE_STEPS] as
-        Array<Complications.Type>;
-    }
   }
 
-  function complicationCallbackDelegate(complicationId as Complications.Id) as Void {
+  // onComplicationUpdate() is a CUSTOM event handler callback for devices with Toybox.Complications support
+  function onComplicationUpdate(complicationId as Complications.Id) as Void {
     var type = complicationId.getType() as Complications.Type;
 
     if (gCallbacks.hasKey(type)) {
-      (gCallbacks.get(type) as Types.Controllers.ComplicationCallbackFunction).invoke(
-        complicationId
-      );
+      (gCallbacks.get(type) as Types.Controllers.ComplicationUpdater).invoke(complicationId);
     }
   }
 
   // onStart() is called on application start up
   function onStart(state as Dictionary?) as Void {
     if (gDeviceSupportsComplications) {
-      Complications.registerComplicationChangeCallback(self.method(:complicationCallbackDelegate));
+      Complications.registerComplicationChangeCallback(self.method(:onComplicationUpdate));
 
-      for (var i = 0; i < mComplications.size(); i++) {
-        Complications.subscribeToUpdates(new Complications.Id(mComplications[i]));
-      }
+      Complications.subscribeToUpdates(
+        new Complications.Id(Complications.COMPLICATION_TYPE_CALORIES)
+      );
+      Complications.subscribeToUpdates(new Complications.Id(Complications.COMPLICATION_TYPE_STEPS));
     }
   }
 
