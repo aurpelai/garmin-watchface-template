@@ -13,8 +13,8 @@ class ComplicationsController extends BaseController {
     BaseController.initialize();
     mComplicationId = complicationId;
     mComplication = Complications.getComplication(new Complications.Id(mComplicationId));
+    mUnit = Application.loadResource(Rez.Strings.UnknownUnit) as String;
     mValue = Application.loadResource(Rez.Strings.UnknownValue) as String;
-    mUnit = "";
 
     Utils.Complications.registerToComplicationChangeCallback(
       mComplicationId,

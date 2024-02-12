@@ -18,7 +18,7 @@ class ValueComponent extends WatchUi.Drawable {
     mUpdated = new Time.Moment(0);
     mUpdateInterval = Utils.Component.getUpdateInterval(params[:updateInterval]);
     mHideUnit = params[:hideUnit] as Boolean;
-    mUnit = "" as String;
+    mUnit = Application.loadResource(Rez.Strings.UnknownUnit) as String;
     mValue = Application.loadResource(Rez.Strings.UnknownTime) as String;
   }
 
@@ -29,7 +29,7 @@ class ValueComponent extends WatchUi.Drawable {
 
     if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, false)) {
       if (HIDE_UNIT || mController.getUnit() == null) {
-        mUnit = "";
+        mUnit = Application.loadResource(Rez.Strings.UnknownUnit) as String;
       } else {
         mUnit = mController.getUnit() as String;
       }
