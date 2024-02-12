@@ -37,6 +37,7 @@ module Types {
     typedef ProgressBarParams as {
       :controller as Types.Controllers.Id,
       :height as Number,
+      :hideLabel as Boolean,
       :identifier as String,
       :locX as Number,
       :locY as Number,
