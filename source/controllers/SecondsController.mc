@@ -20,7 +20,7 @@ class SecondsController extends BaseController {
     return System.getClockTime().sec / 60.0;
   }
 
-  public function getValue() as String or Number {
+  public function getValue() as String or Numeric {
     return System.getClockTime().sec;
   }
 

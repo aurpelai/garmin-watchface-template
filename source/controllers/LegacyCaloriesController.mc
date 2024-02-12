@@ -59,7 +59,7 @@ class LegacyCaloriesController extends BaseController {
     return Application.loadResource(Rez.Strings.EnergyUnit) as String;
   }
 
-  public function getValue() as String or Number {
+  public function getValue() as String or Numeric {
     var calories = ActivityMonitor.getInfo().calories;
 
     if (calories == null) {

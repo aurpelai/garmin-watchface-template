@@ -43,7 +43,7 @@ class LegacyStepsController extends BaseController {
     return (1.0 * stepsInfo[0]) / stepsInfo[1];
   }
 
-  public function getValue() as String or Number {
+  public function getValue() as String or Numeric {
     var stepCount = ActivityMonitor.getInfo().steps;
 
     if (stepCount == null) {

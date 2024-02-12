@@ -23,7 +23,7 @@ class CurrentTimeController extends BaseController {
     return System.getClockTime().hour / 24.0;
   }
 
-  public function getValue() as String or Number {
+  public function getValue() as String or Numeric {
     var options =
       ({
         :showSeconds => Application.Properties.getValue("ShowSecondsSetting") as Boolean,
