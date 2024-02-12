@@ -9,14 +9,12 @@ class IconComponent extends WatchUi.Drawable {
   hidden var mUpdateInterval as Time.Duration;
   hidden var mUpdated as Time.Moment;
   hidden var mIcon as BitmapResource?;
-  hidden var mIsVisible as Boolean;
 
   function initialize(params as Types.Components.IconParams) {
     Drawable.initialize(params);
     mController = Utils.Controller.getController(params[:controller] as Types.Controllers.Id);
     mUpdated = new Time.Moment(0);
     mUpdateInterval = Utils.Component.getUpdateInterval(params[:updateInterval]);
-    mIsVisible = false;
   }
 
   function draw(dc as Graphics.Dc) as Void {
@@ -27,7 +25,7 @@ class IconComponent extends WatchUi.Drawable {
 
     Utils.Component.clipAndClearRectangle(dc, locX, locY, width, height);
 
-    if (mIcon == null || !mIsVisible) {
+    if (mIcon == null || !mController.shouldDraw()) {
       return;
     }
 
