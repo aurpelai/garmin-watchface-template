@@ -34,6 +34,7 @@
     <param name="width">80</param>
     <param name="locX">140</param>
     <param name="locY">240</param>
+    <param name="hideLabel">true</param>
     <param name="updateInterval">1</param>
   </drawable>
 
