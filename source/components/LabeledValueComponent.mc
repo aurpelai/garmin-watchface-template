@@ -36,7 +36,7 @@ class LabeledValueComponent extends WatchUi.Drawable {
       } else {
         mUnit = mController.getUnit() as String;
       }
-      mLabel = mController.getLabel();
+      mLabel = mController.getLabel().toUpper();
       mValue = mController.getValue().toString();
       mUpdated = Time.now();
     }
