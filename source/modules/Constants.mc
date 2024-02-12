@@ -12,4 +12,19 @@ module Constants {
     const SECONDARY as Graphics.ColorValue = Graphics.COLOR_LT_GRAY;
     const TERTIARY as Graphics.ColorValue = Graphics.COLOR_DK_GRAY;
   }
+
+  module User {
+    const ACTIVITY_CLASS_SEDENTARY = 1.2;
+    const ACTIVITY_CLASS_LIGHTLY_ACTIVE = 1.375;
+    const ACTIVITY_CLASS_MODERATELY_ACTIVE = 1.55;
+    const ACTIVITY_CLASS_ACTIVE = 1.725;
+    const ACTIVITY_CLASS_VERY_ACTIVE = 1.9;
+
+    const DEFAULT_FEMALE_DAILY_CALORIES = 2000;
+    const DEFAULT_GENERIC_DAILY_CALORIES = 2250;
+    const DEFAULT_MALE_DAILY_CALORIES = 2500;
+
+    const MALE_BMR_SCALING_VALUE = 5;
+    const FEMALE_BMR_SCALING_VALUE = -161;
+  }
 }
