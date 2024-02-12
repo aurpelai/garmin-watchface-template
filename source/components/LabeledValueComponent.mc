@@ -25,10 +25,10 @@ class LabeledValueComponent extends WatchUi.Drawable {
   }
 
   function draw(dc as Graphics.Dc) as Void {
-    var HIDE_UNIT = mHideUnit || !(Application.Properties.getValue("ShowUnitsSetting") as Boolean);
+    mHideUnit = mHideUnit || !(Application.Properties.getValue("ShowUnitsSetting") as Boolean);
 
     if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, false)) {
-      if (HIDE_UNIT || mController.getUnit() == null) {
+      if (mHideUnit || mController.getUnit() == null) {
         mUnit = Application.loadResource(Rez.Strings.UnknownUnit) as String;
       } else {
         mUnit = mController.getUnit() as String;
@@ -68,7 +68,7 @@ class LabeledValueComponent extends WatchUi.Drawable {
       Graphics.TEXT_JUSTIFY_CENTER
     );
 
-    if (!HIDE_UNIT) {
+    if (!mHideUnit) {
       dc.drawText(
         locX + UNIT_HORIZONTAL_OFFSET,
         locY + UNIT_VERTICAL_OFFSET - height / 2,
