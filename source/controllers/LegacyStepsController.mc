@@ -7,25 +7,8 @@ class LegacyStepsController extends BaseController {
     BaseController.initialize();
   }
 
-  hidden function getStepsInfo() as Array<Numeric> {
-    var info = ActivityMonitor.getInfo();
-    var target = info[:stepGoal];
-    var current = info[:steps];
-
-    if (target == null || current == null) {
-      return [0, 100] as Array<Numeric>;
-    }
-
-    return [current, target] as Array<Numeric>;
-  }
-
   public function getAngle() as Numeric {
-    var stepsInfo = getStepsInfo();
-
-    if (stepsInfo.size() != 2) {
-      throw new Exceptions.InvalidTupleSizeException(stepsInfo.size());
-    }
-
+    var stepsInfo = Utils.Data.getStepsInfo();
     return Utils.Controller.getAngleByProgress(stepsInfo[0], stepsInfo[1]);
   }
 
@@ -34,12 +17,7 @@ class LegacyStepsController extends BaseController {
   }
 
   public function getProgress() as Numeric? {
-    var stepsInfo = getStepsInfo();
-
-    if (stepsInfo.size() != 2) {
-      throw new Exceptions.InvalidTupleSizeException(stepsInfo.size());
-    }
-
+    var stepsInfo = Utils.Data.getStepsInfo();
     return (1.0 * stepsInfo[0]) / stepsInfo[1];
   }
 
