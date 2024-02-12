@@ -22,24 +22,6 @@ class ComplicationsController extends BaseController {
     );
   }
 
-  hidden function getUnitByEnumValue(index as Complications.Unit?) as String? {
-    if (index == null) {
-      return null;
-    }
-
-    var units =
-      [
-        Rez.Strings.UnknownUnit,
-        Rez.Strings.DistanceUnit,
-        Rez.Strings.ElevationUnit,
-        Rez.Strings.HeightUnit,
-        Rez.Strings.SpeedUnit,
-        Rez.Strings.TemperatureUnit,
-        Rez.Strings.WeightUnit,
-      ] as Array<Symbol>;
-
-    return Application.loadResource(units[index as Number]) as String;
-  }
 
   public function onComplicationUpdate(complicationId as Complications.Id) as Void {
     if (complicationId.getType() != mComplicationId) {
@@ -52,7 +34,8 @@ class ComplicationsController extends BaseController {
       mValue = (mComplication[:value] as Complications.Value).toString();
     }
 
-    mUnit = getUnitByEnumValue(mComplication[:unit] as Complications.Unit) as String?;
+    mUnit =
+      Utils.Complications.getUnitByEnumValue(complication[:unit] as Complications.Unit?) as String;
   }
 
   public function getLabel() as String {

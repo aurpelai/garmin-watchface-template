@@ -1,7 +1,6 @@
 import Toybox.Application;
 import Toybox.Complications;
 import Toybox.Lang;
-import Toybox.System;
 
 module Utils {
   module Complications {
@@ -25,6 +24,25 @@ module Utils {
       }
 
       gCallbacks.put(type, callback);
+    }
+
+    function getUnitByEnumValue(index as Complications.Unit?) as String? {
+      if (index == null) {
+        return Application.loadResource(Rez.Strings.UnknownUnit) as String;
+      }
+
+      var units =
+        [
+          Rez.Strings.UnknownUnit,
+          Rez.Strings.DistanceUnit,
+          Rez.Strings.ElevationUnit,
+          Rez.Strings.HeightUnit,
+          Rez.Strings.SpeedUnit,
+          Rez.Strings.TemperatureUnit,
+          Rez.Strings.WeightUnit,
+        ] as Array<Symbol>;
+
+      return Application.loadResource(units[index as Number]) as String;
     }
   }
 }
