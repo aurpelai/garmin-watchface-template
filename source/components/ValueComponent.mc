@@ -23,9 +23,11 @@ class ValueComponent extends WatchUi.Drawable {
   }
 
   function draw(dc as Graphics.Dc) as Void {
-    var VALUE_FONT = Graphics.FONT_LARGE;
-    var UNIT_FONT = Graphics.FONT_SMALL;
     var HIDE_UNIT = mHideUnit || !(Application.Properties.getValue("ShowUnitsSetting") as Boolean);
+    var VALUE_FONT =
+      mController.getId() == Types.Controllers.CURRENT_TIME
+        ? Graphics.FONT_NUMBER_HOT
+        : Constants.Font.VALUE_FONT;
 
     if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, false)) {
       if (HIDE_UNIT || mController.getUnit() == null) {
@@ -37,9 +39,9 @@ class ValueComponent extends WatchUi.Drawable {
       mUpdated = Time.now();
     }
 
-    var VALUE_AND_UNIT_GAP = dc.getTextWidthInPixels(" ", UNIT_FONT) / 2;
+    var VALUE_AND_UNIT_GAP = dc.getTextWidthInPixels(" ", Constants.Font.UNIT_FONT) / 2;
     var VALUE_HORIZONTAL_OFFSET =
-      VALUE_AND_UNIT_GAP / 2 + dc.getTextWidthInPixels(mUnit, UNIT_FONT) / 2;
+      VALUE_AND_UNIT_GAP / 2 + dc.getTextWidthInPixels(mUnit, Constants.Font.UNIT_FONT) / 2;
     var UNIT_HORIZONTAL_OFFSET =
       VALUE_AND_UNIT_GAP / 2 + dc.getTextWidthInPixels(mValue, VALUE_FONT) / 2;
 
@@ -58,7 +60,7 @@ class ValueComponent extends WatchUi.Drawable {
       dc.drawText(
         locX + UNIT_HORIZONTAL_OFFSET,
         locY - height / 2,
-        UNIT_FONT,
+        Constants.Font.UNIT_FONT,
         mUnit,
         Graphics.TEXT_JUSTIFY_CENTER
       );

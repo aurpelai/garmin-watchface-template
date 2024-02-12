@@ -20,13 +20,14 @@ module Types {
     >;
 
     typedef EverythingController as interface {
-    function getAngle() as Numeric;
-    function getIcon() as BitmapResource?;
-    function getLabel() as String;
-    function getProgress() as Numeric?;
-    function getUnit() as String?;
-    function getValue() as String or Numeric;
-    function shouldDraw() as Boolean;
-  };
+      function getAngle() as Numeric;
+      function getIcon() as BitmapResource?;
+      function getId() as Types.Controllers.Id?;
+      function getLabel() as String;
+      function getProgress() as Numeric?;
+      function getUnit() as String?;
+      function getValue() as String or Numeric;
+      function shouldDraw() as Boolean;
+    };
   }
 }

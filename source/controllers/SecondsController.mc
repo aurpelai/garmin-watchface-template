@@ -4,8 +4,8 @@ import Toybox.System;
 import Toybox.Time;
 
 class SecondsController extends BaseController {
-  function initialize() {
-    BaseController.initialize();
+  function initialize(id as Types.Controllers.Id) {
+    BaseController.initialize(id);
   }
 
   public function getAngle() as Numeric {

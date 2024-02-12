@@ -3,8 +3,8 @@ import Toybox.Lang;
 import Toybox.Time;
 
 class CurrentTimeController extends BaseController {
-  function initialize() {
-    BaseController.initialize();
+  function initialize(id as Types.Controllers.Id) {
+    BaseController.initialize(id);
   }
 
   public function getAngle() as Numeric {

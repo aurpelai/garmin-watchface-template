@@ -11,19 +11,19 @@ module Utils {
     ) as Types.Controllers.EverythingController {
       switch (controller) {
         case Types.Controllers.BLUETOOTH_STATUS:
-          return new BluetoothStatusController();
+          return new BluetoothStatusController(controller);
         case Types.Controllers.CALORIES:
           if (!gDeviceSupportsComplications) {
-            return new LegacyCaloriesController();
+            return new LegacyCaloriesController(controller);
           }
           return new ComplicationsController(Complications.COMPLICATION_TYPE_CALORIES);
         case Types.Controllers.CURRENT_TIME:
-          return new CurrentTimeController();
+          return new CurrentTimeController(controller);
         case Types.Controllers.SECONDS:
-          return new SecondsController();
+          return new SecondsController(controller);
         case Types.Controllers.STEPS:
           if (!gDeviceSupportsComplications) {
-            return new LegacyStepsController();
+            return new LegacyStepsController(controller);
           }
           return new ComplicationsController(Complications.COMPLICATION_TYPE_STEPS);
         default:

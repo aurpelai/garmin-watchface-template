@@ -4,8 +4,8 @@ import Toybox.System;
 import Toybox.WatchUi;
 
 class BluetoothStatusController extends BaseController {
-  function initialize() {
-    BaseController.initialize();
+  function initialize(id as Types.Controllers.Id) {
+    BaseController.initialize(id);
   }
 
   hidden function isBluetoothConnected() as Boolean {

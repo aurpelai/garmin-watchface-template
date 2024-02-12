@@ -13,6 +13,13 @@ module Constants {
     const TERTIARY as Graphics.ColorValue = Graphics.COLOR_DK_GRAY;
   }
 
+  module Font {
+    const CURRENT_TIME_FONT as Graphics.FontDefinition = Graphics.FONT_NUMBER_MEDIUM;
+    const LABEL_FONT as Graphics.FontDefinition = Graphics.FONT_XTINY;
+    const UNIT_FONT as Graphics.FontDefinition = Graphics.FONT_XTINY;
+    const VALUE_FONT as Graphics.FontDefinition = Graphics.FONT_TINY;
+  }
+
   module User {
     const ACTIVITY_CLASS_SEDENTARY = 1.2;
     const ACTIVITY_CLASS_LIGHTLY_ACTIVE = 1.375;

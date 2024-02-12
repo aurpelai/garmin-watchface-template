@@ -3,11 +3,19 @@ import Toybox.Lang;
 import Toybox.WatchUi;
 
 class BaseController {
+  var mId as Types.Controllers.Id?;
+
+  public function initialize(id as Types.Controllers.Id?) {
+    mId = id;
+  }
   public function getAngle() as Numeric {
     return Utils.Controller.getAngleByProgress(0, 100);
   }
   public function getIcon() as BitmapResource? {
     return null;
+  }
+  public function getId() as Types.Controllers.Id? {
+    return mId;
   }
   public function getLabel() as String {
     return Application.loadResource(Rez.Strings.Unknown) as String;

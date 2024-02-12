@@ -5,8 +5,8 @@ import Toybox.Math;
 import Toybox.Time;
 
 class LegacyCaloriesController extends BaseController {
-  function initialize() {
-    BaseController.initialize();
+  function initialize(id as Types.Controllers.Id) {
+    BaseController.initialize(id);
   }
 
   public function getAngle() as Numeric {
