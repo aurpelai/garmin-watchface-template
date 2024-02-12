@@ -22,12 +22,7 @@ class LegacyStepsController extends BaseController {
   }
 
   public function getValue() as String or Numeric {
-    var stepCount = ActivityMonitor.getInfo().steps;
-
-    if (stepCount == null) {
-      return Application.loadResource(Rez.Strings.UnknownValue) as String;
-    }
-
-    return stepCount;
+    var stepsInfo = Utils.Data.getStepsInfo();
+    return stepsInfo[0];
   }
 }
