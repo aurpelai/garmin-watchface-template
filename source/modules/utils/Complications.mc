@@ -17,7 +17,7 @@ module Utils {
 
     function registerToComplicationChangeCallback(
       type as Complications.Type,
-      callback as Types.Controllers.ComplicationCallbackFunction
+      callback as Types.Controllers.ComplicationUpdater
     ) as Void {
       if (gCallbacks.hasKey(type)) {
         return;
