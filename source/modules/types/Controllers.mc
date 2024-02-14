@@ -5,6 +5,7 @@ import Toybox.WatchUi;
 module Types {
   module Controllers {
     enum Id {
+      BATTERY,
       BLUETOOTH_STATUS,
       CALORIES,
       CURRENT_TIME,

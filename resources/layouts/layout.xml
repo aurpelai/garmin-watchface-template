@@ -19,6 +19,16 @@
     <param name="updateInterval">1</param>
   </drawable>
 
+  <drawable id="Steps" class="ProgressBarComponent">
+    <param name="controller">Types.Controllers.STEPS</param>
+    <param name="height">4</param>
+    <param name="width">240</param>
+    <param name="locX">140</param>
+    <param name="locY">182</param>
+    <param name="hideLabel">true</param>
+    <param name="updateInterval">1</param>
+  </drawable>
+
   <drawable id="BluetoothStatus" class="IconComponent">
     <param name="controller">Types.Controllers.BLUETOOTH_STATUS</param>
     <param name="height">16</param>
@@ -28,8 +38,8 @@
     <param name="updateInterval">30</param>
   </drawable>
 
-  <drawable id="Steps" class="ProgressBarComponent">
-    <param name="controller">Types.Controllers.STEPS</param>
+  <drawable id="Battery" class="ProgressBarComponent">
+    <param name="controller">Types.Controllers.BATTERY</param>
     <param name="height">4</param>
     <param name="width">80</param>
     <param name="locX">140</param>

@@ -10,6 +10,11 @@ module Utils {
       controller as Types.Controllers.Id
     ) as Types.Controllers.EverythingController {
       switch (controller) {
+        case Types.Controllers.BATTERY:
+          if (!gDeviceSupportsComplications) {
+            return new LegacyBatteryController(controller);
+          }
+          return new ComplicationsController(Complications.COMPLICATION_TYPE_BATTERY);
         case Types.Controllers.BLUETOOTH_STATUS:
           return new BluetoothStatusController(controller);
         case Types.Controllers.CALORIES:

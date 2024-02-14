@@ -2,6 +2,7 @@ import Toybox.ActivityMonitor;
 import Toybox.Application;
 import Toybox.Complications;
 import Toybox.Lang;
+import Toybox.System;
 
 class ComplicationsController extends BaseController {
   hidden var mType as Complications.Type;
@@ -13,7 +14,6 @@ class ComplicationsController extends BaseController {
     mType = type;
     mUnit = Application.loadResource(Rez.Strings.UnknownUnit) as String;
     mValue = Application.loadResource(Rez.Strings.UnknownValue) as String;
-
     Utils.Complications.registerToComplicationChangeCallback(
       type,
       self.method(:onComplicationUpdate)
@@ -39,6 +39,8 @@ class ComplicationsController extends BaseController {
 
   public function getAngle() as Numeric {
     switch (mType) {
+      case Complications.COMPLICATION_TYPE_BATTERY:
+        return Utils.Controller.getAngleByProgress(100 - System.getSystemStats().battery, 100);
       case Complications.COMPLICATION_TYPE_CALORIES:
         return Utils.Controller.getAngleByProgress(
           ActivityMonitor.getInfo().calories,
@@ -54,6 +56,8 @@ class ComplicationsController extends BaseController {
 
   public function getLabel() as String {
     switch (mType) {
+      case Complications.COMPLICATION_TYPE_BATTERY:
+        return Application.loadResource(Rez.Strings.BatteryLabel) as String;
       case Complications.COMPLICATION_TYPE_CALORIES:
         return Application.loadResource(Rez.Strings.CaloriesLabel) as String;
       case Complications.COMPLICATION_TYPE_STEPS:
@@ -65,11 +69,13 @@ class ComplicationsController extends BaseController {
 
   public function getProgress() as Numeric? {
     switch (mType) {
+      case Complications.COMPLICATION_TYPE_BATTERY:
+        return System.getSystemStats().battery / 100.0;
       case Complications.COMPLICATION_TYPE_CALORIES:
         var value = ActivityMonitor.getInfo().calories;
 
         if (value == null) {
-          value = 0;
+          return null;
         }
 
         return value / Utils.Data.getCalorieTarget();
