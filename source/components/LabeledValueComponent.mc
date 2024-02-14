@@ -37,7 +37,9 @@ class LabeledValueComponent extends WatchUi.Drawable {
 
   function drawValue(dc as Graphics.Dc, valueAndUnitGap as Numeric) as Void {
     var VERTICAL_OFFSET = Graphics.getFontHeight(Constants.Font.LABEL_FONT) / 2;
-    var HORIZONTAL_OFFSET = !Application.Properties.getValue("HideUnitsSetting")
+    var HORIZONTAL_OFFSET = !(
+      (Application.Properties.getValue("HideUnitsSetting") as Boolean) || mHideUnit
+    )
       ? valueAndUnitGap / 2 + dc.getTextWidthInPixels(mUnit, Constants.Font.UNIT_FONT) / 2
       : 0;
 
@@ -77,15 +79,16 @@ class LabeledValueComponent extends WatchUi.Drawable {
       mUpdated = Time.now();
     }
 
+    var VALUE_AND_UNIT_GAP = dc.getTextWidthInPixels(" ", Constants.Font.UNIT_FONT) / 2;
+
     Utils.Component.clipAndClearRectangle(dc, locX, locY, width, height);
-
-    var VALUE_AND_UNIT_GAP = dc.getTextWidthInPixels(" ", Constants.Font.UNIT_FONT);
-
     drawLabel(dc);
     drawValue(dc, VALUE_AND_UNIT_GAP);
 
-    if (!mHideUnit) {
-      drawUnit(dc, VALUE_AND_UNIT_GAP);
+    if (mHideUnit || (Application.Properties.getValue("HideUnitsSetting") as Boolean)) {
+      return;
     }
+
+    drawUnit(dc, VALUE_AND_UNIT_GAP);
   }
 }
