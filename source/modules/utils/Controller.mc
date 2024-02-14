@@ -53,6 +53,11 @@ module Utils {
       updateInterval as Time.Duration,
       dismissUpdateIntervalSetting as Boolean
     ) as Boolean {
+      if (gForceRedraw) {
+        gForceRedraw = false;
+        return true;
+      }
+
       if (!dismissUpdateIntervalSetting && !isAllowedToUpdate()) {
         return false;
       }

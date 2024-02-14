@@ -17,6 +17,7 @@ class WatchFaceView extends WatchUi.WatchFace {
   // loading resources into memory.
   function onShow() as Void {
     Application.Storage.setValue("HighPowerMode", true);
+    gForceRedraw = true;
   }
 
   // Update the view

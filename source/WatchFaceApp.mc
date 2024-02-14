@@ -7,6 +7,7 @@ import Toybox.WatchUi;
 var gCallbacks as Types.Controllers.ComplicationsControllerDictionary =
   ({}) as Types.Controllers.ComplicationsControllerDictionary;
 var gIsLegacyDevice as Boolean = true;
+var gForceRedraw as Boolean = false;
 
 class WatchFaceApp extends Application.AppBase {
   function initialize() {
