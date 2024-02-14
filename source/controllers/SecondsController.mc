@@ -11,7 +11,7 @@ class SecondsController extends BaseController {
   public function getAngle() as Numeric {
     return Utils.Conversion.progressToAngle(System.getClockTime().sec, {
       :min => Constants.Value.DEFAULT_MIN_PROGRESS,
-      :max => 60,
+      :max => Time.Gregorian.SECONDS_PER_MINUTE,
     });
   }
 
@@ -20,7 +20,7 @@ class SecondsController extends BaseController {
   }
 
   public function getProgress() as Numeric? {
-    return System.getClockTime().sec / 60.0;
+    return System.getClockTime().sec / Time.Gregorian.SECONDS_PER_MINUTE;
   }
 
   public function getValue() as String or Numeric {
