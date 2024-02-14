@@ -6,7 +6,7 @@
     <param name="locX">140</param>
     <param name="locY">40</param>
     <param name="hideUnit">false</param>
-    <param name="updateInterval">30</param>
+    <param name="updateInterval">Constants.Values.UPDATE_INTERVAL_LONG</param>
   </drawable>
 
   <drawable id="CurrentTime" class="ValueComponent">
@@ -16,7 +16,7 @@
     <param name="locX">140</param>
     <param name="locY">140</param>
     <param name="hideUnit">true</param>
-    <param name="updateInterval">1</param>
+    <param name="updateInterval">Constants.Values.UPDATE_INTERVAL_UNLIMITED</param>
   </drawable>
 
   <drawable id="Steps" class="ProgressBarComponent">
@@ -26,7 +26,7 @@
     <param name="locX">140</param>
     <param name="locY">182</param>
     <param name="hideLabel">true</param>
-    <param name="updateInterval">15</param>
+    <param name="updateInterval">Constants.Values.UPDATE_INTERVAL_LONG</param>
   </drawable>
 
   <drawable id="BluetoothStatus" class="IconComponent">
@@ -35,7 +35,7 @@
     <param name="width">16</param>
     <param name="locX">140</param>
     <param name="locY">212</param>
-    <param name="updateInterval">15</param>
+    <param name="updateInterval">Constants.Values.UPDATE_INTERVAL_SHORT</param>
   </drawable>
 
   <drawable id="Battery" class="ProgressBarComponent">
@@ -45,7 +45,7 @@
     <param name="locX">140</param>
     <param name="locY">240</param>
     <param name="hideLabel">false</param>
-    <param name="updateInterval">900</param>
+    <param name="updateInterval">Constants.Values.UPDATE_INTERVAL_REALLY_LONG</param>
   </drawable>
 
   <drawable id="Seconds" class="ArcComponent">
@@ -55,6 +55,6 @@
     <param name="locX">140</param>
     <param name="locY">140</param>
     <param name="radius">140</param>
-    <param name="updateInterval">1</param>
+    <param name="updateInterval">Constants.Values.UPDATE_INTERVAL_UNLIMITED</param>
   </drawable>
 </layout>
