@@ -12,8 +12,13 @@ class SettingsView extends WatchUi.Menu2 {
     var properties =
       [
         {
-          :id => "ShowUnitsSetting",
-          :label => Rez.Strings.ShowUnitsSettingKey,
+          :id => "ShortLabelsSetting",
+          :label => Rez.Strings.ShortLabelsSettingKey,
+          :type => Types.Settings.TOGGLE_MENU_ITEM,
+        },
+        {
+          :id => "HideUnitsSetting",
+          :label => Rez.Strings.HideUnitsSettingKey,
           :type => Types.Settings.TOGGLE_MENU_ITEM,
         },
         {

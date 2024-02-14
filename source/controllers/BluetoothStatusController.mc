@@ -18,6 +18,10 @@ class BluetoothStatusController extends BaseController {
   }
 
   public function getLabel() as String {
+    if (Application.Properties.getValue("ShortLabelsSetting")) {
+      return Application.loadResource(Rez.Strings.BluetoothStatusLabelShort) as String;
+    }
+
     return Application.loadResource(Rez.Strings.BluetoothStatusLabel) as String;
   }
 

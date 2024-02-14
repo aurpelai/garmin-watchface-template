@@ -19,6 +19,10 @@ class CurrentTimeController extends BaseController {
   }
 
   public function getLabel() as String {
+    if (Application.Properties.getValue("ShortLabelsSetting")) {
+      return Application.loadResource(Rez.Strings.CurrentTimeLabelShort) as String;
+    }
+
     return Application.loadResource(Rez.Strings.CurrentTimeLabel) as String;
   }
 
