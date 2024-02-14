@@ -4,14 +4,14 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-var gDeviceSupportsComplications as Boolean = false;
 var gCallbacks as Types.Controllers.ComplicationsControllerDictionary =
   ({}) as Types.Controllers.ComplicationsControllerDictionary;
+var gIsLegacyDevice as Boolean = true;
 
 class WatchFaceApp extends Application.AppBase {
   function initialize() {
     AppBase.initialize();
-    gDeviceSupportsComplications = Utils.Complications.hasComplicationSupport();
+    gIsLegacyDevice = !Utils.Complications.hasComplicationSupport();
   }
 
   // onComplicationUpdate() is a CUSTOM event handler callback for devices with Toybox.Complications support
@@ -25,21 +25,24 @@ class WatchFaceApp extends Application.AppBase {
 
   // onStart() is called on application start up
   function onStart(state as Dictionary?) as Void {
-    if (gDeviceSupportsComplications) {
-      Complications.registerComplicationChangeCallback(self.method(:onComplicationUpdate));
-
-      Complications.subscribeToUpdates(
-        new Complications.Id(Complications.COMPLICATION_TYPE_CALORIES)
-      );
-      Complications.subscribeToUpdates(new Complications.Id(Complications.COMPLICATION_TYPE_STEPS));
+    if (gIsLegacyDevice) {
+      return;
     }
+
+    Complications.registerComplicationChangeCallback(self.method(:onComplicationUpdate));
+    Complications.subscribeToUpdates(
+      new Complications.Id(Complications.COMPLICATION_TYPE_CALORIES)
+    );
+    Complications.subscribeToUpdates(new Complications.Id(Complications.COMPLICATION_TYPE_STEPS));
   }
 
   // onStop() is called when your application is exiting
   function onStop(state as Dictionary?) as Void {
-    if (gDeviceSupportsComplications) {
-      Complications.unsubscribeFromAllUpdates();
+    if (gIsLegacyDevice) {
+      return;
     }
+
+    Complications.unsubscribeFromAllUpdates();
   }
 
   // Return the initial view of your application here
