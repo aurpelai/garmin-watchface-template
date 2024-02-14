@@ -98,7 +98,7 @@ class ComplicationsController extends BaseController {
     }
   }
 
-  public function getUnit() as String? {
+  public function getUnit() as String {
     return mUnit;
   }
 

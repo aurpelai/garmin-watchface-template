@@ -26,7 +26,7 @@ module Types {
       function getId() as Types.Controllers.Id?;
       function getLabel() as String;
       function getProgress() as Numeric?;
-      function getUnit() as String?;
+      function getUnit() as String;
       function getValue() as String or Numeric;
       function shouldDraw() as Boolean;
     };

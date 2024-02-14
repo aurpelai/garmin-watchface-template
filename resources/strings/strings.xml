@@ -44,5 +44,5 @@
   <string id="Unknown">Unknown</string>
   <string id="UnknownTime">--:--</string>
   <string id="UnknownValue">-</string>
-  <string id="UnknownUnit"></string>
+  <string id="UnknownUnit"> </string>
 </strings>
