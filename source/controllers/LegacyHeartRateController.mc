@@ -14,6 +14,10 @@ class LegacyHeartRateController extends BaseController {
   }
 
   public function getLabel() as String {
+    if (Application.Properties.getValue("ShortLabelsSetting")) {
+      return Application.loadResource(Rez.Strings.HeartRateLabelShort) as String;
+    }
+
     return Application.loadResource(Rez.Strings.HeartRateLabel) as String;
   }
 
