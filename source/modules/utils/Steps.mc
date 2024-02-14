@@ -6,14 +6,9 @@ module Utils {
     // Gets the user's step progress as percentage
     // @return Numeric or null
     function getStepProgress(current as Number?) as Numeric? {
-      if (current == null) {
-        return null;
-      }
+      var target = ActivityMonitor.getInfo()[:stepGoal];
 
-      var info = ActivityMonitor.getInfo();
-      var target = info[:stepGoal];
-
-      if (target == null) {
+      if (current == null || target == null) {
         return null;
       }
 
