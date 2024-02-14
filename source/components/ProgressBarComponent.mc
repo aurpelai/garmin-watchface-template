@@ -26,10 +26,8 @@ class ProgressBarComponent extends WatchUi.Drawable {
     mLabel = mController.getLabel().toUpper();
 
     if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, false)) {
-      if (mController.getProgress() == null) {
-        return;
-      }
-      mProgress = mController.getProgress() as Numeric;
+      var progress = mController.getProgress();
+      mProgress = progress != null ? progress : 0;
       mUpdated = Time.now();
     }
 
