@@ -31,8 +31,11 @@ class ProgressBarComponent extends WatchUi.Drawable {
       mUpdated = Time.now();
     }
 
+    var LABEL_OFFSET = 4;
     var progress = width * mProgress;
-    var totalHeight = mHideLabel ? height : height + dc.getFontHeight(Constants.Font.LABEL_FONT);
+    var totalHeight = !mHideLabel
+      ? height + LABEL_OFFSET + dc.getFontHeight(Constants.Font.LABEL_FONT)
+      : height;
 
     Utils.Component.clipAndClearRectangle(dc, locX, locY + totalHeight / 2, width, totalHeight);
 
@@ -46,7 +49,7 @@ class ProgressBarComponent extends WatchUi.Drawable {
       dc.setColor(Constants.Color.SECONDARY, Constants.Color.BACKGROUND);
       dc.drawText(
         locX,
-        locY + height,
+        locY + height + LABEL_OFFSET,
         Constants.Font.LABEL_FONT,
         mLabel,
         Graphics.TEXT_JUSTIFY_CENTER
