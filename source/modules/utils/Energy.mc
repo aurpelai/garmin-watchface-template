@@ -4,7 +4,7 @@ import Toybox.Math;
 import Toybox.UserProfile;
 
 module Utils {
-  module Data {
+  module Energy {
     function getActivityClassMultiplier(activityClass as Number) as Numeric {
       var exerciseMultiplierClasses =
         [
@@ -22,7 +22,7 @@ module Utils {
       return exerciseMultiplierClasses[index];
     }
 
-    function getCalorieTarget() as Numeric {
+    function getCalorieTarget() as Number {
       var userProfile = UserProfile.getProfile();
 
       if (
@@ -54,27 +54,27 @@ module Utils {
           : Constants.User.MALE_BMR_SCALING_VALUE;
 
       var bodyMetabolicRate =
-        10.0 * ((userProfile.weight as Number) / 1000) +
+        10.0 * Utils.Conversion.valueToKilos(userProfile.weight as Number) +
         6.25 * (userProfile.height as Number) -
         5.0 * (Utils.Time.getCurrentYear() - (userProfile.birthYear as Number)) +
         scalingValue;
 
       var multiplier = getActivityClassMultiplier(userProfile.activityClass as Number);
-      var activeMetabolicRate = Math.round(bodyMetabolicRate * multiplier);
+      var activeMetabolicRate = Math.round(bodyMetabolicRate * multiplier).toNumber();
 
       return activeMetabolicRate;
     }
 
-    function getStepsInfo() as Array<Numeric> {
-      var info = ActivityMonitor.getInfo();
-      var target = info[:stepGoal];
-      var current = info[:steps];
+    // Gets an estimation of the user's daily calorie burn progress as a percentage
+    // @return Numeric or null
+    function getCalorieProgress(current as Number?) as Numeric? {
+      var value = ActivityMonitor.getInfo().calories;
 
-      if (target == null || current == null) {
-        return [0, 100] as Array<Numeric>;
+      if (value == null) {
+        return null;
       }
 
-      return [current, target] as Array<Numeric>;
+      return value / getCalorieTarget();
     }
   }
 }

@@ -22,12 +22,16 @@ class LegacyStepsController extends BaseController {
   }
 
   public function getProgress() as Numeric? {
-    var stepsInfo = Utils.Data.getStepsInfo();
-    return (1.0 * stepsInfo[0]) / stepsInfo[1];
+    return Utils.Steps.getStepProgress(ActivityMonitor.getInfo().steps);
   }
 
   public function getValue() as String or Numeric {
-    var stepsInfo = Utils.Data.getStepsInfo();
-    return stepsInfo[0];
+    var current = ActivityMonitor.getInfo().steps;
+
+    if (current == null) {
+      return Application.loadResource(Rez.Strings.UnknownValue) as String;
+    }
+
+    return current;
   }
 }
