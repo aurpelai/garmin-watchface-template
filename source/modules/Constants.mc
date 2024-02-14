@@ -38,5 +38,6 @@ module Constants {
   module Value {
     const DEFAULT_MIN_PROGRESS = 0;
     const DEFAULT_MAX_PROGRESS = 100;
+    const PROGRESS_BAR_LABEL_VERTICAL_OFFSET = 4;
   }
 }
