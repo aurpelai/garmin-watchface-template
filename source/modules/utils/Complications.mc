@@ -26,9 +26,13 @@ module Utils {
       gCallbacks.put(type, callback);
     }
 
-    function getUnitByEnumValue(index as Complications.Unit?) as String? {
-      if (index == null) {
+    function getUnitFromEnum(value as Complications.Unit or String or Null) as String? {
+      if (value == null) {
         return Application.loadResource(Rez.Strings.UnknownUnit) as String;
+      }
+
+      if (value instanceof Lang.String) {
+        return value;
       }
 
       var units =
@@ -42,7 +46,7 @@ module Utils {
           Rez.Strings.WeightUnit,
         ] as Array<Symbol>;
 
-      return Application.loadResource(units[index as Number]) as String;
+      return Application.loadResource(units[value as Number]) as String;
     }
   }
 }
