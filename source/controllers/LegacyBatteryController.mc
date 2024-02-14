@@ -26,7 +26,7 @@ class LegacyBatteryController extends BaseController {
     return System.getSystemStats().battery / 100.0;
   }
 
-  public function getUnit() as String? {
+  public function getUnit() as String {
     return Application.loadResource(Rez.Strings.PercentUnit) as String;
   }
 

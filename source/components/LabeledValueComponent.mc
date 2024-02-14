@@ -70,14 +70,9 @@ class LabeledValueComponent extends WatchUi.Drawable {
   }
 
   function draw(dc as Graphics.Dc) as Void {
-    mHideUnit =
-      (Application.Properties.getValue("HideUnitsSetting") as Boolean) ||
-      mHideUnit ||
-      mController.getUnit() == null;
-    mLabel = mController.getLabel().toUpper();
-
     if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, false)) {
-      mUnit = mController.getUnit() as String;
+      mLabel = mController.getLabel().toUpper();
+      mUnit = mController.getUnit();
       mValue = mController.getValue().toString();
       mUpdated = Time.now();
     }

@@ -26,8 +26,8 @@ class BaseController {
   public function getProgress() as Numeric? {
     return null;
   }
-  public function getUnit() as String? {
-    return null;
+  public function getUnit() as String {
+    return Application.loadResource(Rez.Strings.UnknownUnit) as String;
   }
   public function getValue() as String or Numeric {
     return Application.loadResource(Rez.Strings.UnknownValue) as String;

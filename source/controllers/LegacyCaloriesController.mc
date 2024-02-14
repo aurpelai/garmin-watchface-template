@@ -28,7 +28,7 @@ class LegacyCaloriesController extends BaseController {
     return Utils.Energy.getCalorieProgress(ActivityMonitor.getInfo().calories);
   }
 
-  public function getUnit() as String? {
+  public function getUnit() as String {
     return Application.loadResource(Rez.Strings.EnergyUnit) as String;
   }
 

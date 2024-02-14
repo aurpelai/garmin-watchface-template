@@ -30,11 +30,7 @@ class ValueComponent extends WatchUi.Drawable {
         : Constants.Font.VALUE_FONT;
 
     if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, false)) {
-      if (mHideUnit || mController.getUnit() == null) {
-        mUnit = Application.loadResource(Rez.Strings.UnknownUnit) as String;
-      } else {
-        mUnit = mController.getUnit() as String;
-      }
+      mUnit = mController.getUnit();
       mValue = mController.getValue().toString();
       mUpdated = Time.now();
     }
