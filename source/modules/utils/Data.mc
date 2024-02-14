@@ -16,7 +16,7 @@ module Utils {
         ] as Array<Numeric>;
 
       // We divide by 20 in order to normalize the 0-100 value provided by UserProfile.Profile.activityClass
-      // into a value of 0-5 that matches the indices of the array exerciseMultiplierClasses.
+      // into a value of 0-4 that matches the indices of the array exerciseMultiplierClasses.
       var index = Math.floor(activityClass / 20.0).toNumber();
 
       return exerciseMultiplierClasses[index];
