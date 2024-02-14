@@ -9,7 +9,10 @@ class SecondsController extends BaseController {
   }
 
   public function getAngle() as Numeric {
-    return Utils.Controller.getAngleByProgress(System.getClockTime().sec, 60);
+    return Utils.Conversion.progressToAngle(System.getClockTime().sec, {
+      :min => Constants.Value.DEFAULT_MIN_PROGRESS,
+      :max => 60,
+    });
   }
 
   public function getLabel() as String {

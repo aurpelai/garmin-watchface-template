@@ -34,4 +34,9 @@ module Constants {
     const MALE_BMR_SCALING_VALUE = 5;
     const FEMALE_BMR_SCALING_VALUE = -161;
   }
+
+  module Value {
+    const DEFAULT_MIN_PROGRESS = 0;
+    const DEFAULT_MAX_PROGRESS = 100;
+  }
 }

@@ -5,5 +5,10 @@ module Types {
     typedef FormatTimeOptions as {
       :showSeconds as Boolean,
     };
+
+    typedef MinMaxOptions as {
+      :min as Number,
+      :max as Number,
+    };
   }
 }

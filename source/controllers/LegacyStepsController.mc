@@ -8,8 +8,13 @@ class LegacyStepsController extends BaseController {
   }
 
   public function getAngle() as Numeric {
-    var stepsInfo = Utils.Data.getStepsInfo();
-    return Utils.Controller.getAngleByProgress(stepsInfo[0], stepsInfo[1]);
+    return Utils.Conversion.progressToAngle(
+      Utils.Steps.getStepProgress(ActivityMonitor.getInfo().steps),
+      {
+        :min => Constants.Value.DEFAULT_MIN_PROGRESS,
+        :max => Constants.Value.DEFAULT_MAX_PROGRESS,
+      }
+    );
   }
 
   public function getLabel() as String {

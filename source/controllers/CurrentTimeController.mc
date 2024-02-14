@@ -12,7 +12,10 @@ class CurrentTimeController extends BaseController {
     var now = Time.now();
     var progress = now.subtract(midnight).value();
 
-    return Utils.Controller.getAngleByProgress(progress, Time.Gregorian.SECONDS_PER_DAY);
+    return Utils.Conversion.progressToAngle(progress, {
+      :min => Constants.Value.DEFAULT_MIN_PROGRESS,
+      :max => Time.Gregorian.SECONDS_PER_DAY,
+    });
   }
 
   public function getLabel() as String {
