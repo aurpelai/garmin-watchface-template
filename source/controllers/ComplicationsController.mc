@@ -33,8 +33,7 @@ class ComplicationsController extends BaseController {
       mValue = complication[:value] as Complications.Value;
     }
 
-    mUnit =
-      Utils.Complications.getUnitByEnumValue(complication[:unit] as Complications.Unit?) as String;
+    mUnit = Utils.Complications.getUnitFromEnum(complication[:unit]) as String;
   }
 
   public function getAngle() as Numeric {
