@@ -39,17 +39,25 @@ class ComplicationsController extends BaseController {
   public function getAngle() as Numeric {
     switch (mType) {
       case Complications.COMPLICATION_TYPE_BATTERY:
-        return Utils.Controller.getAngleByProgress(100 - System.getSystemStats().battery, 100);
+        return Utils.Conversion.progressToAngle(100 - System.getSystemStats().battery, {
+          :min => Constants.Value.DEFAULT_MIN_PROGRESS,
+          :max => Constants.Value.DEFAULT_MAX_PROGRESS,
+        });
       case Complications.COMPLICATION_TYPE_CALORIES:
-        return Utils.Controller.getAngleByProgress(
-          ActivityMonitor.getInfo().calories,
-          Utils.Data.getCalorieTarget()
-        );
+        return Utils.Conversion.progressToAngle(mValue.toNumber(), {
+          :min => Constants.Value.DEFAULT_MIN_PROGRESS,
+          :max => Utils.Energy.getCalorieTarget(),
+        });
       case Complications.COMPLICATION_TYPE_STEPS:
-        var stepsInfo = Utils.Data.getStepsInfo();
-        return Utils.Controller.getAngleByProgress(stepsInfo[0], stepsInfo[1]);
+        return Utils.Conversion.progressToAngle(Utils.Steps.getStepProgress(mValue.toNumber()), {
+          :min => Constants.Value.DEFAULT_MIN_PROGRESS,
+          :max => Constants.Value.DEFAULT_MAX_PROGRESS,
+        });
       default:
-        return Utils.Controller.getAngleByProgress(0, 100);
+        return Utils.Conversion.progressToAngle(0, {
+          :min => Constants.Value.DEFAULT_MIN_PROGRESS,
+          :max => Constants.Value.DEFAULT_MAX_PROGRESS,
+        });
     }
   }
 

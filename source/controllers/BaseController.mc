@@ -9,7 +9,10 @@ class BaseController {
     mId = id;
   }
   public function getAngle() as Numeric {
-    return Utils.Controller.getAngleByProgress(0, 100);
+    return Utils.Conversion.progressToAngle(0, {
+      :min => Constants.Value.DEFAULT_MIN_PROGRESS,
+      :max => Constants.Value.DEFAULT_MAX_PROGRESS,
+    });
   }
   public function getIcon() as BitmapResource? {
     return null;
