@@ -7,7 +7,7 @@
 
   <!-- Settings Menu -->
   <string id="SettingsTitle">Settings</string>
-  <string id="ShowUnitsSettingKey">Show Units</string>
+  <string id="HideUnitsSettingKey">Hide Units</string>
   <string id="ShortLabelsSettingKey">Short Labels</string>
   <string id="ShowSecondsSettingKey">Show Seconds</string>
   <string id="UpdateIntervalSettingKey">Update Interval</string>
