@@ -26,7 +26,7 @@
     <param name="locX">140</param>
     <param name="locY">182</param>
     <param name="hideLabel">true</param>
-    <param name="updateInterval">1</param>
+    <param name="updateInterval">15</param>
   </drawable>
 
   <drawable id="BluetoothStatus" class="IconComponent">
@@ -35,7 +35,7 @@
     <param name="width">16</param>
     <param name="locX">140</param>
     <param name="locY">212</param>
-    <param name="updateInterval">30</param>
+    <param name="updateInterval">15</param>
   </drawable>
 
   <drawable id="Battery" class="ProgressBarComponent">
@@ -45,7 +45,7 @@
     <param name="locX">140</param>
     <param name="locY">240</param>
     <param name="hideLabel">false</param>
-    <param name="updateInterval">1</param>
+    <param name="updateInterval">900</param>
   </drawable>
 
   <drawable id="Seconds" class="ArcComponent">
