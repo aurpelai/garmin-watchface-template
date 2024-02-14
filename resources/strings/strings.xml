@@ -16,6 +16,7 @@
   <string id="UpdateIntervalSettingValueEvery30Seconds">Every 30 Seconds</string>
 
   <!-- Data Labels -->
+  <string id="BatteryLabel">Battery</string>
   <string id="BluetoothStatusLabel">Bluetooth</string>
   <string id="CaloriesLabel">Calories</string>
   <string id="CurrentTimeLabel">Time</string>
@@ -27,6 +28,7 @@
   <string id="ElevationUnit">m</string>
   <string id="EnergyUnit">kCal</string>
   <string id="HeightUnit">m</string>
+  <string id="PercentUnit">%</string>
   <string id="SpeedUnit">m/s</string>
   <string id="TemperatureUnit">C</string>
   <string id="WeightUnit">g</string>
