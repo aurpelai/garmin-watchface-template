@@ -47,6 +47,11 @@ class ComplicationsController extends BaseController {
           :min => Constants.Values.DEFAULT_MIN_PROGRESS,
           :max => Utils.Energy.getCalorieTarget(),
         });
+      case Complications.COMPLICATION_TYPE_HEART_RATE:
+        return Utils.Conversion.progressToAngle(
+          Utils.HeartRate.getLegacyHeartRate(),
+          Utils.HeartRate.getHeartRateRange()
+        );
       case Complications.COMPLICATION_TYPE_STEPS:
         return Utils.Conversion.progressToAngle(Utils.Steps.getStepProgress(mValue.toNumber()), {
           :min => Constants.Values.DEFAULT_MIN_PROGRESS,
@@ -74,6 +79,8 @@ class ComplicationsController extends BaseController {
         }
 
         return Application.loadResource(Rez.Strings.CaloriesLabel) as String;
+      case Complications.COMPLICATION_TYPE_HEART_RATE:
+        return Application.loadResource(Rez.Strings.HeartRateLabel) as String;
       case Complications.COMPLICATION_TYPE_STEPS:
         if (Application.Properties.getValue("ShortLabelsSetting")) {
           return Application.loadResource(Rez.Strings.StepsLabelShort) as String;
@@ -91,6 +98,8 @@ class ComplicationsController extends BaseController {
         return System.getSystemStats().battery / 100.0;
       case Complications.COMPLICATION_TYPE_CALORIES:
         return Utils.Energy.getCalorieProgress(mValue.toNumber());
+      case Complications.COMPLICATION_TYPE_HEART_RATE:
+        return Utils.HeartRate.getHeartRateProgress(mValue.toNumber());
       case Complications.COMPLICATION_TYPE_STEPS:
         return Utils.Steps.getStepProgress(mValue.toNumber());
       default:

@@ -25,6 +25,8 @@
   <string id="CaloriesLabelShort">Cals</string>
   <string id="CurrentTimeLabel">Current Time</string>
   <string id="CurrentTimeLabelShort">Time</string>
+  <string id="HeartRateLabel">Heart Rate</string>
+  <string id="HeartRateLabelShort">HR</string>
   <string id="SecondsLabel">Seconds</string>
   <string id="SecondsLabelShort">Secs</string>
   <string id="StepsLabel">Steps</string>

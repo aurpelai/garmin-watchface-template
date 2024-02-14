@@ -35,6 +35,9 @@ class WatchFaceApp extends Application.AppBase {
       new Complications.Id(Complications.COMPLICATION_TYPE_CALORIES)
     );
     Complications.subscribeToUpdates(new Complications.Id(Complications.COMPLICATION_TYPE_STEPS));
+    Complications.subscribeToUpdates(
+      new Complications.Id(Complications.COMPLICATION_TYPE_HEART_RATE)
+    );
   }
 
   // onStop() is called when your application is exiting
