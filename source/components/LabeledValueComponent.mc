@@ -25,29 +25,29 @@ class LabeledValueComponent extends WatchUi.Drawable {
   }
 
   function drawLabel(dc as Graphics.Dc) as Void {
-    dc.setColor(Constants.Color.SECONDARY, Constants.Color.BACKGROUND);
+    dc.setColor(Constants.Colors.SECONDARY, Constants.Colors.BACKGROUND);
     dc.drawText(
       locX,
       locY - height / 2,
-      Constants.Font.LABEL_FONT,
+      Constants.Fonts.LABEL_FONT,
       mLabel,
       Graphics.TEXT_JUSTIFY_CENTER
     );
   }
 
   function drawValue(dc as Graphics.Dc, valueAndUnitGap as Numeric) as Void {
-    var VERTICAL_OFFSET = Graphics.getFontHeight(Constants.Font.LABEL_FONT) / 2;
+    var VERTICAL_OFFSET = Graphics.getFontHeight(Constants.Fonts.LABEL_FONT) / 2;
     var HORIZONTAL_OFFSET = !(
       (Application.Properties.getValue("HideUnitsSetting") as Boolean) || mHideUnit
     )
-      ? valueAndUnitGap / 2 + dc.getTextWidthInPixels(mUnit, Constants.Font.UNIT_FONT) / 2
+      ? valueAndUnitGap / 2 + dc.getTextWidthInPixels(mUnit, Constants.Fonts.UNIT_FONT) / 2
       : 0;
 
-    dc.setColor(Constants.Color.PRIMARY, Constants.Color.BACKGROUND);
+    dc.setColor(Constants.Colors.PRIMARY, Constants.Colors.BACKGROUND);
     dc.drawText(
       locX - HORIZONTAL_OFFSET,
       locY + VERTICAL_OFFSET,
-      Constants.Font.VALUE_FONT,
+      Constants.Fonts.VALUE_FONT,
       mValue,
       Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
     );
@@ -55,17 +55,17 @@ class LabeledValueComponent extends WatchUi.Drawable {
 
   function drawUnit(dc as Graphics.Dc, valueAndUnitGap as Numeric) as Void {
     var VERTICAL_OFFSET =
-      (Graphics.getFontDescent(Constants.Font.LABEL_FONT) +
-        Graphics.getFontHeight(Constants.Font.LABEL_FONT)) /
+      (Graphics.getFontDescent(Constants.Fonts.LABEL_FONT) +
+        Graphics.getFontHeight(Constants.Fonts.LABEL_FONT)) /
       2;
     var HORIZONTAL_OFFSET =
-      valueAndUnitGap / 2 + dc.getTextWidthInPixels(mValue, Constants.Font.VALUE_FONT) / 2;
+      valueAndUnitGap / 2 + dc.getTextWidthInPixels(mValue, Constants.Fonts.VALUE_FONT) / 2;
 
-    dc.setColor(Constants.Color.TERTIARY, Constants.Color.BACKGROUND);
+    dc.setColor(Constants.Colors.TERTIARY, Constants.Colors.BACKGROUND);
     dc.drawText(
       locX + HORIZONTAL_OFFSET,
       locY + VERTICAL_OFFSET,
-      Constants.Font.UNIT_FONT,
+      Constants.Fonts.UNIT_FONT,
       mUnit,
       Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
     );
@@ -79,7 +79,7 @@ class LabeledValueComponent extends WatchUi.Drawable {
       mUpdated = Time.now();
     }
 
-    var VALUE_AND_UNIT_GAP = dc.getTextWidthInPixels(" ", Constants.Font.UNIT_FONT) / 2;
+    var VALUE_AND_UNIT_GAP = dc.getTextWidthInPixels(" ", Constants.Fonts.UNIT_FONT) / 2;
 
     Utils.Component.clipAndClearRectangle(dc, locX, locY, width, height);
     drawLabel(dc);

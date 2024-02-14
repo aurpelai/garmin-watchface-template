@@ -34,7 +34,7 @@ class ArcComponent extends WatchUi.Drawable {
     Utils.Component.clipAndClearArc(dc, locX, locY, mRadius, mHeight);
 
     dc.setPenWidth(mHeight);
-    dc.setColor(Constants.Color.GOLD, Constants.Color.BACKGROUND);
+    dc.setColor(Constants.Colors.GOLD, Constants.Colors.BACKGROUND);
     dc.drawArc(
       locX,
       locY,

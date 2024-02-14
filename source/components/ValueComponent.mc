@@ -24,17 +24,17 @@ class ValueComponent extends WatchUi.Drawable {
     mFont =
       mController.getId() == Types.Controllers.CURRENT_TIME
         ? Graphics.FONT_NUMBER_HOT
-        : Constants.Font.VALUE_FONT;
+        : Constants.Fonts.VALUE_FONT;
   }
 
   function drawValue(dc as Graphics.Dc, valueAndUnitGap as Numeric) as Void {
     var HORIZONTAL_OFFSET = !(
       (Application.Properties.getValue("HideUnitsSetting") as Boolean) || mHideUnit
     )
-      ? valueAndUnitGap / 2 + dc.getTextWidthInPixels(mUnit, Constants.Font.UNIT_FONT) / 2
+      ? valueAndUnitGap / 2 + dc.getTextWidthInPixels(mUnit, Constants.Fonts.UNIT_FONT) / 2
       : 0;
 
-    dc.setColor(Constants.Color.PRIMARY, Constants.Color.BACKGROUND);
+    dc.setColor(Constants.Colors.PRIMARY, Constants.Colors.BACKGROUND);
     dc.drawText(
       locX - HORIZONTAL_OFFSET,
       locY,
@@ -47,11 +47,11 @@ class ValueComponent extends WatchUi.Drawable {
   function drawUnit(dc as Graphics.Dc, valueAndUnitGap as Numeric) as Void {
     var HORIZONTAL_OFFSET = valueAndUnitGap / 2 + dc.getTextWidthInPixels(mValue, mFont) / 2;
 
-    dc.setColor(Constants.Color.TERTIARY, Constants.Color.BACKGROUND);
+    dc.setColor(Constants.Colors.TERTIARY, Constants.Colors.BACKGROUND);
     dc.drawText(
       locX + HORIZONTAL_OFFSET,
       locY,
-      Constants.Font.UNIT_FONT,
+      Constants.Fonts.UNIT_FONT,
       mUnit,
       Graphics.TEXT_JUSTIFY_CENTER | Graphics.TEXT_JUSTIFY_VCENTER
     );
@@ -64,7 +64,7 @@ class ValueComponent extends WatchUi.Drawable {
       mUpdated = Time.now();
     }
 
-    var VALUE_AND_UNIT_GAP = dc.getTextWidthInPixels(" ", Constants.Font.UNIT_FONT) / 2;
+    var VALUE_AND_UNIT_GAP = dc.getTextWidthInPixels(" ", Constants.Fonts.UNIT_FONT) / 2;
 
     Utils.Component.clipAndClearRectangle(dc, locX, locY, width, height);
     drawValue(dc, VALUE_AND_UNIT_GAP);

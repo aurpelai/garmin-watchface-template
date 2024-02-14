@@ -8,11 +8,11 @@ module Utils {
     function getActivityClassMultiplier(activityClass as Number) as Numeric {
       var exerciseMultiplierClasses =
         [
-          Constants.User.ACTIVITY_CLASS_SEDENTARY,
-          Constants.User.ACTIVITY_CLASS_LIGHTLY_ACTIVE,
-          Constants.User.ACTIVITY_CLASS_MODERATELY_ACTIVE,
-          Constants.User.ACTIVITY_CLASS_ACTIVE,
-          Constants.User.ACTIVITY_CLASS_VERY_ACTIVE,
+          Constants.Users.ACTIVITY_CLASS_SEDENTARY,
+          Constants.Users.ACTIVITY_CLASS_LIGHTLY_ACTIVE,
+          Constants.Users.ACTIVITY_CLASS_MODERATELY_ACTIVE,
+          Constants.Users.ACTIVITY_CLASS_ACTIVE,
+          Constants.Users.ACTIVITY_CLASS_VERY_ACTIVE,
         ] as Array<Numeric>;
 
       // We divide by 20 in order to normalize the 0-100 value provided by UserProfile.Profile.activityClass
@@ -34,13 +34,13 @@ module Utils {
         ].indexOf(null) >= 0
       ) {
         if (userProfile.gender == null) {
-          return Constants.User.DEFAULT_GENERIC_DAILY_CALORIES;
+          return Constants.Users.DEFAULT_GENERIC_DAILY_CALORIES;
         }
 
         var ruleOfThumbDailyCalories =
           [
-            Constants.User.DEFAULT_FEMALE_DAILY_CALORIES,
-            Constants.User.DEFAULT_MALE_DAILY_CALORIES,
+            Constants.Users.DEFAULT_FEMALE_DAILY_CALORIES,
+            Constants.Users.DEFAULT_MALE_DAILY_CALORIES,
           ] as Array<Number>;
 
         return ruleOfThumbDailyCalories[userProfile.gender];
@@ -50,8 +50,8 @@ module Utils {
       // https://en.wikipedia.org/wiki/Basal_metabolic_rate#BMR_estimation_formulas
       var scalingValue =
         userProfile.gender == 0
-          ? Constants.User.FEMALE_BMR_SCALING_VALUE
-          : Constants.User.MALE_BMR_SCALING_VALUE;
+          ? Constants.Users.FEMALE_BMR_SCALING_VALUE
+          : Constants.Users.MALE_BMR_SCALING_VALUE;
 
       var bodyMetabolicRate =
         10.0 * Utils.Conversion.valueToKilos(userProfile.weight as Number) +

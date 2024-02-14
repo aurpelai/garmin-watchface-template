@@ -11,7 +11,7 @@ class LegacyCaloriesController extends BaseController {
 
   public function getAngle() as Numeric {
     return Utils.Conversion.progressToAngle(ActivityMonitor.getInfo().calories, {
-      :min => Constants.Value.DEFAULT_MIN_PROGRESS,
+      :min => Constants.Values.DEFAULT_MIN_PROGRESS,
       :max => Utils.Energy.getCalorieTarget(),
     });
   }
