@@ -31,14 +31,7 @@ class ArcComponent extends WatchUi.Drawable {
       mUpdated = Time.now();
     }
 
-    dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
-    dc.setClip(locX - mRadius, locY - mRadius, mRadius * 2, mRadius * 2);
-
-    // Instead of clearing the screen using dc.clear(), draw a 360-degree arc. This
-    // let's us not to worry about redrawing every complication on every screen update
-    // as they are not cleared whenever this drawable updates (as the clipping region
-    // is the full screen).
-    dc.drawArc(locX, locY, mRadius - mHeight, Graphics.ARC_CLOCKWISE, 0, 360);
+    Utils.Component.clipAndClearArc(dc, locX, locY, mRadius, mHeight);
 
     dc.setPenWidth(mHeight);
     dc.setColor(Constants.Color.GOLD, Constants.Color.BACKGROUND);
