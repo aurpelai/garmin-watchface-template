@@ -18,6 +18,10 @@ class LegacyStepsController extends BaseController {
   }
 
   public function getLabel() as String {
+    if (Application.Properties.getValue("ShortLabelsSetting")) {
+      return Application.loadResource(Rez.Strings.StepsLabelShort) as String;
+    }
+
     return Application.loadResource(Rez.Strings.StepsLabel) as String;
   }
 

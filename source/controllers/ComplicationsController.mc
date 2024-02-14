@@ -63,10 +63,22 @@ class ComplicationsController extends BaseController {
   public function getLabel() as String {
     switch (mType) {
       case Complications.COMPLICATION_TYPE_BATTERY:
+        if (Application.Properties.getValue("ShortLabelsSetting")) {
+          return Application.loadResource(Rez.Strings.BatteryLabelShort) as String;
+        }
+
         return Application.loadResource(Rez.Strings.BatteryLabel) as String;
       case Complications.COMPLICATION_TYPE_CALORIES:
+        if (Application.Properties.getValue("ShortLabelsSetting")) {
+          return Application.loadResource(Rez.Strings.CaloriesLabelShort) as String;
+        }
+
         return Application.loadResource(Rez.Strings.CaloriesLabel) as String;
       case Complications.COMPLICATION_TYPE_STEPS:
+        if (Application.Properties.getValue("ShortLabelsSetting")) {
+          return Application.loadResource(Rez.Strings.StepsLabelShort) as String;
+        }
+
         return Application.loadResource(Rez.Strings.StepsLabel) as String;
       default:
         return Application.loadResource(Rez.Strings.Unknown) as String;

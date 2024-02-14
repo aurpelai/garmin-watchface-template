@@ -15,6 +15,10 @@ class LegacyBatteryController extends BaseController {
   }
 
   public function getLabel() as String {
+    if (Application.Properties.getValue("ShortLabelsSetting")) {
+      return Application.loadResource(Rez.Strings.BatteryLabelShort) as String;
+    }
+
     return Application.loadResource(Rez.Strings.BatteryLabel) as String;
   }
 

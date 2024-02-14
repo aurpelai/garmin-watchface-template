@@ -17,6 +17,10 @@ class LegacyCaloriesController extends BaseController {
   }
 
   public function getLabel() as String {
+    if (Application.Properties.getValue("ShortLabelsSetting")) {
+      return Application.loadResource(Rez.Strings.CaloriesLabelShort) as String;
+    }
+
     return Application.loadResource(Rez.Strings.CaloriesLabel) as String;
   }
 

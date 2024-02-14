@@ -8,7 +8,8 @@
   <!-- Settings Menu -->
   <string id="SettingsTitle">Settings</string>
   <string id="ShowUnitsSettingKey">Show Units</string>
-  <string id="ShowSecondsSettingKey">Show Seconds In Current Time</string>
+  <string id="ShortLabelsSettingKey">Short Labels</string>
+  <string id="ShowSecondsSettingKey">Show Seconds</string>
   <string id="UpdateIntervalSettingKey">Update Interval</string>
   <string id="UpdateIntervalSettingValueEverySecond">Unlimited</string>
   <string id="UpdateIntervalSettingValueEvery5Seconds">Every 5 Seconds</string>
@@ -17,11 +18,17 @@
 
   <!-- Data Labels -->
   <string id="BatteryLabel">Battery</string>
+  <string id="BatteryLabelShort">Batt</string>
   <string id="BluetoothStatusLabel">Bluetooth</string>
+  <string id="BluetoothStatusLabelShort">BT</string>
   <string id="CaloriesLabel">Calories</string>
-  <string id="CurrentTimeLabel">Time</string>
+  <string id="CaloriesLabelShort">Cals</string>
+  <string id="CurrentTimeLabel">Current Time</string>
+  <string id="CurrentTimeLabelShort">Time</string>
   <string id="SecondsLabel">Seconds</string>
+  <string id="SecondsLabelShort">Secs</string>
   <string id="StepsLabel">Steps</string>
+  <string id="StepsLabelShort">Steps</string>
 
   <!-- Data Units -->
   <string id="DistanceUnit">m</string>
