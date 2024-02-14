@@ -2,7 +2,7 @@ import Toybox.Graphics;
 import Toybox.Lang;
 
 module Constants {
-  module Color {
+  module Colors {
     const ACCENT as Graphics.ColorValue = Graphics.COLOR_YELLOW;
     const ATTENTION as Graphics.ColorValue = Graphics.COLOR_RED;
     const ATTENTION_BACKGROUND as Graphics.ColorValue = Graphics.COLOR_DK_RED;
@@ -13,14 +13,14 @@ module Constants {
     const TERTIARY as Graphics.ColorValue = Graphics.COLOR_DK_GRAY;
   }
 
-  module Font {
+  module Fonts {
     const CURRENT_TIME_FONT as Graphics.FontDefinition = Graphics.FONT_NUMBER_MEDIUM;
     const LABEL_FONT as Graphics.FontDefinition = Graphics.FONT_XTINY;
     const UNIT_FONT as Graphics.FontDefinition = Graphics.FONT_XTINY;
     const VALUE_FONT as Graphics.FontDefinition = Graphics.FONT_TINY;
   }
 
-  module User {
+  module Users {
     const ACTIVITY_CLASS_SEDENTARY = 1.2;
     const ACTIVITY_CLASS_LIGHTLY_ACTIVE = 1.375;
     const ACTIVITY_CLASS_MODERATELY_ACTIVE = 1.55;
@@ -35,7 +35,7 @@ module Constants {
     const FEMALE_BMR_SCALING_VALUE = -161;
   }
 
-  module Value {
+  module Values {
     const DEFAULT_MIN_PROGRESS = 0;
     const DEFAULT_MAX_PROGRESS = 100;
     const PROGRESS_BAR_LABEL_VERTICAL_OFFSET = 4;

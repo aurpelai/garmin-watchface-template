@@ -39,23 +39,23 @@ class ComplicationsController extends BaseController {
     switch (mType) {
       case Complications.COMPLICATION_TYPE_BATTERY:
         return Utils.Conversion.progressToAngle(100 - System.getSystemStats().battery, {
-          :min => Constants.Value.DEFAULT_MIN_PROGRESS,
-          :max => Constants.Value.DEFAULT_MAX_PROGRESS,
+          :min => Constants.Values.DEFAULT_MIN_PROGRESS,
+          :max => Constants.Values.DEFAULT_MAX_PROGRESS,
         });
       case Complications.COMPLICATION_TYPE_CALORIES:
         return Utils.Conversion.progressToAngle(mValue.toNumber(), {
-          :min => Constants.Value.DEFAULT_MIN_PROGRESS,
+          :min => Constants.Values.DEFAULT_MIN_PROGRESS,
           :max => Utils.Energy.getCalorieTarget(),
         });
       case Complications.COMPLICATION_TYPE_STEPS:
         return Utils.Conversion.progressToAngle(Utils.Steps.getStepProgress(mValue.toNumber()), {
-          :min => Constants.Value.DEFAULT_MIN_PROGRESS,
-          :max => Constants.Value.DEFAULT_MAX_PROGRESS,
+          :min => Constants.Values.DEFAULT_MIN_PROGRESS,
+          :max => Constants.Values.DEFAULT_MAX_PROGRESS,
         });
       default:
         return Utils.Conversion.progressToAngle(0, {
-          :min => Constants.Value.DEFAULT_MIN_PROGRESS,
-          :max => Constants.Value.DEFAULT_MAX_PROGRESS,
+          :min => Constants.Values.DEFAULT_MIN_PROGRESS,
+          :max => Constants.Values.DEFAULT_MAX_PROGRESS,
         });
     }
   }

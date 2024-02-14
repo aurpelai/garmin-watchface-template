@@ -11,8 +11,8 @@ class LegacyStepsController extends BaseController {
     return Utils.Conversion.progressToAngle(
       Utils.Steps.getStepProgress(ActivityMonitor.getInfo().steps),
       {
-        :min => Constants.Value.DEFAULT_MIN_PROGRESS,
-        :max => Constants.Value.DEFAULT_MAX_PROGRESS,
+        :min => Constants.Values.DEFAULT_MIN_PROGRESS,
+        :max => Constants.Values.DEFAULT_MAX_PROGRESS,
       }
     );
   }

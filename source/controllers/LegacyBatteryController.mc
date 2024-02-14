@@ -9,8 +9,8 @@ class LegacyBatteryController extends BaseController {
 
   public function getAngle() as Numeric {
     return Utils.Conversion.progressToAngle(100 - System.getSystemStats().battery, {
-      :min => Constants.Value.DEFAULT_MIN_PROGRESS,
-      :max => Constants.Value.DEFAULT_MAX_PROGRESS,
+      :min => Constants.Values.DEFAULT_MIN_PROGRESS,
+      :max => Constants.Values.DEFAULT_MAX_PROGRESS,
     });
   }
 

@@ -13,7 +13,7 @@ class CurrentTimeController extends BaseController {
     var progress = now.subtract(midnight).value();
 
     return Utils.Conversion.progressToAngle(progress, {
-      :min => Constants.Value.DEFAULT_MIN_PROGRESS,
+      :min => Constants.Values.DEFAULT_MIN_PROGRESS,
       :max => Time.Gregorian.SECONDS_PER_DAY,
     });
   }
