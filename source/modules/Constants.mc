@@ -1,5 +1,6 @@
 import Toybox.Graphics;
 import Toybox.Lang;
+import Toybox.Time;
 
 module Constants {
   module Colors {
@@ -39,5 +40,12 @@ module Constants {
     const DEFAULT_MIN_PROGRESS = 0;
     const DEFAULT_MAX_PROGRESS = 100;
     const PROGRESS_BAR_LABEL_VERTICAL_OFFSET = 4;
+
+    const UPDATE_INTERVAL_UNLIMITED as Number = 1;
+    const UPDATE_INTERVAL_REALLY_SHORT as Number = Time.Gregorian.SECONDS_PER_MINUTE / 12;
+    const UPDATE_INTERVAL_SHORT as Number = Time.Gregorian.SECONDS_PER_MINUTE / 4;
+    const UPDATE_INTERVAL_MEDIUM as Number = Time.Gregorian.SECONDS_PER_MINUTE / 2;
+    const UPDATE_INTERVAL_LONG as Number = Time.Gregorian.SECONDS_PER_MINUTE;
+    const UPDATE_INTERVAL_REALLY_LONG as Number = Time.Gregorian.SECONDS_PER_MINUTE * 5;
   }
 }
