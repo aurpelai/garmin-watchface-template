@@ -34,6 +34,8 @@ module Constants {
 
     const MALE_BMR_SCALING_VALUE = 5;
     const FEMALE_BMR_SCALING_VALUE = -161;
+
+    const DEFAULT_MAX_HEART_RATE = 180;
   }
 
   module Values {

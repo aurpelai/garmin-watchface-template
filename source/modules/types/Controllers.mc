@@ -9,6 +9,7 @@ module Types {
       BLUETOOTH_STATUS,
       CALORIES,
       CURRENT_TIME,
+      HEART_RATE,
       SECONDS,
       STEPS,
     }

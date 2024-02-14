@@ -22,6 +22,10 @@ module Utils {
             : new ComplicationsController(Complications.COMPLICATION_TYPE_CALORIES);
         case Types.Controllers.CURRENT_TIME:
           return new CurrentTimeController(controller);
+        case Types.Controllers.HEART_RATE:
+          return gIsLegacyDevice
+            ? new LegacyHeartRateController(controller)
+            : new ComplicationsController(Complications.COMPLICATION_TYPE_HEART_RATE);
         case Types.Controllers.SECONDS:
           return new SecondsController(controller);
         case Types.Controllers.STEPS:
