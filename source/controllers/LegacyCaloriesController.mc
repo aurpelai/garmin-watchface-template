@@ -21,13 +21,7 @@ class LegacyCaloriesController extends BaseController {
   }
 
   public function getProgress() as Numeric? {
-    var value = ActivityMonitor.getInfo().calories;
-
-    if (value == null) {
-      value = 0;
-    }
-
-    return value / Utils.Data.getCalorieTarget();
+    return Utils.Energy.getCalorieProgress(ActivityMonitor.getInfo().calories);
   }
 
   public function getUnit() as String? {

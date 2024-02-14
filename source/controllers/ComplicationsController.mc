@@ -27,11 +27,10 @@ class ComplicationsController extends BaseController {
 
     var complication = Complications.getComplication(id);
 
-    if (complication[:value] == null) {
-      mValue = Application.loadResource(Rez.Strings.UnknownValue) as String;
-    } else {
-      mValue = complication[:value] as Complications.Value;
-    }
+    mValue =
+      complication[:value] == null
+        ? Application.loadResource(Rez.Strings.UnknownValue) as String
+        : complication[:value] as Complications.Value;
 
     mUnit = Utils.Complications.getUnitFromEnum(complication[:unit]) as String;
   }
@@ -79,16 +78,9 @@ class ComplicationsController extends BaseController {
       case Complications.COMPLICATION_TYPE_BATTERY:
         return System.getSystemStats().battery / 100.0;
       case Complications.COMPLICATION_TYPE_CALORIES:
-        var value = ActivityMonitor.getInfo().calories;
-
-        if (value == null) {
-          return null;
-        }
-
-        return value / Utils.Data.getCalorieTarget();
+        return Utils.Energy.getCalorieProgress(mValue.toNumber());
       case Complications.COMPLICATION_TYPE_STEPS:
-        var stepsInfo = Utils.Data.getStepsInfo();
-        return (1.0 * stepsInfo[0]) / stepsInfo[1];
+        return Utils.Steps.getStepProgress(mValue.toNumber());
       default:
         return null;
     }
