@@ -23,7 +23,7 @@ class ValueComponent extends WatchUi.Drawable {
   }
 
   function draw(dc as Graphics.Dc) as Void {
-    mHideUnit = mHideUnit || !(Application.Properties.getValue("ShowUnitsSetting") as Boolean);
+    mHideUnit = mHideUnit || (Application.Properties.getValue("HideUnitsSetting") as Boolean);
     var VALUE_FONT =
       mController.getId() == Types.Controllers.CURRENT_TIME
         ? Graphics.FONT_NUMBER_HOT
