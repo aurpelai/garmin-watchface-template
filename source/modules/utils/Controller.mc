@@ -58,7 +58,6 @@ module Utils {
       dismissUpdateIntervalSetting as Boolean
     ) as Boolean {
       if (gForceRedraw) {
-        gForceRedraw = false;
         return true;
       }
 

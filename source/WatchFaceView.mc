@@ -24,6 +24,7 @@ class WatchFaceView extends WatchUi.WatchFace {
   function onUpdate(dc as Graphics.Dc) as Void {
     // Call the parent onUpdate function to redraw the layout
     View.onUpdate(dc);
+    gForceRedraw = false;
   }
 
   // Called when this View is removed from the screen. Save the
