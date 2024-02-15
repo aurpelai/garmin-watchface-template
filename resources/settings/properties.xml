@@ -8,5 +8,4 @@
   <property id="UpdateIntervalEvery5Seconds" type="number">5</property>
   <property id="UpdateIntervalEvery15Seconds" type="number">15</property>
   <property id="UpdateIntervalEvery30Seconds" type="number">30</property>
-
 </properties>
