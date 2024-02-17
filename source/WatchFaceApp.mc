@@ -4,8 +4,8 @@ import Toybox.Lang;
 import Toybox.System;
 import Toybox.WatchUi;
 
-var gCallbacks as Types.Controllers.ComplicationsControllerDictionary =
-  ({}) as Types.Controllers.ComplicationsControllerDictionary;
+var gCallbacks as Types.Controllers.ComplicationControllerDictionary =
+  ({}) as Types.Controllers.ComplicationControllerDictionary;
 var gIsLegacyDevice as Boolean = true;
 var gForceRedraw as Boolean = false;
 
