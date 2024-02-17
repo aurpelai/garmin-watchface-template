@@ -16,10 +16,7 @@ module Types {
 
     typedef ComplicationUpdater as (Method(id as Complications.Id) as Void);
 
-    typedef ComplicationsControllerDictionary as Dictionary<
-      Complications.Type,
-      ComplicationUpdater
-    >;
+    typedef ComplicationControllerDictionary as Dictionary<Complications.Type, ComplicationUpdater>;
 
     typedef EverythingController as interface {
       function getAngle() as Numeric;
