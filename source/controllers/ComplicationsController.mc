@@ -108,7 +108,14 @@ class ComplicationsController extends BaseController {
   }
 
   public function getUnit() as String {
-    return mUnit;
+    switch (mType) {
+      case Complications.COMPLICATION_TYPE_CALORIES:
+        return Application.loadResource(Rez.Strings.EnergyUnit) as String;
+      case Complications.COMPLICATION_TYPE_HEART_RATE:
+        return Application.loadResource(Rez.Strings.HeartRateUnit) as String;
+      default:
+        return mUnit;
+    }
   }
 
   public function getValue() as String or Numeric {

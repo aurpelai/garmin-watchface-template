@@ -36,6 +36,7 @@
   <string id="DistanceUnit">m</string>
   <string id="ElevationUnit">m</string>
   <string id="EnergyUnit">kCal</string>
+  <string id="HeartRateUnit">bpm</string>
   <string id="HeightUnit">m</string>
   <string id="PercentUnit">%</string>
   <string id="SpeedUnit">m/s</string>
