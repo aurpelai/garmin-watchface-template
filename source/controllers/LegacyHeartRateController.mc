@@ -25,6 +25,10 @@ class LegacyHeartRateController extends BaseController {
     return Utils.HeartRate.getHeartRateProgress(Utils.HeartRate.getLegacyHeartRate());
   }
 
+  public function getUnit() as String {
+    return Application.loadResource(Rez.Strings.HeartRateUnit) as String;
+  }
+
   public function getValue() as String or Numeric {
     var heartRate = Utils.HeartRate.getLegacyHeartRate();
 
