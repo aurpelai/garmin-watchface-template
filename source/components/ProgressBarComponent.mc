@@ -30,7 +30,6 @@ class ProgressBarComponent extends WatchUi.Drawable {
       mUpdated = Time.now();
     }
 
-    var progress = width * mProgress;
     var totalHeight = !mHideLabel
       ? height +
         Constants.Values.PROGRESS_BAR_LABEL_VERTICAL_OFFSET +
@@ -43,7 +42,7 @@ class ProgressBarComponent extends WatchUi.Drawable {
     dc.fillRectangle(locX - width / 2, locY, width, height);
 
     dc.setColor(Constants.Colors.PRIMARY, Constants.Colors.BACKGROUND);
-    dc.fillRectangle(locX - width / 2, locY, progress, height);
+    dc.fillRectangle(locX - width / 2, locY, width * mProgress, height);
 
     if (!mHideLabel) {
       dc.setColor(Constants.Colors.SECONDARY, Constants.Colors.BACKGROUND);
