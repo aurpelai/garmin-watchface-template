@@ -15,7 +15,7 @@ module Utils {
       return false;
     }
 
-    function registerToComplicationChangeCallback(
+    function registerUpdateCallback(
       type as Complications.Type,
       callback as Types.Controllers.ComplicationUpdater
     ) as Void {

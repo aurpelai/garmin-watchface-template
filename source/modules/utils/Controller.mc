@@ -13,25 +13,25 @@ module Utils {
         case Types.Controllers.BATTERY:
           return gIsLegacyDevice
             ? new LegacyBatteryController(controller)
-            : new ComplicationsController(Complications.COMPLICATION_TYPE_BATTERY);
+            : ComplicationsController.getInstance(Complications.COMPLICATION_TYPE_BATTERY);
         case Types.Controllers.BLUETOOTH_STATUS:
           return new BluetoothStatusController(controller);
         case Types.Controllers.CALORIES:
           return gIsLegacyDevice
             ? new LegacyCaloriesController(controller)
-            : new ComplicationsController(Complications.COMPLICATION_TYPE_CALORIES);
+            : ComplicationsController.getInstance(Complications.COMPLICATION_TYPE_CALORIES);
         case Types.Controllers.CURRENT_TIME:
           return new CurrentTimeController(controller);
         case Types.Controllers.HEART_RATE:
           return gIsLegacyDevice
             ? new LegacyHeartRateController(controller)
-            : new ComplicationsController(Complications.COMPLICATION_TYPE_HEART_RATE);
+            : ComplicationsController.getInstance(Complications.COMPLICATION_TYPE_HEART_RATE);
         case Types.Controllers.SECONDS:
           return new SecondsController(controller);
         case Types.Controllers.STEPS:
           return gIsLegacyDevice
             ? new LegacyStepsController(controller)
-            : new ComplicationsController(Complications.COMPLICATION_TYPE_STEPS);
+            : ComplicationsController.getInstance(Complications.COMPLICATION_TYPE_STEPS);
         default:
           throw new Exceptions.InvalidControllerIdException(controller);
       }

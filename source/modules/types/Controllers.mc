@@ -18,6 +18,11 @@ module Types {
 
     typedef ComplicationControllerDictionary as Dictionary<Complications.Type, ComplicationUpdater>;
 
+    typedef ComplicationDict as Dictionary<
+      Complications.Type,
+      Types.Controllers.EverythingController
+    >;
+
     typedef EverythingController as interface {
       function getAngle() as Numeric;
       function getIcon() as BitmapResource?;
