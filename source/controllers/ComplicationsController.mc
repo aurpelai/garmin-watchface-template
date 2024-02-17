@@ -5,6 +5,8 @@ import Toybox.Lang;
 import Toybox.System;
 
 class ComplicationsController extends BaseController {
+  hidden static var instances as Types.Controllers.ComplicationDict?;
+
   hidden var mType as Complications.Type;
   hidden var mValue as String or Numeric;
   hidden var mUnit as String;
@@ -14,9 +16,26 @@ class ComplicationsController extends BaseController {
     mType = type;
     mUnit = Application.loadResource(Rez.Strings.UnknownUnit) as String;
     mValue = Application.loadResource(Rez.Strings.UnknownValue) as String;
-    Utils.Complications.registerToComplicationChangeCallback(
-      type,
-      self.method(:onComplicationUpdate)
+    Utils.Complications.registerUpdateCallback(type, self.method(:onComplicationUpdate));
+  }
+
+  static function getInstance(
+    type as Complications.Type
+  ) as Types.Controllers.EverythingController {
+    if (instances == null) {
+      instances = ({}) as Types.Controllers.ComplicationDict;
+    }
+
+    if (!(instances as Types.Controllers.ComplicationDict).hasKey(type)) {
+      (instances as Types.Controllers.ComplicationDict).put(
+        type,
+        new ComplicationsController(type as Complications.Type)
+      );
+    }
+
+    return (
+      (instances as Types.Controllers.ComplicationDict).get(type) as
+      Types.Controllers.EverythingController
     );
   }
 
