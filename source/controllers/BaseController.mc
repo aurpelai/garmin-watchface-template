@@ -23,7 +23,7 @@ class BaseController {
   public function getLabel() as String {
     return Application.loadResource(Rez.Strings.Unknown) as String;
   }
-  public function getProgress() as Numeric? {
+  public function getProgress() as Number? {
     return null;
   }
   public function getUnit() as String {

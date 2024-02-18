@@ -25,7 +25,7 @@ class LegacyStepsController extends BaseController {
     return Application.loadResource(Rez.Strings.StepsLabel) as String;
   }
 
-  public function getProgress() as Numeric? {
+  public function getProgress() as Number? {
     return Utils.Steps.getStepProgress(ActivityMonitor.getInfo().steps);
   }
 

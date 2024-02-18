@@ -22,8 +22,8 @@ class LegacyBatteryController extends BaseController {
     return Application.loadResource(Rez.Strings.BatteryLabel) as String;
   }
 
-  public function getProgress() as Numeric? {
-    return System.getSystemStats().battery / 100.0;
+  public function getProgress() as Number? {
+    return System.getSystemStats().battery.toNumber() / 100;
   }
 
   public function getUnit() as String {

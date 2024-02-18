@@ -5,7 +5,7 @@ import Toybox.UserProfile;
 
 module Utils {
   module Energy {
-    function getActivityClassMultiplier(activityClass as Number) as Numeric {
+    function getActivityClassMultiplier(activityClass as Number) as Float {
       var exerciseMultiplierClasses =
         [
           Constants.Users.ACTIVITY_CLASS_SEDENTARY,
@@ -13,11 +13,11 @@ module Utils {
           Constants.Users.ACTIVITY_CLASS_MODERATELY_ACTIVE,
           Constants.Users.ACTIVITY_CLASS_ACTIVE,
           Constants.Users.ACTIVITY_CLASS_VERY_ACTIVE,
-        ] as Array<Numeric>;
+        ] as Array<Float>;
 
       // We divide by 20 in order to normalize the 0-100 value provided by UserProfile.Profile.activityClass
       // into a value of 0-4 that matches the indices of the array exerciseMultiplierClasses.
-      var index = Math.floor(activityClass / 20.0).toNumber();
+      var index = Math.floor(activityClass / 20);
 
       return exerciseMultiplierClasses[index];
     }
@@ -54,9 +54,9 @@ module Utils {
           : Constants.Users.MALE_BMR_SCALING_VALUE;
 
       var bodyMetabolicRate =
-        10.0 * Utils.Conversion.valueToKilos(userProfile.weight as Number) +
+        10 * Utils.Conversion.valueToKilos(userProfile.weight as Number) +
         6.25 * (userProfile.height as Number) -
-        5.0 * (Utils.Time.getCurrentYear() - (userProfile.birthYear as Number)) +
+        5 * (Utils.Time.getCurrentYear() - (userProfile.birthYear as Number)) +
         scalingValue;
 
       var multiplier = getActivityClassMultiplier(userProfile.activityClass as Number);
@@ -67,7 +67,7 @@ module Utils {
 
     // Gets an estimation of the user's daily calorie burn progress as a percentage
     // @return Numeric or null
-    function getCalorieProgress(current as Number?) as Numeric? {
+    function getCalorieProgress(current as Number?) as Number? {
       var value = ActivityMonitor.getInfo().calories;
 
       if (value == null) {

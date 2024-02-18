@@ -24,7 +24,7 @@ class LegacyCaloriesController extends BaseController {
     return Application.loadResource(Rez.Strings.CaloriesLabel) as String;
   }
 
-  public function getProgress() as Numeric? {
+  public function getProgress() as Number? {
     return Utils.Energy.getCalorieProgress(ActivityMonitor.getInfo().calories);
   }
 

@@ -36,8 +36,8 @@ module Utils {
       return angle;
     }
 
-    function valueToKilos(value as Numeric) as Numeric {
-      return value / 1000.0;
+    function valueToKilos(value as Number) as Number {
+      return value / 1000;
     }
   }
 }

@@ -98,7 +98,7 @@ module Utils {
       return ({ :min => restingHeartRate, :max => maxHeartRate }) as Types.Utils.MinMaxOptions;
     }
 
-    function getHeartRateProgress(current as Number?) as Numeric? {
+    function getHeartRateProgress(current as Number?) as Number? {
       if (current == null) {
         return null;
       }
@@ -110,8 +110,7 @@ module Utils {
       }
 
       return (
-        (1.0 * current - (range[:min] as Number)) /
-        ((range[:max] as Number) - (range[:min] as Number))
+        (current - (range[:min] as Number)) / ((range[:max] as Number) - (range[:min] as Number))
       );
     }
   }
