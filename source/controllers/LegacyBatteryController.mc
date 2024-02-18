@@ -8,7 +8,7 @@ class LegacyBatteryController extends BaseController {
   }
 
   public function getAngle() as Number {
-    return Utils.Conversion.progressToAngle(100 - System.getSystemStats().battery, {
+    return Utils.Conversion.progressToAngle(100 - System.getSystemStats().battery.toNumber(), {
       :min => Constants.Values.DEFAULT_MIN_PROGRESS,
       :max => Constants.Values.DEFAULT_MAX_PROGRESS,
     });
@@ -30,7 +30,7 @@ class LegacyBatteryController extends BaseController {
     return Application.loadResource(Rez.Strings.PercentUnit) as String;
   }
 
-  public function getValue() as String or Numeric {
-    return System.getSystemStats().battery;
+  public function getValue() as String or Number {
+    return System.getSystemStats().battery.toNumber();
   }
 }

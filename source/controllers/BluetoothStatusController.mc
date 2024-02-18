@@ -25,7 +25,7 @@ class BluetoothStatusController extends BaseController {
     return Application.loadResource(Rez.Strings.BluetoothStatusLabel) as String;
   }
 
-  public function getValue() as String or Numeric {
+  public function getValue() as String or Number {
     var value = isBluetoothConnected() ? Rez.Strings.ValueOn : Rez.Strings.ValueOff;
 
     return Application.loadResource(value) as String;

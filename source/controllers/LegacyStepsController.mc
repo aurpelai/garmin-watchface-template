@@ -29,7 +29,7 @@ class LegacyStepsController extends BaseController {
     return Utils.Steps.getStepProgress(ActivityMonitor.getInfo().steps);
   }
 
-  public function getValue() as String or Numeric {
+  public function getValue() as String or Number {
     var current = ActivityMonitor.getInfo().steps;
 
     if (current == null) {

@@ -29,7 +29,7 @@ class BaseController {
   public function getUnit() as String {
     return Application.loadResource(Rez.Strings.UnknownUnit) as String;
   }
-  public function getValue() as String or Numeric {
+  public function getValue() as String or Number {
     return Application.loadResource(Rez.Strings.UnknownValue) as String;
   }
   public function shouldDraw() as Boolean {
