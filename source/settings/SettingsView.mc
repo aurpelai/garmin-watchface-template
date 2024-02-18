@@ -8,40 +8,40 @@ class SettingsView extends WatchUi.Menu2 {
     generateMenuItems();
   }
 
-  hidden function generateMenuItems() as Void {
-    var properties =
-      [
-        {
-          :id => "ShortLabelsSetting",
-          :label => Rez.Strings.ShortLabelsSettingKey,
-          :type => Types.Settings.TOGGLE_MENU_ITEM,
-        },
-        {
-          :id => "HideUnitsSetting",
-          :label => Rez.Strings.HideUnitsSettingKey,
-          :type => Types.Settings.TOGGLE_MENU_ITEM,
-        },
-        {
-          :id => "ShowSecondsSetting",
-          :label => Rez.Strings.ShowSecondsSettingKey,
-          :type => Types.Settings.TOGGLE_MENU_ITEM,
-        },
-        {
-          :id => "UpdateIntervalSetting",
-          :label => Rez.Strings.UpdateIntervalSettingKey,
-          :type => Types.Settings.MENU_ITEM,
-        },
-      ] as Array<Types.Settings.SettingProperty>;
+  hidden const MENU_ITEMS =
+    [
+      {
+        :id => "ShortLabelsSetting",
+        :label => Rez.Strings.ShortLabelsSettingKey,
+        :type => Types.Settings.TOGGLE_MENU_ITEM,
+      },
+      {
+        :id => "HideUnitsSetting",
+        :label => Rez.Strings.HideUnitsSettingKey,
+        :type => Types.Settings.TOGGLE_MENU_ITEM,
+      },
+      {
+        :id => "ShowSecondsSetting",
+        :label => Rez.Strings.ShowSecondsSettingKey,
+        :type => Types.Settings.TOGGLE_MENU_ITEM,
+      },
+      {
+        :id => "UpdateIntervalSetting",
+        :label => Rez.Strings.UpdateIntervalSettingKey,
+        :type => Types.Settings.MENU_ITEM,
+      },
+    ] as Array<Types.Settings.SettingProperty>;
 
-    for (var i = 0; i < properties.size(); i++) {
-      switch (properties[i][:type] as Types.Settings.PropertyType) {
+  hidden function generateMenuItems() as Void {
+    for (var i = 0; i < MENU_ITEMS.size(); i++) {
+      switch (MENU_ITEMS[i][:type] as Types.Settings.PropertyType) {
         case Types.Settings.TOGGLE_MENU_ITEM:
           Menu2.addItem(
             new WatchUi.ToggleMenuItem(
-              properties[i][:label] as Symbol,
+              MENU_ITEMS[i][:label] as Symbol,
               null,
-              properties[i][:id] as String,
-              Application.Properties.getValue(properties[i][:id] as String) as Boolean,
+              MENU_ITEMS[i][:id] as String,
+              Application.Properties.getValue(MENU_ITEMS[i][:id] as String) as Boolean,
               null
             )
           );
@@ -49,9 +49,9 @@ class SettingsView extends WatchUi.Menu2 {
         default:
           Menu2.addItem(
             new WatchUi.MenuItem(
-              properties[i][:label] as Symbol,
+              MENU_ITEMS[i][:label] as Symbol,
               null,
-              properties[i][:id] as String,
+              MENU_ITEMS[i][:id] as String,
               null
             )
           );
@@ -82,9 +82,11 @@ class SettingsView extends WatchUi.Menu2 {
 
   function getUpdateInterval() as Symbol? {
     var value = Application.Properties.getValue("UpdateIntervalSetting") as Number?;
-    var MINIMUM_VALUE = Application.Properties.getValue("UpdateIntervalEverySecond") as Number;
 
-    if (value == null || value < MINIMUM_VALUE) {
+    if (
+      value == null ||
+      value < (Application.Properties.getValue("UpdateIntervalEverySecond") as Number)
+    ) {
       return null;
     }
 
