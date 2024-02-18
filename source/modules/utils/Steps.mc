@@ -12,7 +12,7 @@ module Utils {
         return null;
       }
 
-      return current / target;
+      return (100 * current) / target;
     }
   }
 }

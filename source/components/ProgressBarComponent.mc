@@ -10,7 +10,7 @@ class ProgressBarComponent extends WatchUi.Drawable {
   hidden var mHideLabel as Boolean;
   hidden var mUpdated as Time.Moment;
   hidden var mLabel as String;
-  hidden var mProgress as Number;
+  hidden var mProgress as Float;
 
   function initialize(params as Types.Components.ProgressBarParams) {
     Drawable.initialize(params);
@@ -19,14 +19,14 @@ class ProgressBarComponent extends WatchUi.Drawable {
     mUpdateInterval = Utils.Component.getUpdateInterval(params[:updateInterval]);
     mHideLabel = params[:hideLabel] as Boolean;
     mLabel = Application.loadResource(Rez.Strings.Unknown) as String;
-    mProgress = 0;
+    mProgress = 0.0;
   }
 
   function draw(dc as Graphics.Dc) as Void {
     if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, false)) {
       var progress = mController.getProgress();
       mLabel = mController.getLabel().toUpper();
-      mProgress = progress != null ? progress : 0;
+      mProgress = progress != null ? progress.toFloat() / 100 : 0.0;
       mUpdated = Time.now();
     }
 

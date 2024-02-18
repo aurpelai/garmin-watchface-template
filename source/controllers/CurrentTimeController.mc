@@ -27,7 +27,7 @@ class CurrentTimeController extends BaseController {
   }
 
   public function getProgress() as Number? {
-    return System.getClockTime().hour / 24;
+    return (100 * System.getClockTime().hour) / 24;
   }
 
   public function getValue() as String or Number {

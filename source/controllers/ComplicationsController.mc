@@ -115,7 +115,7 @@ class ComplicationsController extends BaseController {
   public function getProgress() as Number? {
     switch (mType) {
       case Complications.COMPLICATION_TYPE_BATTERY:
-        return System.getSystemStats().battery.toNumber() / 100;
+        return System.getSystemStats().battery.toNumber();
       case Complications.COMPLICATION_TYPE_CALORIES:
         return Utils.Energy.getCalorieProgress(mValue.toNumber());
       case Complications.COMPLICATION_TYPE_HEART_RATE:

@@ -23,6 +23,7 @@ class BaseController {
   public function getLabel() as String {
     return Application.loadResource(Rez.Strings.Unknown) as String;
   }
+  // The return value should be an integer representation of percentage of progress, e.g. 42
   public function getProgress() as Number? {
     return null;
   }

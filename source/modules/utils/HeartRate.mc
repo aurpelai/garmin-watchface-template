@@ -110,7 +110,8 @@ module Utils {
       }
 
       return (
-        (current - (range[:min] as Number)) / ((range[:max] as Number) - (range[:min] as Number))
+        (100 * (current - (range[:min] as Number))) /
+        ((range[:max] as Number) - (range[:min] as Number))
       );
     }
   }

@@ -23,7 +23,7 @@ class LegacyBatteryController extends BaseController {
   }
 
   public function getProgress() as Number? {
-    return System.getSystemStats().battery.toNumber() / 100;
+    return System.getSystemStats().battery.toNumber();
   }
 
   public function getUnit() as String {

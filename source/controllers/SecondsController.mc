@@ -24,7 +24,7 @@ class SecondsController extends BaseController {
   }
 
   public function getProgress() as Number? {
-    return System.getClockTime().sec / Time.Gregorian.SECONDS_PER_MINUTE;
+    return (100 * System.getClockTime().sec) / Time.Gregorian.SECONDS_PER_MINUTE;
   }
 
   public function getValue() as String or Number {
