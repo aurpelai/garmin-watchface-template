@@ -27,7 +27,7 @@ class ValueComponent extends WatchUi.Drawable {
         : Constants.Fonts.VALUE_FONT;
   }
 
-  function drawValue(dc as Graphics.Dc, valueAndUnitGap as Numeric) as Void {
+  function drawValue(dc as Graphics.Dc, valueAndUnitGap as Number) as Void {
     var HORIZONTAL_OFFSET = !(
       (Application.Properties.getValue("HideUnitsSetting") as Boolean) || mHideUnit
     )
@@ -44,7 +44,7 @@ class ValueComponent extends WatchUi.Drawable {
     );
   }
 
-  function drawUnit(dc as Graphics.Dc, valueAndUnitGap as Numeric) as Void {
+  function drawUnit(dc as Graphics.Dc, valueAndUnitGap as Number) as Void {
     var HORIZONTAL_OFFSET = valueAndUnitGap / 2 + dc.getTextWidthInPixels(mValue, mFont) / 2;
 
     dc.setColor(Constants.Colors.TERTIARY, Constants.Colors.BACKGROUND);

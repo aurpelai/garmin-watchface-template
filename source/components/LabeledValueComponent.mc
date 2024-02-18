@@ -35,7 +35,7 @@ class LabeledValueComponent extends WatchUi.Drawable {
     );
   }
 
-  function drawValue(dc as Graphics.Dc, valueAndUnitGap as Numeric) as Void {
+  function drawValue(dc as Graphics.Dc, valueAndUnitGap as Number) as Void {
     var VERTICAL_OFFSET = Graphics.getFontHeight(Constants.Fonts.LABEL_FONT) / 2;
     var HORIZONTAL_OFFSET = !(
       (Application.Properties.getValue("HideUnitsSetting") as Boolean) || mHideUnit
@@ -53,7 +53,7 @@ class LabeledValueComponent extends WatchUi.Drawable {
     );
   }
 
-  function drawUnit(dc as Graphics.Dc, valueAndUnitGap as Numeric) as Void {
+  function drawUnit(dc as Graphics.Dc, valueAndUnitGap as Number) as Void {
     var VERTICAL_OFFSET =
       (Graphics.getFontDescent(Constants.Fonts.LABEL_FONT) +
         Graphics.getFontHeight(Constants.Fonts.LABEL_FONT)) /

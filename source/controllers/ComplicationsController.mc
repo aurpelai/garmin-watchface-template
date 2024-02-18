@@ -8,7 +8,7 @@ class ComplicationsController extends BaseController {
   hidden static var instances as Types.Controllers.ComplicationDict?;
 
   hidden var mType as Complications.Type;
-  hidden var mValue as String or Numeric;
+  hidden var mValue as String or Number;
   hidden var mUnit as String;
 
   function initialize(type as Complications.Type) {
@@ -46,10 +46,11 @@ class ComplicationsController extends BaseController {
 
     var complication = Complications.getComplication(id);
 
-    mValue =
-      complication[:value] == null
-        ? Application.loadResource(Rez.Strings.UnknownValue) as String
-        : complication[:value] as Complications.Value;
+    if (complication[:value] == null) {
+      mValue = Application.loadResource(Rez.Strings.UnknownValue) as String;
+    } else {
+      mValue = complication[:value] as Number;
+    }
 
     mUnit = Utils.Complications.getUnitFromEnum(complication[:unit]) as String;
   }
@@ -57,7 +58,7 @@ class ComplicationsController extends BaseController {
   public function getAngle() as Number {
     switch (mType) {
       case Complications.COMPLICATION_TYPE_BATTERY:
-        return Utils.Conversion.progressToAngle(100 - System.getSystemStats().battery, {
+        return Utils.Conversion.progressToAngle(100 - System.getSystemStats().battery.toNumber(), {
           :min => Constants.Values.DEFAULT_MIN_PROGRESS,
           :max => Constants.Values.DEFAULT_MAX_PROGRESS,
         });
@@ -137,7 +138,7 @@ class ComplicationsController extends BaseController {
     }
   }
 
-  public function getValue() as String or Numeric {
+  public function getValue() as String or Number {
     return mValue;
   }
 }

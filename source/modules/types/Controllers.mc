@@ -30,7 +30,7 @@ module Types {
       function getLabel() as String;
       function getProgress() as Number?;
       function getUnit() as String;
-      function getValue() as String or Numeric;
+      function getValue() as String or Number;
       function shouldDraw() as Boolean;
     };
   }

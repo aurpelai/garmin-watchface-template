@@ -27,7 +27,7 @@ class SecondsController extends BaseController {
     return System.getClockTime().sec / Time.Gregorian.SECONDS_PER_MINUTE;
   }
 
-  public function getValue() as String or Numeric {
+  public function getValue() as String or Number {
     return System.getClockTime().sec;
   }
 

@@ -66,7 +66,7 @@ module Utils {
     }
 
     // Gets an estimation of the user's daily calorie burn progress as a percentage
-    // @return Numeric or null
+    // @return Number or null
     function getCalorieProgress(current as Number?) as Number? {
       var value = ActivityMonitor.getInfo().calories;
 

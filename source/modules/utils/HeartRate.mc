@@ -42,7 +42,7 @@ module Utils {
         return null;
       }
 
-      return ((sample as SensorHistory.SensorSample)[:data] as Numeric).toNumber();
+      return ((sample as SensorHistory.SensorSample)[:data] as Number or Float).toNumber();
     }
 
     function getLegacyHeartRate() as Number? {

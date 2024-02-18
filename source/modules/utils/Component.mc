@@ -14,10 +14,10 @@ module Utils {
 
     function clipAndClearArc(
       dc as Graphics.Dc,
-      locX as Numeric,
-      locY as Numeric,
-      radius as Numeric,
-      height as Numeric
+      locX as Double or Float or Long or Number,
+      locY as Double or Float or Long or Number,
+      radius as Number,
+      height as Number
     ) as Void {
       dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
       dc.setClip(locX - radius, locY - radius, radius * 2, radius * 2);
@@ -26,10 +26,10 @@ module Utils {
 
     function clipAndClearRectangle(
       dc as Graphics.Dc,
-      locX as Numeric,
-      locY as Numeric,
-      width as Numeric,
-      height as Numeric
+      locX as Double or Float or Long or Number,
+      locY as Double or Float or Long or Number,
+      width as Double or Float or Long or Number,
+      height as Double or Float or Long or Number
     ) as Void {
       dc.setColor(Graphics.COLOR_TRANSPARENT, Graphics.COLOR_TRANSPARENT);
       dc.setClip(locX - width / 2, locY - height / 2, width, height);

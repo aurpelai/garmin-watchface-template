@@ -6,7 +6,7 @@ import Toybox.Time;
 
 module Utils {
   module Conversion {
-    function progressToAngle(value as Numeric?, options as Types.Utils.MinMaxOptions) as Number {
+    function progressToAngle(value as Number?, options as Types.Utils.MinMaxOptions) as Number {
       if (options[:min] == null) {
         throw new Exceptions.MissingDictionaryValueException("MinMaxOptions", ":min");
       }
@@ -33,7 +33,7 @@ module Utils {
       // This makes counting and handling the angles elsewhere more consistent.
       var angle = value * STEP_ANGLE - 270;
 
-      return angle.toNumber();
+      return angle;
     }
 
     function valueToKilos(value as Number) as Number {
