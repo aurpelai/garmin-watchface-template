@@ -8,7 +8,7 @@ class ArcComponent extends WatchUi.Drawable {
   hidden var mController as Types.Controllers.EverythingController;
   hidden var mUpdateInterval as Time.Duration;
   hidden var mUpdated as Time.Moment;
-  hidden var mAngle as Numeric;
+  hidden var mAngle as Number;
   hidden var mHeight as Number;
   hidden var mRadius as Number;
   hidden var mWidth as Number;
@@ -27,7 +27,7 @@ class ArcComponent extends WatchUi.Drawable {
   function draw(dc as Graphics.Dc) as Void {
     if (Utils.Controller.shouldUpdate(mUpdated, mUpdateInterval, true)) {
       var controllerAngle = mController.getAngle();
-      mAngle = controllerAngle != null ? controllerAngle as Numeric : 0;
+      mAngle = controllerAngle != null ? controllerAngle : 0;
       mUpdated = Time.now();
     }
 

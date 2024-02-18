@@ -6,7 +6,7 @@ class LegacyHeartRateController extends BaseController {
     BaseController.initialize(id);
   }
 
-  public function getAngle() as Numeric {
+  public function getAngle() as Number {
     return Utils.Conversion.progressToAngle(
       Utils.HeartRate.getLegacyHeartRate(),
       Utils.HeartRate.getHeartRateRange()
