@@ -110,9 +110,7 @@ To run or debug the project, choose either `Start Debugging` or `Run Without Deb
 
 ## 📝 License
 
-🚧 UNDER CONSTRUCTION 🚧
-
-<!-- Distributed under the <insert correct License name> License. See LICENSE.txt for more information. -->
+Distributed under the MIT License. See LICENSE.txt for more information.
 
 ## 👋 Contributing
 
