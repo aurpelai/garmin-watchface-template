@@ -74,7 +74,7 @@ module Utils {
         return null;
       }
 
-      return value / getCalorieTarget();
+      return (100 * value) / getCalorieTarget();
     }
   }
 }
