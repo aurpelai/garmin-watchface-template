@@ -7,7 +7,7 @@ class LegacyStepsController extends BaseController {
     BaseController.initialize(id);
   }
 
-  public function getAngle() as Numeric {
+  public function getAngle() as Number {
     return Utils.Conversion.progressToAngle(
       Utils.Steps.getStepProgress(ActivityMonitor.getInfo().steps),
       {

@@ -54,7 +54,7 @@ class ComplicationsController extends BaseController {
     mUnit = Utils.Complications.getUnitFromEnum(complication[:unit]) as String;
   }
 
-  public function getAngle() as Numeric {
+  public function getAngle() as Number {
     switch (mType) {
       case Complications.COMPLICATION_TYPE_BATTERY:
         return Utils.Conversion.progressToAngle(100 - System.getSystemStats().battery, {

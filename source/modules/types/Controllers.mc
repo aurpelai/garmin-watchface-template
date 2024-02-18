@@ -24,7 +24,7 @@ module Types {
     >;
 
     typedef EverythingController as interface {
-      function getAngle() as Numeric;
+      function getAngle() as Number;
       function getIcon() as BitmapResource?;
       function getId() as Types.Controllers.Id?;
       function getLabel() as String;

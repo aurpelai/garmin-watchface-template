@@ -8,7 +8,7 @@ class BaseController {
   public function initialize(id as Types.Controllers.Id?) {
     mId = id;
   }
-  public function getAngle() as Numeric {
+  public function getAngle() as Number {
     return Utils.Conversion.progressToAngle(0, {
       :min => Constants.Values.DEFAULT_MIN_PROGRESS,
       :max => Constants.Values.DEFAULT_MAX_PROGRESS,

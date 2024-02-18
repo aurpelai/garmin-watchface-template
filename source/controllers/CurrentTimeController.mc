@@ -7,7 +7,7 @@ class CurrentTimeController extends BaseController {
     BaseController.initialize(id);
   }
 
-  public function getAngle() as Numeric {
+  public function getAngle() as Number {
     var midnight = Time.today();
     var now = Time.now();
     var progress = now.subtract(midnight).value();

@@ -8,7 +8,7 @@ class SecondsController extends BaseController {
     BaseController.initialize(id);
   }
 
-  public function getAngle() as Numeric {
+  public function getAngle() as Number {
     return Utils.Conversion.progressToAngle(System.getClockTime().sec, {
       :min => Constants.Values.DEFAULT_MIN_PROGRESS,
       :max => Time.Gregorian.SECONDS_PER_MINUTE,
