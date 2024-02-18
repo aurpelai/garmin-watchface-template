@@ -61,8 +61,8 @@ module Utils {
         return true;
       }
 
-      if (!ignoreUpdateIntervalSetting) {
-        return checkIfUpdateIsAllowed();
+      if (!ignoreUpdateIntervalSetting && !checkIfUpdateIsAllowed()) {
+        return false;
       }
 
       var nextUpdate = lastUpdate.add(updateInterval);
