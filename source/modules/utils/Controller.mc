@@ -37,7 +37,7 @@ module Utils {
       }
     }
 
-    function isAllowedToUpdate() as Boolean {
+    function checkIfUpdateIsAllowed() as Boolean {
       var divisor = Application.Properties.getValue("UpdateIntervalSetting") as Number?;
 
       // The user hasn't set a limit for update interval in watch face settings
@@ -55,14 +55,14 @@ module Utils {
     function shouldUpdate(
       lastUpdate as Time.Moment,
       updateInterval as Time.Duration,
-      dismissUpdateIntervalSetting as Boolean
+      ignoreUpdateIntervalSetting as Boolean
     ) as Boolean {
       if (gForceRedraw) {
         return true;
       }
 
-      if (!dismissUpdateIntervalSetting && !isAllowedToUpdate()) {
-        return false;
+      if (!ignoreUpdateIntervalSetting) {
+        return checkIfUpdateIsAllowed();
       }
 
       var nextUpdate = lastUpdate.add(updateInterval);
