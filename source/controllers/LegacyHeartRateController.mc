@@ -21,7 +21,7 @@ class LegacyHeartRateController extends BaseController {
     return Application.loadResource(Rez.Strings.HeartRateLabel) as String;
   }
 
-  public function getProgress() as Numeric? {
+  public function getProgress() as Number? {
     return Utils.HeartRate.getHeartRateProgress(Utils.HeartRate.getLegacyHeartRate());
   }
 

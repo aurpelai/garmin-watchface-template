@@ -23,7 +23,7 @@ class SecondsController extends BaseController {
     return Application.loadResource(Rez.Strings.SecondsLabel) as String;
   }
 
-  public function getProgress() as Numeric? {
+  public function getProgress() as Number? {
     return System.getClockTime().sec / Time.Gregorian.SECONDS_PER_MINUTE;
   }
 

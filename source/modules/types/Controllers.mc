@@ -28,7 +28,7 @@ module Types {
       function getIcon() as BitmapResource?;
       function getId() as Types.Controllers.Id?;
       function getLabel() as String;
-      function getProgress() as Numeric?;
+      function getProgress() as Number?;
       function getUnit() as String;
       function getValue() as String or Numeric;
       function shouldDraw() as Boolean;

@@ -5,14 +5,14 @@ module Utils {
   module Steps {
     // Gets the user's step progress as percentage
     // @return Numeric or null
-    function getStepProgress(current as Number?) as Numeric? {
-      var target = ActivityMonitor.getInfo()[:stepGoal];
+    function getStepProgress(current as Number?) as Number? {
+      var target = ActivityMonitor.getInfo()[:stepGoal] as Number?;
 
       if (current == null || target == null) {
         return null;
       }
 
-      return (1.0 * current) / target;
+      return current / target;
     }
   }
 }

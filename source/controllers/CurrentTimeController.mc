@@ -26,8 +26,8 @@ class CurrentTimeController extends BaseController {
     return Application.loadResource(Rez.Strings.CurrentTimeLabel) as String;
   }
 
-  public function getProgress() as Numeric? {
-    return System.getClockTime().hour / 24.0;
+  public function getProgress() as Number? {
+    return System.getClockTime().hour / 24;
   }
 
   public function getValue() as String or Numeric {
